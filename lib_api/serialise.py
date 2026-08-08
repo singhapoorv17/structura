@@ -388,8 +388,15 @@ def _deal_inputs(d: ReferenceDeal) -> dict:
     live engine — so the landing page silently displayed an *uncalibrated*
     deal (a 29.71% sponsor IRR against the calibrated 14.85%). The form must be
     able to show the real numbers, so the API has to publish them.
+
+    The published set must be COMPLETE over the override schema. Publishing a
+    partial set is not merely lossy: the round-trip then falls back to API
+    defaults for whatever is missing, so seeding the form silently computes a
+    different deal. On the data-centre deal an incomplete set changed the
+    winning structure outright. `tests/test_api_roundtrip.py` enforces that a
+    round-trip reproduces the bare deal exactly.
     """
-    p, t, tx = d.project, d.debt_terms, d.tax_project
+    p, t, tx, sc = d.project, d.debt_terms, d.tax_project, d.tax_scenario
     out = {
         "capex": _num(p.capex),
         "opex_year1": _num(p.opex_year1),
@@ -400,16 +407,44 @@ def _deal_inputs(d: ReferenceDeal) -> dict:
         "target_dscr": _num(t.target_dscr),
         "interest_rate": _num(t.interest_rate),
         "tenor_years": _num(t.tenor_years),
-        "technology": _enum_value(tx.technology),
+        # Read from the ENGINE project, not the tax project. The data-centre
+        # deal carries a tax technology of STORAGE with eligible_basis=0 (a
+        # powered shell is not energy property), so publishing the tax token
+        # told the engine the shell WAS §48E-eligible — which flipped the
+        # direct transfer and the T-flip from correctly infeasible to feasible
+        # and changed the winning structure. The engine project holds the real
+        # asset type.
+        # The validator wants the UPPERCASE token (STORAGE, SOLAR, WIND,
+        # DATA_CENTER); _enum_value yields the lowercase enum value.
+        "technology": str(_enum_value(p.technology)).upper(),
         "is_pwa_compliant": bool(getattr(tx, "is_pwa_compliant", False)),
+        "energy_community": bool(getattr(tx, "energy_community", False)),
     }
+
     for src, key in (
         ("begin_construction_date", "begin_construction_date"),
         ("placed_in_service_date", "placed_in_service_date"),
     ):
         v = getattr(tx, src, None)
         out[key] = v.isoformat() if hasattr(v, "isoformat") else v
-    return out
+
+    dc = getattr(tx, "domestic_content_pct", None)
+    if dc is not None:
+        out["domestic_content_pct"] = _num(dc)
+
+    macr = getattr(getattr(tx, "macr_inputs", None), "asserted_ratio", None)
+    if macr is not None:
+        out["macr_ratio"] = _num(macr)
+
+    bonus = getattr(sc, "bonus_rate", None)
+    if bonus is not None:
+        out["bonus_rate"] = _num(bonus)
+
+    notice = getattr(sc, "notice_2025_42_status", None)
+    if notice is not None:
+        out["notice_2025_42_status"] = str(_enum_value(notice))
+
+    return {k: v for k, v in out.items() if v is not None}
 
 
 def reference_deals_payload(deals: Mapping[str, ReferenceDeal]) -> dict:
