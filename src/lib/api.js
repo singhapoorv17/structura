@@ -131,3 +131,27 @@ export async function exportWorkbook(payload) {
   URL.revokeObjectURL(href);
   return filename;
 }
+
+/* ---------------------------------------------------------------------------
+ * The analysis flow.
+ *
+ * These endpoints have no mock. The whole point of the screen is that every
+ * number traces to the engine or to a cited source, and a mock that stood in
+ * for that would be the exact failure the provenance system exists to prevent.
+ * If the API is unreachable the screen says so.
+ * ------------------------------------------------------------------------ */
+
+export async function analyse(deal) {
+  return tryJson('/api/analyse', { method: 'POST', body: JSON.stringify(deal) });
+}
+
+export async function chat(deal, message) {
+  return tryJson('/api/chat', {
+    method: 'POST',
+    body: JSON.stringify({ deal, message }),
+  });
+}
+
+export async function library() {
+  return tryJson('/api/library', { method: 'GET' });
+}

@@ -2,9 +2,9 @@ import './globals.css';
 import { Footer, TopBar } from '../components/Chrome';
 
 export const metadata = {
-  title: 'Structura — current-law structuring engine for energy project finance',
+  title: 'Structura — structuring engine for energy project finance',
   description:
-    'Put in a project, get back sized debt, the full cash waterfall, and a side-by-side comparison of every 2026 capital structure — with a lender-grade Excel model. Free and open source.',
+    'Describe a project in six fields. Structura resolves the rest from comparable transactions and cited market bands, screens every capital structure, and shows the economics by party — with every number badged as stated, benchmark, assumed, or not disclosed.',
 };
 
 export const viewport = {

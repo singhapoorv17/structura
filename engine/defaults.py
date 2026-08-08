@@ -86,10 +86,26 @@ class Benchmark:
     low: float | None = None
     high: float | None = None
     note: str = ""
+    source_url: str = ""
 
     def __post_init__(self) -> None:
         if self.low is not None and self.high is not None and self.low > self.high:
             raise ValueError(f"benchmark range inverted: {self.low} > {self.high}")
+
+    def provenanced(self):
+        """Return this benchmark as a badged value ready for serialisation."""
+        from engine.provenance import benchmark_value
+
+        return benchmark_value(
+            self.value,
+            source=self.source,
+            source_date=self.verified_on,
+            low=self.low,
+            high=self.high,
+            unit=self.unit,
+            source_url=self.source_url or None,
+            note=self.note,
+        )
 
     def describe(self) -> str:
         """One-line audit string: value, range, source and verification date."""

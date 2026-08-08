@@ -1,0 +1,3985 @@
+{
+  "_note": "Extracted fields only, each with the source it came from. Article bodies are never stored.",
+  "deals": [
+    {
+      "key": "doral-cold-creek-2026",
+      "name": "Doral Renewables, Cold Creek solar and storage",
+      "technology": "SOLAR_PLUS_STORAGE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Doral Renewables closes $900 million financing for Cold Creek",
+      "summary": "",
+      "primary_source": "pv magazine USA",
+      "tags": [
+        "ercot",
+        "ptc-transfer",
+        "construction-to-term"
+      ],
+      "sponsor": {
+        "value": "Doral Renewables",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/03/24/doral-renewables-closes-900-million-financing-for-texas-solar-plus-storage-project/",
+        "source_date": "2026-03-24"
+      },
+      "total_quantum": {
+        "value": 900000000,
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/03/24/doral-renewables-closes-900-million-financing-for-texas-solar-plus-storage-project/",
+        "source_date": "2026-03-24",
+        "unit": "USD"
+      },
+      "close_date": {
+        "value": "2026-03",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/03/24/doral-renewables-closes-900-million-financing-for-texas-solar-plus-storage-project/",
+        "source_date": "2026-03-24"
+      },
+      "cod": {
+        "value": "Summer 2028",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/03/24/doral-renewables-closes-900-million-financing-for-texas-solar-plus-storage-project/",
+        "source_date": "2026-03-24"
+      },
+      "location": {
+        "value": "Tom Green and Schleicher Counties, Texas",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/03/24/doral-renewables-closes-900-million-financing-for-texas-solar-plus-storage-project/",
+        "source_date": "2026-03-24"
+      },
+      "capacity": {
+        "value": "430 MWac solar with 340 MWh battery storage",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/03/24/doral-renewables-closes-900-million-financing-for-texas-solar-plus-storage-project/",
+        "source_date": "2026-03-24"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "value": "$360 million production tax credit transfer agreement",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/03/24/doral-renewables-closes-900-million-financing-for-texas-solar-plus-storage-project/",
+        "source_date": "2026-03-24"
+      },
+      "lenders": [
+        "MUFG (lead)",
+        "Santander",
+        "HSBC",
+        "Ally",
+        "IDB"
+      ],
+      "tranches": [
+        {
+          "name": "construction-to-term",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 400000000,
+            "provenance": "stated",
+            "source": "pv magazine USA",
+            "source_url": "https://pv-magazine-usa.com/2026/03/24/doral-renewables-closes-900-million-financing-for-texas-solar-plus-storage-project/",
+            "source_date": "2026-03-24",
+            "unit": "USD",
+            "note": "Reported as more than $400 million."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        },
+        {
+          "name": "tax equity bridge",
+          "kind": "TAX_EQUITY_BRIDGE",
+          "amount": {
+            "value": 35000000,
+            "provenance": "stated",
+            "source": "pv magazine USA",
+            "source_url": "https://pv-magazine-usa.com/2026/03/24/doral-renewables-closes-900-million-financing-for-texas-solar-plus-storage-project/",
+            "source_date": "2026-03-24",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        },
+        {
+          "name": "letters of credit",
+          "kind": "LETTER_OF_CREDIT",
+          "amount": {
+            "value": 55000000,
+            "provenance": "stated",
+            "source": "pv magazine USA",
+            "source_url": "https://pv-magazine-usa.com/2026/03/24/doral-renewables-closes-900-million-financing-for-texas-solar-plus-storage-project/",
+            "source_date": "2026-03-24",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "sunraycer-2026",
+      "name": "Sunraycer Renewables, three-project Texas portfolio",
+      "technology": "SOLAR_PLUS_STORAGE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Sunraycer closes $901 million for a three-project Texas portfolio",
+      "summary": "",
+      "primary_source": "pv magazine USA",
+      "tags": [
+        "ercot",
+        "portfolio"
+      ],
+      "sponsor": {
+        "value": "Sunraycer Renewables",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/05/15/sunraycer-renewables-closes-901-million-financing-for-473-mwh-bess-portfolio-in-texas/",
+        "source_date": "2026-05-15"
+      },
+      "total_quantum": {
+        "value": 901000000,
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/05/15/sunraycer-renewables-closes-901-million-financing-for-473-mwh-bess-portfolio-in-texas/",
+        "source_date": "2026-05-15",
+        "unit": "USD"
+      },
+      "close_date": {
+        "value": "2026-05",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/05/15/sunraycer-renewables-closes-901-million-financing-for-473-mwh-bess-portfolio-in-texas/",
+        "source_date": "2026-05-15"
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Texas",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/05/15/sunraycer-renewables-closes-901-million-financing-for-473-mwh-bess-portfolio-in-texas/",
+        "source_date": "2026-05-15"
+      },
+      "capacity": {
+        "value": "479.5 MWac solar with 236.5 MW / 473 MWh battery storage",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/05/15/sunraycer-renewables-closes-901-million-financing-for-473-mwh-bess-portfolio-in-texas/",
+        "source_date": "2026-05-15"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "value": "Tax credit bridge within the facility",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/05/15/sunraycer-renewables-closes-901-million-financing-for-473-mwh-bess-portfolio-in-texas/",
+        "source_date": "2026-05-15"
+      },
+      "lenders": [
+        "MUFG",
+        "Ally",
+        "Nomura",
+        "Nord/LB",
+        "Societe Generale"
+      ],
+      "tranches": [
+        {
+          "name": "construction-to-term",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        },
+        {
+          "name": "tax credit bridge",
+          "kind": "TRANSFER_BRIDGE",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        },
+        {
+          "name": "letters of credit",
+          "kind": "LETTER_OF_CREDIT",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "matrix-renewables-2026",
+      "name": "Matrix Renewables, US solar and storage portfolio",
+      "technology": "SOLAR_PLUS_STORAGE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Matrix Renewables secures $1.3 billion for a US solar and storage portfolio",
+      "summary": "",
+      "primary_source": "pv magazine USA",
+      "tags": [
+        "portfolio",
+        "preferred-equity"
+      ],
+      "sponsor": {
+        "value": "Matrix Renewables",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/06/26/matrix-renewables-secures-1-3-billion-for-u-s-solar-and-storage-portfolio/",
+        "source_date": "2026-06-26"
+      },
+      "total_quantum": {
+        "value": 1300000000,
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/06/26/matrix-renewables-secures-1-3-billion-for-u-s-solar-and-storage-portfolio/",
+        "source_date": "2026-06-26",
+        "unit": "USD"
+      },
+      "close_date": {
+        "value": "2026-06",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/06/26/matrix-renewables-secures-1-3-billion-for-u-s-solar-and-storage-portfolio/",
+        "source_date": "2026-06-26"
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "United States",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/06/26/matrix-renewables-secures-1-3-billion-for-u-s-solar-and-storage-portfolio/",
+        "source_date": "2026-06-26"
+      },
+      "capacity": {
+        "value": "859 MWdc solar and 167 MWh storage",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/06/26/matrix-renewables-secures-1-3-billion-for-u-s-solar-and-storage-portfolio/",
+        "source_date": "2026-06-26"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "value": "Tax equity bridge within the facility",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/06/26/matrix-renewables-secures-1-3-billion-for-u-s-solar-and-storage-portfolio/",
+        "source_date": "2026-06-26"
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "construction-to-term",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 470000000,
+            "provenance": "stated",
+            "source": "pv magazine USA",
+            "source_url": "https://pv-magazine-usa.com/2026/06/26/matrix-renewables-secures-1-3-billion-for-u-s-solar-and-storage-portfolio/",
+            "source_date": "2026-06-26",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        },
+        {
+          "name": "tax equity bridge",
+          "kind": "TAX_EQUITY_BRIDGE",
+          "amount": {
+            "value": 400000000,
+            "provenance": "stated",
+            "source": "pv magazine USA",
+            "source_url": "https://pv-magazine-usa.com/2026/06/26/matrix-renewables-secures-1-3-billion-for-u-s-solar-and-storage-portfolio/",
+            "source_date": "2026-06-26",
+            "unit": "USD",
+            "note": "Reported as approximately $400 million."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        },
+        {
+          "name": "letters of credit",
+          "kind": "LETTER_OF_CREDIT",
+          "amount": {
+            "value": 100000000,
+            "provenance": "stated",
+            "source": "pv magazine USA",
+            "source_url": "https://pv-magazine-usa.com/2026/06/26/matrix-renewables-secures-1-3-billion-for-u-s-solar-and-storage-portfolio/",
+            "source_date": "2026-06-26",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        },
+        {
+          "name": "preferred equity",
+          "kind": "PREFERRED",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "enlight-co-bar-2026",
+      "name": "Enlight Renewable Energy, CO Bar solar and storage complex",
+      "technology": "SOLAR_PLUS_STORAGE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Enlight raises $2.6 billion for the CO Bar complex and reaches financial close",
+      "summary": "",
+      "primary_source": "pv magazine USA",
+      "tags": [
+        "tax-equity",
+        "large-cap"
+      ],
+      "sponsor": {
+        "value": "Enlight Renewable Energy",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/06/30/enlight-raises-2-6-billion-for-co-bar-solar-and-bess-complex-reaches-financial-close/",
+        "source_date": "2026-06-30"
+      },
+      "total_quantum": {
+        "value": 2600000000,
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/06/30/enlight-raises-2-6-billion-for-co-bar-solar-and-bess-complex-reaches-financial-close/",
+        "source_date": "2026-06-30",
+        "unit": "USD"
+      },
+      "close_date": {
+        "value": "2026-06",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/06/30/enlight-raises-2-6-billion-for-co-bar-solar-and-bess-complex-reaches-financial-close/",
+        "source_date": "2026-06-30"
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "value": "Tax equity proceeds of roughly $1.5 billion",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/06/30/enlight-raises-2-6-billion-for-co-bar-solar-and-bess-complex-reaches-financial-close/",
+        "source_date": "2026-06-30"
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "term loan",
+          "kind": "TERM_LOAN",
+          "amount": {
+            "value": 1700000000,
+            "provenance": "stated",
+            "source": "pv magazine USA",
+            "source_url": "https://pv-magazine-usa.com/2026/06/30/enlight-raises-2-6-billion-for-co-bar-solar-and-bess-complex-reaches-financial-close/",
+            "source_date": "2026-06-30",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        },
+        {
+          "name": "tax equity",
+          "kind": "TAX_EQUITY",
+          "amount": {
+            "value": 1500000000,
+            "provenance": "stated",
+            "source": "pv magazine USA",
+            "source_url": "https://pv-magazine-usa.com/2026/06/30/enlight-raises-2-6-billion-for-co-bar-solar-and-bess-complex-reaches-financial-close/",
+            "source_date": "2026-06-30",
+            "unit": "USD",
+            "note": "Reported as roughly $1.5 billion of proceeds."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "greenbacker-cider-2026",
+      "name": "Greenbacker, Cider Solar tax equity",
+      "technology": "SOLAR",
+      "contract_kind": "UNKNOWN",
+      "headline": "Greenbacker secures $440 million tax equity for Cider Solar",
+      "summary": "",
+      "primary_source": "pv magazine USA",
+      "tags": [
+        "tax-equity",
+        "new-york"
+      ],
+      "sponsor": {
+        "value": "Greenbacker Renewable Energy",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/02/11/greenbacker-secures-440-million-tax-equity-for-new-yorks-largest-solar-project/",
+        "source_date": "2026-02-11"
+      },
+      "total_quantum": {
+        "value": 440000000,
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/02/11/greenbacker-secures-440-million-tax-equity-for-new-yorks-largest-solar-project/",
+        "source_date": "2026-02-11",
+        "unit": "USD"
+      },
+      "close_date": {
+        "value": "2026-02",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/02/11/greenbacker-secures-440-million-tax-equity-for-new-yorks-largest-solar-project/",
+        "source_date": "2026-02-11"
+      },
+      "cod": {
+        "value": "Late 2026",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/02/11/greenbacker-secures-440-million-tax-equity-for-new-yorks-largest-solar-project/",
+        "source_date": "2026-02-11"
+      },
+      "location": {
+        "value": "New York",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/02/11/greenbacker-secures-440-million-tax-equity-for-new-yorks-largest-solar-project/",
+        "source_date": "2026-02-11"
+      },
+      "capacity": {
+        "value": "674 MWdc / 500 MWac",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/02/11/greenbacker-secures-440-million-tax-equity-for-new-yorks-largest-solar-project/",
+        "source_date": "2026-02-11"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "value": "Tax equity commitment",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/02/11/greenbacker-secures-440-million-tax-equity-for-new-yorks-largest-solar-project/",
+        "source_date": "2026-02-11"
+      },
+      "lenders": [
+        "U.S. Bank",
+        "M&T Bank"
+      ],
+      "tranches": [
+        {
+          "name": "tax equity",
+          "kind": "TAX_EQUITY",
+          "amount": {
+            "value": 440000000,
+            "provenance": "stated",
+            "source": "pv magazine USA",
+            "source_url": "https://pv-magazine-usa.com/2026/02/11/greenbacker-secures-440-million-tax-equity-for-new-yorks-largest-solar-project/",
+            "source_date": "2026-02-11",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "dimension-energy-2026",
+      "name": "Dimension Energy, community solar portfolio",
+      "technology": "SOLAR",
+      "contract_kind": "UNKNOWN",
+      "headline": "Dimension Energy closes $650 million construction and term financing",
+      "summary": "",
+      "primary_source": "Mercom Capital, Project Finance Brief",
+      "tags": [
+        "community-solar",
+        "portfolio"
+      ],
+      "sponsor": {
+        "value": "Dimension Energy",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-dimension-closes-650m-solar-project-financing/",
+        "source_date": "2026-04-08"
+      },
+      "total_quantum": {
+        "value": 650000000,
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-dimension-closes-650m-solar-project-financing/",
+        "source_date": "2026-04-08",
+        "unit": "USD"
+      },
+      "close_date": {
+        "value": "2026-04",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-dimension-closes-650m-solar-project-financing/",
+        "source_date": "2026-04-08"
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "value": "25 community solar projects, 132 MW combined",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-dimension-closes-650m-solar-project-financing/",
+        "source_date": "2026-04-08"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "value": "Tax equity within the package",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-dimension-closes-650m-solar-project-financing/",
+        "source_date": "2026-04-08"
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "debt financing",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 415000000,
+            "provenance": "stated",
+            "source": "Mercom Capital, Project Finance Brief",
+            "source_url": "https://mercomcapital.com/project-finance-brief-dimension-closes-650m-solar-project-financing/",
+            "source_date": "2026-04-08",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        },
+        {
+          "name": "tax equity",
+          "kind": "TAX_EQUITY",
+          "amount": {
+            "value": 235000000,
+            "provenance": "stated",
+            "source": "Mercom Capital, Project Finance Brief",
+            "source_url": "https://mercomcapital.com/project-finance-brief-dimension-closes-650m-solar-project-financing/",
+            "source_date": "2026-04-08",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "avantus-aratina-p2-2026",
+      "name": "Avantus, Aratina phase 2",
+      "technology": "SOLAR_PLUS_STORAGE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Avantus secures $525 million for Aratina phase 2",
+      "summary": "",
+      "primary_source": "pv magazine USA",
+      "tags": [
+        "phased",
+        "storage"
+      ],
+      "sponsor": {
+        "value": "Avantus",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/07/22/avantus-completes-aratina-1-secures-phase-2-financing-targets-952-mwh-of-solar-charged-storage/",
+        "source_date": "2026-07-22"
+      },
+      "total_quantum": {
+        "value": 525000000,
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/07/22/avantus-completes-aratina-1-secures-phase-2-financing-targets-952-mwh-of-solar-charged-storage/",
+        "source_date": "2026-07-22",
+        "unit": "USD"
+      },
+      "close_date": {
+        "value": "2026-07",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/07/22/avantus-completes-aratina-1-secures-phase-2-financing-targets-952-mwh-of-solar-charged-storage/",
+        "source_date": "2026-07-22"
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "value": "Targeting 952 MWh of solar-charged storage across the programme",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/07/22/avantus-completes-aratina-1-secures-phase-2-financing-targets-952-mwh-of-solar-charged-storage/",
+        "source_date": "2026-07-22"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "value": "Tax equity bridge within the package",
+        "provenance": "stated",
+        "source": "pv magazine USA",
+        "source_url": "https://pv-magazine-usa.com/2026/07/22/avantus-completes-aratina-1-secures-phase-2-financing-targets-952-mwh-of-solar-charged-storage/",
+        "source_date": "2026-07-22"
+      },
+      "lenders": [
+        "BBVA",
+        "CIBC",
+        "Santander"
+      ],
+      "tranches": [
+        {
+          "name": "construction funding",
+          "kind": "CONSTRUCTION_LOAN",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        },
+        {
+          "name": "tax equity bridge",
+          "kind": "TAX_EQUITY_BRIDGE",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        },
+        {
+          "name": "letters of credit",
+          "kind": "LETTER_OF_CREDIT",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "avantus-credit-facility-2026",
+      "name": "Avantus, corporate credit facility",
+      "technology": "SOLAR",
+      "contract_kind": "UNKNOWN",
+      "headline": "Avantus closes a $1 billion credit facility to expand its portfolio",
+      "summary": "",
+      "primary_source": "Mercom Capital, Project Finance Brief",
+      "tags": [
+        "corporate-facility"
+      ],
+      "sponsor": {
+        "value": "Avantus",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/avantus-closes-1-billion-credit-facility-to-expand-project-portfolio/",
+        "source_date": "2026-08-04"
+      },
+      "total_quantum": {
+        "value": 1000000000,
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/avantus-closes-1-billion-credit-facility-to-expand-project-portfolio/",
+        "source_date": "2026-08-04",
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "credit facility",
+          "kind": "REVOLVER",
+          "amount": {
+            "value": 1000000000,
+            "provenance": "stated",
+            "source": "Mercom Capital, Project Finance Brief",
+            "source_url": "https://mercomcapital.com/avantus-closes-1-billion-credit-facility-to-expand-project-portfolio/",
+            "source_date": "2026-08-04",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "origis-credit-facility-2026",
+      "name": "Origis Energy, corporate credit facility",
+      "technology": "SOLAR",
+      "contract_kind": "UNKNOWN",
+      "headline": "Origis Energy secures a $900 million corporate credit facility",
+      "summary": "",
+      "primary_source": "Mercom Capital, Project Finance Brief",
+      "tags": [
+        "corporate-facility"
+      ],
+      "sponsor": {
+        "value": "Origis Energy",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/origis-energy-secures-900-million-corporate-credit-facility/",
+        "source_date": "2026-06-22"
+      },
+      "total_quantum": {
+        "value": 900000000,
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/origis-energy-secures-900-million-corporate-credit-facility/",
+        "source_date": "2026-06-22",
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "credit facility",
+          "kind": "REVOLVER",
+          "amount": {
+            "value": 900000000,
+            "provenance": "stated",
+            "source": "Mercom Capital, Project Finance Brief",
+            "source_url": "https://mercomcapital.com/origis-energy-secures-900-million-corporate-credit-facility/",
+            "source_date": "2026-06-22",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "masdar-rtc-2026",
+      "name": "Masdar, round-the-clock solar and storage",
+      "technology": "SOLAR_PLUS_STORAGE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Masdar closes $5.1 billion for a round-the-clock solar and storage project",
+      "summary": "Non-US, included as a scale comparator for round-the-clock solar plus storage.",
+      "primary_source": "Mercom Capital, Project Finance Brief",
+      "tags": [
+        "international",
+        "round-the-clock",
+        "mega-project"
+      ],
+      "sponsor": {
+        "value": "Masdar",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-masdar-closes-financing-solar-storage-project/",
+        "source_date": "2026-07-15"
+      },
+      "total_quantum": {
+        "value": 5100000000,
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-masdar-closes-financing-solar-storage-project/",
+        "source_date": "2026-07-15",
+        "unit": "USD"
+      },
+      "close_date": {
+        "value": "2026-07",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-masdar-closes-financing-solar-storage-project/",
+        "source_date": "2026-07-15"
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Abu Dhabi, United Arab Emirates",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-masdar-closes-financing-solar-storage-project/",
+        "source_date": "2026-07-15"
+      },
+      "capacity": {
+        "value": "5.2 GW solar with 19 GWh battery storage",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-masdar-closes-financing-solar-storage-project/",
+        "source_date": "2026-07-15"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "project financing",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 5100000000,
+            "provenance": "stated",
+            "source": "Mercom Capital, Project Finance Brief",
+            "source_url": "https://mercomcapital.com/project-finance-brief-masdar-closes-financing-solar-storage-project/",
+            "source_date": "2026-07-15",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "fidra-storage-2026",
+      "name": "Fidra, energy storage project financing",
+      "technology": "STORAGE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Fidra secures $312 million for an energy storage project",
+      "summary": "",
+      "primary_source": "Mercom Capital, Project Finance Brief",
+      "tags": [
+        "storage"
+      ],
+      "sponsor": {
+        "value": "Fidra",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-fidra-secures-312-million-for-energy-storage-project/",
+        "source_date": "2026-07-22"
+      },
+      "total_quantum": {
+        "value": 312000000,
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-fidra-secures-312-million-for-energy-storage-project/",
+        "source_date": "2026-07-22",
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "project financing",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 312000000,
+            "provenance": "stated",
+            "source": "Mercom Capital, Project Finance Brief",
+            "source_url": "https://mercomcapital.com/project-finance-brief-fidra-secures-312-million-for-energy-storage-project/",
+            "source_date": "2026-07-22",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "esvolta-boxcar-2026",
+      "name": "esVolta, Boxcar battery storage",
+      "technology": "STORAGE",
+      "contract_kind": "UNKNOWN",
+      "headline": "esVolta secures $139.6 million for the Boxcar storage project",
+      "summary": "",
+      "primary_source": "ess-news",
+      "tags": [
+        "ercot",
+        "storage",
+        "two-hour"
+      ],
+      "sponsor": {
+        "value": "esVolta",
+        "provenance": "stated",
+        "source": "ess-news",
+        "source_url": "https://www.ess-news.com/2026/03/25/1-billion-in-texas-project-financing-esvolta-and-doral-renewables-secure-funds-for-ercot-solar-storage/",
+        "source_date": "2026-03-25"
+      },
+      "total_quantum": {
+        "value": 139600000,
+        "provenance": "stated",
+        "source": "ess-news",
+        "source_url": "https://www.ess-news.com/2026/03/25/1-billion-in-texas-project-financing-esvolta-and-doral-renewables-secure-funds-for-ercot-solar-storage/",
+        "source_date": "2026-03-25",
+        "unit": "USD"
+      },
+      "close_date": {
+        "value": "2026-03",
+        "provenance": "stated",
+        "source": "ess-news",
+        "source_url": "https://www.ess-news.com/2026/03/25/1-billion-in-texas-project-financing-esvolta-and-doral-renewables-secure-funds-for-ercot-solar-storage/",
+        "source_date": "2026-03-25"
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Texas",
+        "provenance": "stated",
+        "source": "ess-news",
+        "source_url": "https://www.ess-news.com/2026/03/25/1-billion-in-texas-project-financing-esvolta-and-doral-renewables-secure-funds-for-ercot-solar-storage/",
+        "source_date": "2026-03-25"
+      },
+      "capacity": {
+        "value": "150 MW / 300 MWh",
+        "provenance": "stated",
+        "source": "ess-news",
+        "source_url": "https://www.ess-news.com/2026/03/25/1-billion-in-texas-project-financing-esvolta-and-doral-renewables-secure-funds-for-ercot-solar-storage/",
+        "source_date": "2026-03-25"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [
+        "MUFG"
+      ],
+      "tranches": [
+        {
+          "name": "project financing",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 139600000,
+            "provenance": "stated",
+            "source": "ess-news",
+            "source_url": "https://www.ess-news.com/2026/03/25/1-billion-in-texas-project-financing-esvolta-and-doral-renewables-secure-funds-for-ercot-solar-storage/",
+            "source_date": "2026-03-25",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "apex-2026",
+      "name": "Apex Clean Energy, wind and storage commitments",
+      "technology": "WIND",
+      "contract_kind": "UNKNOWN",
+      "headline": "Apex finances 670 MW of storage and wind with $2.79 billion of commitments",
+      "summary": "",
+      "primary_source": "Energy-Storage.news",
+      "tags": [
+        "wind",
+        "storage",
+        "portfolio"
+      ],
+      "sponsor": {
+        "value": "Apex Clean Energy",
+        "provenance": "stated",
+        "source": "Energy-Storage.news",
+        "source_url": "https://www.energy-storage.news/apex-finances-670mw-of-energy-storage-wind-with-us2-79-billion-financial-commitments/",
+        "source_date": "2026-01-15"
+      },
+      "total_quantum": {
+        "value": 2790000000,
+        "provenance": "stated",
+        "source": "Energy-Storage.news",
+        "source_url": "https://www.energy-storage.news/apex-finances-670mw-of-energy-storage-wind-with-us2-79-billion-financial-commitments/",
+        "source_date": "2026-01-15",
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "value": "670 MW of energy storage and wind",
+        "provenance": "stated",
+        "source": "Energy-Storage.news",
+        "source_url": "https://www.energy-storage.news/apex-finances-670mw-of-energy-storage-wind-with-us2-79-billion-financial-commitments/",
+        "source_date": "2026-01-15"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "financial commitments",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 2790000000,
+            "provenance": "stated",
+            "source": "Energy-Storage.news",
+            "source_url": "https://www.energy-storage.news/apex-finances-670mw-of-energy-storage-wind-with-us2-79-billion-financial-commitments/",
+            "source_date": "2026-01-15",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "dc-blox-green-loan-2026",
+      "name": "DC Blox, Douglas County green loan",
+      "technology": "DATA_CENTRE",
+      "contract_kind": "UNKNOWN",
+      "headline": "DC Blox secures a $1.15 billion green loan",
+      "summary": "",
+      "primary_source": "DataCenterDynamics",
+      "tags": [
+        "green-loan",
+        "data-centre"
+      ],
+      "sponsor": {
+        "value": "DC Blox",
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/dc-blox-secures-115bn-green-loan-for-atlanta-data-center-development/",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "total_quantum": {
+        "value": 1150000000,
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/dc-blox-secures-115bn-green-loan-for-atlanta-data-center-development/",
+        "source_date": null,
+        "source_date_unknown": true,
+        "unit": "USD"
+      },
+      "close_date": {
+        "value": "2026-05",
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/dc-blox-secures-115bn-green-loan-for-atlanta-data-center-development/",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Douglas County, Georgia",
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/dc-blox-secures-115bn-green-loan-for-atlanta-data-center-development/",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [
+        "ING Capital (structuring and administrative agent)",
+        "Mizuho Bank",
+        "Natixis CIB"
+      ],
+      "tranches": [
+        {
+          "name": "green loan",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 1150000000,
+            "provenance": "stated",
+            "source": "DataCenterDynamics",
+            "source_url": "https://www.datacenterdynamics.com/en/news/dc-blox-secures-115bn-green-loan-for-atlanta-data-center-development/",
+            "source_date": null,
+            "source_date_unknown": true,
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "rowan-digital-2026",
+      "name": "Rowan Digital Infrastructure, build-out financing",
+      "technology": "DATA_CENTRE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Rowan Digital Infrastructure secures $1.2 billion",
+      "summary": "First financing issued under Rowan's green finance framework.",
+      "primary_source": "DataCenterDynamics",
+      "tags": [
+        "green-loan",
+        "data-centre"
+      ],
+      "sponsor": {
+        "value": "Rowan Digital Infrastructure",
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/rowan-digital-infrastructure-secures-12bn-financing-to-fund-data-center-build-out/",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "total_quantum": {
+        "value": 1200000000,
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/rowan-digital-infrastructure-secures-12bn-financing-to-fund-data-center-build-out/",
+        "source_date": null,
+        "source_date_unknown": true,
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [
+        "SMBC",
+        "MUFG",
+        "Mizuho",
+        "Societe Generale"
+      ],
+      "tranches": [
+        {
+          "name": "financing",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 1200000000,
+            "provenance": "stated",
+            "source": "DataCenterDynamics",
+            "source_url": "https://www.datacenterdynamics.com/en/news/rowan-digital-infrastructure-secures-12bn-financing-to-fund-data-center-build-out/",
+            "source_date": null,
+            "source_date_unknown": true,
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "edgecore-2026",
+      "name": "EdgeCore, green financing",
+      "technology": "DATA_CENTRE",
+      "contract_kind": "UNKNOWN",
+      "headline": "EdgeCore raises $1.9 billion in green financing",
+      "summary": "",
+      "primary_source": "DataCenterDynamics",
+      "tags": [
+        "green-loan",
+        "data-centre"
+      ],
+      "sponsor": {
+        "value": "EdgeCore Digital Infrastructure",
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/edgecore-raises-19-billion-in-green-financing/",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "total_quantum": {
+        "value": 1900000000,
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/edgecore-raises-19-billion-in-green-financing/",
+        "source_date": null,
+        "source_date_unknown": true,
+        "unit": "USD"
+      },
+      "close_date": {
+        "value": "2026-05",
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/edgecore-raises-19-billion-in-green-financing/",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [
+        "MUFG",
+        "TD Securities",
+        "ING Capital",
+        "Scotiabank",
+        "Santander"
+      ],
+      "tranches": [
+        {
+          "name": "green financing",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 1900000000,
+            "provenance": "stated",
+            "source": "DataCenterDynamics",
+            "source_url": "https://www.datacenterdynamics.com/en/news/edgecore-raises-19-billion-in-green-financing/",
+            "source_date": null,
+            "source_date_unknown": true,
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "airtrunk-jhb2-2026",
+      "name": "AirTrunk, JHB2 campus",
+      "technology": "DATA_CENTRE",
+      "contract_kind": "UNKNOWN",
+      "headline": "AirTrunk secures $2.3 billion for the JHB2 campus",
+      "summary": "Non-US, included as an APAC hyperscale comparator.",
+      "primary_source": "DataCenterDynamics",
+      "tags": [
+        "international",
+        "data-centre"
+      ],
+      "sponsor": {
+        "value": "AirTrunk",
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/apac-data-center-firm-airtrunk-secures-23bn-in-funding-for-jhb2-campus-in-johor-bahru-malaysia/",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "total_quantum": {
+        "value": 2300000000,
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/apac-data-center-firm-airtrunk-secures-23bn-in-funding-for-jhb2-campus-in-johor-bahru-malaysia/",
+        "source_date": null,
+        "source_date_unknown": true,
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Johor Bahru, Malaysia",
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/apac-data-center-firm-airtrunk-secures-23bn-in-funding-for-jhb2-campus-in-johor-bahru-malaysia/",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "funding",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 2300000000,
+            "provenance": "stated",
+            "source": "DataCenterDynamics",
+            "source_url": "https://www.datacenterdynamics.com/en/news/apac-data-center-firm-airtrunk-secures-23bn-in-funding-for-jhb2-campus-in-johor-bahru-malaysia/",
+            "source_date": null,
+            "source_date_unknown": true,
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "nscale-rcf-2026",
+      "name": "Nscale, revolving credit facility",
+      "technology": "DATA_CENTRE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Nscale closes a $900 million revolving credit facility",
+      "summary": "",
+      "primary_source": "DataCenterDynamics",
+      "tags": [
+        "revolver",
+        "data-centre"
+      ],
+      "sponsor": {
+        "value": "Nscale",
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/nscale-closes-900m-revolving-credit-facility/",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "total_quantum": {
+        "value": 900000000,
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/nscale-closes-900m-revolving-credit-facility/",
+        "source_date": null,
+        "source_date_unknown": true,
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "revolving credit facility",
+          "kind": "REVOLVER",
+          "amount": {
+            "value": 900000000,
+            "provenance": "stated",
+            "source": "DataCenterDynamics",
+            "source_url": "https://www.datacenterdynamics.com/en/news/nscale-closes-900m-revolving-credit-facility/",
+            "source_date": null,
+            "source_date_unknown": true,
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "digital-edge-2026",
+      "name": "Digital Edge, APAC financing",
+      "technology": "DATA_CENTRE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Digital Edge secures $575 million for APAC data centres",
+      "summary": "Non-US, included as an APAC comparator.",
+      "primary_source": "DataCenterDynamics",
+      "tags": [
+        "international",
+        "data-centre"
+      ],
+      "sponsor": {
+        "value": "Digital Edge",
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/digital-edge-secures-575m-financing-for-apac-data-centers/",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "total_quantum": {
+        "value": 575000000,
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/digital-edge-secures-575m-financing-for-apac-data-centers/",
+        "source_date": null,
+        "source_date_unknown": true,
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Asia-Pacific",
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/digital-edge-secures-575m-financing-for-apac-data-centers/",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "financing",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 575000000,
+            "provenance": "stated",
+            "source": "DataCenterDynamics",
+            "source_url": "https://www.datacenterdynamics.com/en/news/digital-edge-secures-575m-financing-for-apac-data-centers/",
+            "source_date": null,
+            "source_date_unknown": true,
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "singtel-green-loan-2026",
+      "name": "Singtel, Singapore green loan",
+      "technology": "DATA_CENTRE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Singtel secures a $475.9 million green loan",
+      "summary": "Non-US, included as an APAC green-loan comparator.",
+      "primary_source": "DataCenterDynamics",
+      "tags": [
+        "international",
+        "green-loan"
+      ],
+      "sponsor": {
+        "value": "Singtel",
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/singtel-secures-4759-million-green-loan-for-singapore-data-center/",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "total_quantum": {
+        "value": 475900000,
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/singtel-secures-4759-million-green-loan-for-singapore-data-center/",
+        "source_date": null,
+        "source_date_unknown": true,
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Singapore",
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/singtel-secures-4759-million-green-loan-for-singapore-data-center/",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "green loan",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 475900000,
+            "provenance": "stated",
+            "source": "DataCenterDynamics",
+            "source_url": "https://www.datacenterdynamics.com/en/news/singtel-secures-4759-million-green-loan-for-singapore-data-center/",
+            "source_date": null,
+            "source_date_unknown": true,
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "aligned-sll-2026",
+      "name": "Aligned Data Centers, sustainability-linked loan extension",
+      "technology": "DATA_CENTRE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Aligned extends its sustainability-linked loan by more than $1 billion",
+      "summary": "",
+      "primary_source": "DataCenterDynamics",
+      "tags": [
+        "sustainability-linked",
+        "data-centre"
+      ],
+      "sponsor": {
+        "value": "Aligned Data Centers",
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/aligned-extends-sustainability-linked-loan-by-more-than-1-billion/",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "total_quantum": {
+        "value": 1000000000,
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/aligned-extends-sustainability-linked-loan-by-more-than-1-billion/",
+        "source_date": null,
+        "source_date_unknown": true,
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "sustainability-linked loan",
+          "kind": "REVOLVER",
+          "amount": {
+            "value": 1000000000,
+            "provenance": "stated",
+            "source": "DataCenterDynamics",
+            "source_url": "https://www.datacenterdynamics.com/en/news/aligned-extends-sustainability-linked-loan-by-more-than-1-billion/",
+            "source_date": null,
+            "source_date_unknown": true,
+            "unit": "USD",
+            "note": "Reported as more than $1 billion of extension."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "dc-blox-upsize-2026",
+      "name": "DC Blox, debt facility upsize",
+      "technology": "DATA_CENTRE",
+      "contract_kind": "UNKNOWN",
+      "headline": "DC Blox adds around $600 million to an existing debt facility",
+      "summary": "",
+      "primary_source": "DataCenterDynamics",
+      "tags": [
+        "upsize",
+        "data-centre"
+      ],
+      "sponsor": {
+        "value": "DC Blox",
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/dc-blox-adds-600m-to-existing-debt-facility/",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "total_quantum": {
+        "value": 600000000,
+        "provenance": "stated",
+        "source": "DataCenterDynamics",
+        "source_url": "https://www.datacenterdynamics.com/en/news/dc-blox-adds-600m-to-existing-debt-facility/",
+        "source_date": null,
+        "source_date_unknown": true,
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "facility upsize",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 600000000,
+            "provenance": "stated",
+            "source": "DataCenterDynamics",
+            "source_url": "https://www.datacenterdynamics.com/en/news/dc-blox-adds-600m-to-existing-debt-facility/",
+            "source_date": null,
+            "source_date_unknown": true,
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "meta-hyperion-beignet-2025",
+      "name": "Meta and Blue Owl, Hyperion campus (Beignet Investor LLC)",
+      "technology": "DATA_CENTRE",
+      "contract_kind": "HYPERSCALE_LEASE",
+      "headline": "Blue Owl and Beignet Investor price a $27.294 billion 23.6-year bond",
+      "summary": "A bankruptcy-remote SPV issuing a single 144A-for-life senior secured fully amortising bond, priced at par with a 6.581% fixed coupon and an expected final maturity of 30 May 2049.",
+      "primary_source": "IFR",
+      "tags": [
+        "securitisation",
+        "144a",
+        "hyperscale",
+        "spv"
+      ],
+      "sponsor": {
+        "value": "Blue Owl Capital (80%) and Meta (20%), through Beignet Investor LLC",
+        "provenance": "stated",
+        "source": "IFR",
+        "source_url": "https://www.ifre.com/ifr-awards/2327933/financing-package-blue-owl-capitalbeignet-investors-us27.3bn-23.6-year-bond",
+        "source_date": "2025-10-16"
+      },
+      "total_quantum": {
+        "value": 27294000000,
+        "provenance": "stated",
+        "source": "IFR",
+        "source_url": "https://www.ifre.com/ifr-awards/2327933/financing-package-blue-owl-capitalbeignet-investors-us27.3bn-23.6-year-bond",
+        "source_date": "2025-10-16",
+        "unit": "USD"
+      },
+      "close_date": {
+        "value": "2025-10-16",
+        "provenance": "stated",
+        "source": "IFR",
+        "source_url": "https://www.ifre.com/ifr-awards/2327933/financing-package-blue-owl-capitalbeignet-investors-us27.3bn-23.6-year-bond",
+        "source_date": "2025-10-16"
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Richland Parish, Louisiana",
+        "provenance": "stated",
+        "source": "IFR",
+        "source_url": "https://www.ifre.com/ifr-awards/2327933/financing-package-blue-owl-capitalbeignet-investors-us27.3bn-23.6-year-bond",
+        "source_date": "2025-10-16"
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "value": "Meta lease commitments support the notes; S&P rated them A+, one notch below Meta's long-term rating",
+        "provenance": "stated",
+        "source": "IFR",
+        "source_url": "https://www.ifre.com/ifr-awards/2327933/financing-package-blue-owl-capitalbeignet-investors-us27.3bn-23.6-year-bond",
+        "source_date": "2025-10-16"
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [
+        "Morgan Stanley (sole bookrunner)",
+        "PIMCO",
+        "BlackRock"
+      ],
+      "tranches": [
+        {
+          "name": "senior secured notes",
+          "kind": "NOTES",
+          "amount": {
+            "value": 27294000000,
+            "provenance": "stated",
+            "source": "IFR",
+            "source_url": "https://www.ifre.com/ifr-awards/2327933/financing-package-blue-owl-capitalbeignet-investors-us27.3bn-23.6-year-bond",
+            "source_date": "2025-10-16",
+            "unit": "USD"
+          },
+          "pricing": {
+            "value": 6.581,
+            "provenance": "stated",
+            "source": "IFR",
+            "source_url": "https://www.ifre.com/ifr-awards/2327933/financing-package-blue-owl-capitalbeignet-investors-us27.3bn-23.6-year-bond",
+            "source_date": "2025-10-16",
+            "unit": "% fixed coupon",
+            "note": "Priced at par, quarterly pay, 30/360."
+          },
+          "tenor_years": {
+            "value": 23.6,
+            "provenance": "stated",
+            "source": "IFR",
+            "source_url": "https://www.ifre.com/ifr-awards/2327933/financing-package-blue-owl-capitalbeignet-investors-us27.3bn-23.6-year-bond",
+            "source_date": "2025-10-16",
+            "unit": "years",
+            "note": "Expected final maturity 30 May 2049."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "coreweave-ddtl4-2026",
+      "name": "CoreWeave, DDTL 4.0 facility",
+      "technology": "AI_COMPUTE",
+      "contract_kind": "EQUIPMENT_LEASE",
+      "headline": "CoreWeave closes an $8.5 billion delayed draw term loan facility",
+      "summary": "Rated A3 by Moody's and A (low) by DBRS. Initial borrowing capacity around $7.5 billion, rising to $8.5 billion as the underlying assets stabilise.",
+      "primary_source": "US SEC, EDGAR",
+      "tags": [
+        "gpu-backed",
+        "investment-grade",
+        "delayed-draw"
+      ],
+      "sponsor": {
+        "value": "CoreWeave",
+        "provenance": "stated",
+        "source": "US SEC, EDGAR",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000129/ex991.htm",
+        "source_date": "2026-03-31"
+      },
+      "total_quantum": {
+        "value": 8500000000,
+        "provenance": "stated",
+        "source": "US SEC, EDGAR",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000129/ex991.htm",
+        "source_date": "2026-03-31",
+        "unit": "USD"
+      },
+      "close_date": {
+        "value": "2026-03-31",
+        "provenance": "stated",
+        "source": "US SEC, EDGAR",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000129/ex991.htm",
+        "source_date": "2026-03-31"
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "value": "Secured by high-performance computing infrastructure and an associated customer contract",
+        "provenance": "stated",
+        "source": "US SEC, EDGAR",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000129/ex991.htm",
+        "source_date": "2026-03-31"
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "floating rate tranche",
+          "kind": "TERM_LOAN",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "value": 225.0,
+            "provenance": "stated",
+            "source": "US SEC, EDGAR",
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000129/ex991.htm",
+            "source_date": "2026-03-31",
+            "unit": "bps over SOFR"
+          },
+          "tenor_years": {
+            "value": 6.0,
+            "provenance": "stated",
+            "source": "US SEC, EDGAR",
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000129/ex991.htm",
+            "source_date": "2026-03-31",
+            "unit": "years",
+            "note": "Matures March 2032."
+          },
+          "note": ""
+        },
+        {
+          "name": "fixed rate tranche",
+          "kind": "TERM_LOAN",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "value": 5.9,
+            "provenance": "stated",
+            "source": "US SEC, EDGAR",
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000129/ex991.htm",
+            "source_date": "2026-03-31",
+            "unit": "% fixed",
+            "note": "Reported as approximately 5.9%."
+          },
+          "tenor_years": {
+            "value": 6.0,
+            "provenance": "stated",
+            "source": "US SEC, EDGAR",
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000129/ex991.htm",
+            "source_date": "2026-03-31",
+            "unit": "years",
+            "note": "Matures March 2032."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "coreweave-3-1bn-2026",
+      "name": "CoreWeave, $3.1 billion loan facility",
+      "technology": "AI_COMPUTE",
+      "contract_kind": "EQUIPMENT_LEASE",
+      "headline": "CoreWeave closes a $3.1 billion loan facility",
+      "summary": "",
+      "primary_source": "CoreWeave investor relations",
+      "tags": [
+        "gpu-backed"
+      ],
+      "sponsor": {
+        "value": "CoreWeave",
+        "provenance": "stated",
+        "source": "CoreWeave investor relations",
+        "source_url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Closes-3-1-Billion-Loan-Facility-Expanding-Access-to-Public-Markets-for-GPU-Backed-Financing/default.aspx",
+        "source_date": "2026-05-18"
+      },
+      "total_quantum": {
+        "value": 3100000000,
+        "provenance": "stated",
+        "source": "CoreWeave investor relations",
+        "source_url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Closes-3-1-Billion-Loan-Facility-Expanding-Access-to-Public-Markets-for-GPU-Backed-Financing/default.aspx",
+        "source_date": "2026-05-18",
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "loan facility",
+          "kind": "TERM_LOAN",
+          "amount": {
+            "value": 3100000000,
+            "provenance": "stated",
+            "source": "CoreWeave investor relations",
+            "source_url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Closes-3-1-Billion-Loan-Facility-Expanding-Access-to-Public-Markets-for-GPU-Backed-Financing/default.aspx",
+            "source_date": "2026-05-18",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "broadcom-ai-xpv-2026",
+      "name": "Broadcom AI XPV Platform, Apollo-led capital solution",
+      "technology": "AI_COMPUTE",
+      "contract_kind": "EQUIPMENT_LEASE",
+      "headline": "Apollo leads a $35 billion capital solution for the Broadcom AI XPV Platform",
+      "summary": "Committed capital across a multi-year draw schedule, structured in A1 and A2 tranches. Tranche economics and credit support are not disclosed in the release.",
+      "primary_source": "Apollo Global Management, press release",
+      "tags": [
+        "ai-compute",
+        "equipment-lease",
+        "platform",
+        "private-credit"
+      ],
+      "sponsor": {
+        "value": "Apollo-managed funds, with Blackstone and global banks",
+        "provenance": "stated",
+        "source": "Apollo Global Management, press release",
+        "source_url": "https://www.globenewswire.com/news-release/2026/06/09/3308896/0/en/apollo-leads-35-billion-capital-solution-for-broadcom-ai-xpv-platform-in-partnership-with-blackstone-and-leading-global-banks.html",
+        "source_date": "2026-06-09"
+      },
+      "total_quantum": {
+        "value": 35000000000,
+        "provenance": "stated",
+        "source": "Apollo Global Management, press release",
+        "source_url": "https://www.globenewswire.com/news-release/2026/06/09/3308896/0/en/apollo-leads-35-billion-capital-solution-for-broadcom-ai-xpv-platform-in-partnership-with-blackstone-and-leading-global-banks.html",
+        "source_date": "2026-06-09",
+        "unit": "USD"
+      },
+      "close_date": {
+        "value": "2026-06-09",
+        "provenance": "stated",
+        "source": "Apollo Global Management, press release",
+        "source_url": "https://www.globenewswire.com/news-release/2026/06/09/3308896/0/en/apollo-leads-35-billion-capital-solution-for-broadcom-ai-xpv-platform-in-partnership-with-blackstone-and-leading-global-banks.html",
+        "source_date": "2026-06-09"
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "value": "Platform designed to enable over 20 GW of compute capacity through 2028",
+        "provenance": "stated",
+        "source": "Apollo Global Management, press release",
+        "source_url": "https://www.globenewswire.com/news-release/2026/06/09/3308896/0/en/apollo-leads-35-billion-capital-solution-for-broadcom-ai-xpv-platform-in-partnership-with-blackstone-and-leading-global-banks.html",
+        "source_date": "2026-06-09"
+      },
+      "offtake": {
+        "value": "Supports Anthropic's expansion of more than 1 GW of compute for training and inference, starting mid-2026",
+        "provenance": "stated",
+        "source": "Apollo Global Management, press release",
+        "source_url": "https://www.globenewswire.com/news-release/2026/06/09/3308896/0/en/apollo-leads-35-billion-capital-solution-for-broadcom-ai-xpv-platform-in-partnership-with-blackstone-and-leading-global-banks.html",
+        "source_date": "2026-06-09"
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "The release names the A1 and A2 tranches but does not state sizes, coupons, spreads, ratings or guarantee terms."
+      },
+      "lenders": [
+        "Apollo (Atlas SP Partners)",
+        "Blackstone",
+        "Global banks"
+      ],
+      "tranches": [
+        {
+          "name": "Class A1",
+          "kind": "NOTES",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The release names the A1 and A2 tranches but does not state sizes, coupons, spreads, ratings or guarantee terms."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "The release names the A1 and A2 tranches but does not state sizes, coupons, spreads, ratings or guarantee terms."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "The release names the A1 and A2 tranches but does not state sizes, coupons, spreads, ratings or guarantee terms."
+          },
+          "note": ""
+        },
+        {
+          "name": "Class A2",
+          "kind": "NOTES",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The release names the A1 and A2 tranches but does not state sizes, coupons, spreads, ratings or guarantee terms."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "The release names the A1 and A2 tranches but does not state sizes, coupons, spreads, ratings or guarantee terms."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "The release names the A1 and A2 tranches but does not state sizes, coupons, spreads, ratings or guarantee terms."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "exus-repowering-2026",
+      "name": "Exus Renewables North America, wind repowerings",
+      "technology": "WIND",
+      "contract_kind": "UNKNOWN",
+      "headline": "Exus lands about $356 million in construction financing for wind repowerings",
+      "summary": "",
+      "primary_source": "Renewables Now",
+      "tags": [
+        "repowering",
+        "wind"
+      ],
+      "sponsor": {
+        "value": "Exus Renewables North America",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/exus-lands-usd-356m-in-construction-financing-for-wind-repowerings-1298334/",
+        "source_date": "2026-07-20"
+      },
+      "total_quantum": {
+        "value": 356000000,
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/exus-lands-usd-356m-in-construction-financing-for-wind-repowerings-1298334/",
+        "source_date": "2026-07-20",
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Pennsylvania",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/exus-lands-usd-356m-in-construction-financing-for-wind-repowerings-1298334/",
+        "source_date": "2026-07-20"
+      },
+      "capacity": {
+        "value": "Two wind repowering projects",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/exus-lands-usd-356m-in-construction-financing-for-wind-repowerings-1298334/",
+        "source_date": "2026-07-20"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "construction financing",
+          "kind": "CONSTRUCTION_LOAN",
+          "amount": {
+            "value": 356000000,
+            "provenance": "stated",
+            "source": "Renewables Now",
+            "source_url": "https://renewablesnow.com/news/exus-lands-usd-356m-in-construction-financing-for-wind-repowerings-1298334/",
+            "source_date": "2026-07-20",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "vineyard-wind-1-te",
+      "name": "Vineyard Wind 1, tax equity",
+      "technology": "WIND",
+      "contract_kind": "UNKNOWN",
+      "headline": "Vineyard Wind 1 closes $1.2 billion tax equity financing",
+      "summary": "Offshore wind, included as the tax-equity scale comparator for the sector.",
+      "primary_source": "Renewables Now",
+      "tags": [
+        "offshore",
+        "tax-equity"
+      ],
+      "sponsor": {
+        "value": "Vineyard Wind",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/vineyard-wind-1-closes-usd-1-2bn-tax-equity-financing-837782/",
+        "source_date": "2023-10-26"
+      },
+      "total_quantum": {
+        "value": 1200000000,
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/vineyard-wind-1-closes-usd-1-2bn-tax-equity-financing-837782/",
+        "source_date": "2023-10-26",
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Offshore Massachusetts",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/vineyard-wind-1-closes-usd-1-2bn-tax-equity-financing-837782/",
+        "source_date": "2023-10-26"
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "value": "Tax equity financing",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/vineyard-wind-1-closes-usd-1-2bn-tax-equity-financing-837782/",
+        "source_date": "2023-10-26"
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "tax equity",
+          "kind": "TAX_EQUITY",
+          "amount": {
+            "value": 1200000000,
+            "provenance": "stated",
+            "source": "Renewables Now",
+            "source_url": "https://renewablesnow.com/news/vineyard-wind-1-closes-usd-1-2bn-tax-equity-financing-837782/",
+            "source_date": "2023-10-26",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "rwe-texas-wind-te",
+      "name": "RWE, 220 MW Texas wind tax equity",
+      "technology": "WIND",
+      "contract_kind": "UNKNOWN",
+      "headline": "RWE closes tax equity financing for a 220 MW Texas wind farm",
+      "summary": "",
+      "primary_source": "Renewables Now",
+      "tags": [
+        "ercot",
+        "tax-equity"
+      ],
+      "sponsor": {
+        "value": "RWE",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/rwe-closes-tax-equity-financing-for-220-mw-wind-farm-in-texas-725695/",
+        "source_date": "2020-12-23"
+      },
+      "total_quantum": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Texas",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/rwe-closes-tax-equity-financing-for-220-mw-wind-farm-in-texas-725695/",
+        "source_date": "2020-12-23"
+      },
+      "capacity": {
+        "value": "220 MW",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/rwe-closes-tax-equity-financing-for-220-mw-wind-farm-in-texas-725695/",
+        "source_date": "2020-12-23"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "value": "Tax equity financing",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/rwe-closes-tax-equity-financing-for-220-mw-wind-farm-in-texas-725695/",
+        "source_date": "2020-12-23"
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "tax equity",
+          "kind": "TAX_EQUITY",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "eon-texas-wind-te",
+      "name": "E.ON, 201 MW Texas wind tax equity",
+      "technology": "WIND",
+      "contract_kind": "UNKNOWN",
+      "headline": "E.ON closes tax equity financing for a 201 MW Texas wind farm",
+      "summary": "",
+      "primary_source": "Renewables Now",
+      "tags": [
+        "ercot",
+        "tax-equity"
+      ],
+      "sponsor": {
+        "value": "E.ON",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/eon-closes-tax-equity-financing-for-201-mw-wind-farm-in-texas-640422/",
+        "source_date": "2019-01-24"
+      },
+      "total_quantum": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Texas",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/eon-closes-tax-equity-financing-for-201-mw-wind-farm-in-texas-640422/",
+        "source_date": "2019-01-24"
+      },
+      "capacity": {
+        "value": "201 MW",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/eon-closes-tax-equity-financing-for-201-mw-wind-farm-in-texas-640422/",
+        "source_date": "2019-01-24"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "value": "Tax equity financing",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/eon-closes-tax-equity-financing-for-201-mw-wind-farm-in-texas-640422/",
+        "source_date": "2019-01-24"
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "tax equity",
+          "kind": "TAX_EQUITY",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "quinbrook-oklahoma-wind",
+      "name": "Quinbrook, 200 MW Oklahoma wind",
+      "technology": "WIND",
+      "contract_kind": "UNKNOWN",
+      "headline": "Quinbrook closes financing for a 200 MW Oklahoma wind project",
+      "summary": "",
+      "primary_source": "Windpower Engineering & Development",
+      "tags": [
+        "spp",
+        "wind"
+      ],
+      "sponsor": {
+        "value": "Quinbrook Infrastructure Partners",
+        "provenance": "stated",
+        "source": "Windpower Engineering & Development",
+        "source_url": "https://www.windpowerengineering.com/business-news-projects/quinbrook-closes-financing-200-mw-wind-project-oklahoma/",
+        "source_date": "2018-01-16"
+      },
+      "total_quantum": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Oklahoma",
+        "provenance": "stated",
+        "source": "Windpower Engineering & Development",
+        "source_url": "https://www.windpowerengineering.com/business-news-projects/quinbrook-closes-financing-200-mw-wind-project-oklahoma/",
+        "source_date": "2018-01-16"
+      },
+      "capacity": {
+        "value": "200 MW",
+        "provenance": "stated",
+        "source": "Windpower Engineering & Development",
+        "source_url": "https://www.windpowerengineering.com/business-news-projects/quinbrook-closes-financing-200-mw-wind-project-oklahoma/",
+        "source_date": "2018-01-16"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "project financing",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "innergex-foard-city",
+      "name": "Innergex, Foard City wind",
+      "technology": "WIND",
+      "contract_kind": "UNKNOWN",
+      "headline": "Innergex closes financing for the Foard City wind project",
+      "summary": "",
+      "primary_source": "Windpower Engineering & Development",
+      "tags": [
+        "ercot",
+        "wind"
+      ],
+      "sponsor": {
+        "value": "Innergex Renewable Energy",
+        "provenance": "stated",
+        "source": "Windpower Engineering & Development",
+        "source_url": "https://www.windpowerengineering.com/innergex-closes-financing-for-texas-foard-city-wind-project/",
+        "source_date": "2019-05-10"
+      },
+      "total_quantum": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Texas",
+        "provenance": "stated",
+        "source": "Windpower Engineering & Development",
+        "source_url": "https://www.windpowerengineering.com/innergex-closes-financing-for-texas-foard-city-wind-project/",
+        "source_date": "2019-05-10"
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "project financing",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "italy-repowering-2026",
+      "name": "134 MW Italian wind repowering",
+      "technology": "WIND",
+      "contract_kind": "UNKNOWN",
+      "headline": "UniCredit and Credit Agricole to fund a 134 MW Italian wind repowering",
+      "summary": "Non-US, included as a European repowering comparator. Debt reported as over EUR 187 million.",
+      "primary_source": "Renewables Now",
+      "tags": [
+        "international",
+        "repowering"
+      ],
+      "sponsor": {
+        "value": "Not named in the source recorded for this entry",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/unicredit-credit-agricole-to-fund-134-mw-wind-repowering-in-italy-1296096/",
+        "source_date": "2026-06-09"
+      },
+      "total_quantum": {
+        "value": 215800000,
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/unicredit-credit-agricole-to-fund-134-mw-wind-repowering-in-italy-1296096/",
+        "source_date": "2026-06-09",
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Italy",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/unicredit-credit-agricole-to-fund-134-mw-wind-repowering-in-italy-1296096/",
+        "source_date": "2026-06-09"
+      },
+      "capacity": {
+        "value": "134 MW repowering",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/unicredit-credit-agricole-to-fund-134-mw-wind-repowering-in-italy-1296096/",
+        "source_date": "2026-06-09"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [
+        "UniCredit",
+        "Credit Agricole"
+      ],
+      "tranches": [
+        {
+          "name": "debt financing",
+          "kind": "TERM_LOAN",
+          "amount": {
+            "value": 215800000,
+            "provenance": "stated",
+            "source": "Renewables Now",
+            "source_url": "https://renewablesnow.com/news/unicredit-credit-agricole-to-fund-134-mw-wind-repowering-in-italy-1296096/",
+            "source_date": "2026-06-09",
+            "unit": "USD",
+            "note": "Reported as over EUR 187 million."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "dutch-repowering-322mw",
+      "name": "322 MW Dutch wind repowering",
+      "technology": "WIND",
+      "contract_kind": "UNKNOWN",
+      "headline": "NWB Bank and EKF join lenders of a 322 MW Dutch repowering project",
+      "summary": "Non-US, included as a European repowering comparator.",
+      "primary_source": "Renewables Now",
+      "tags": [
+        "international",
+        "repowering"
+      ],
+      "sponsor": {
+        "value": "Not named in the source recorded for this entry",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/nwb-bank-ekf-join-lenders-of-322-mw-dutch-repowering-wind-project-708726/",
+        "source_date": "2020-08-04"
+      },
+      "total_quantum": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Netherlands",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/nwb-bank-ekf-join-lenders-of-322-mw-dutch-repowering-wind-project-708726/",
+        "source_date": "2020-08-04"
+      },
+      "capacity": {
+        "value": "322 MW repowering",
+        "provenance": "stated",
+        "source": "Renewables Now",
+        "source_url": "https://renewablesnow.com/news/nwb-bank-ekf-join-lenders-of-322-mw-dutch-repowering-wind-project-708726/",
+        "source_date": "2020-08-04"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [
+        "NWB Bank",
+        "EKF"
+      ],
+      "tranches": [
+        {
+          "name": "debt financing",
+          "kind": "TERM_LOAN",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "engie-wind-solar-2022",
+      "name": "ENGIE, wind and solar financing",
+      "technology": "WIND",
+      "contract_kind": "UNKNOWN",
+      "headline": "ENGIE raises $800 million in financing for wind and solar projects",
+      "summary": "",
+      "primary_source": "Mercom Capital, Project Finance Brief",
+      "tags": [
+        "portfolio",
+        "wind",
+        "solar"
+      ],
+      "sponsor": {
+        "value": "ENGIE",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-engie-financing-wind-solar-projects/",
+        "source_date": "2022-04-04"
+      },
+      "total_quantum": {
+        "value": 800000000,
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-engie-financing-wind-solar-projects/",
+        "source_date": "2022-04-04",
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "financing",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 800000000,
+            "provenance": "stated",
+            "source": "Mercom Capital, Project Finance Brief",
+            "source_url": "https://mercomcapital.com/project-finance-brief-engie-financing-wind-solar-projects/",
+            "source_date": "2022-04-04",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "spearmint-2026",
+      "name": "Spearmint Energy, 600 MWh ERCOT storage",
+      "technology": "STORAGE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Spearmint closes $450 million for a 600 MWh ERCOT project",
+      "summary": "",
+      "primary_source": "ess-news",
+      "tags": [
+        "ercot",
+        "storage"
+      ],
+      "sponsor": {
+        "value": "Spearmint Energy",
+        "provenance": "stated",
+        "source": "ess-news",
+        "source_url": "https://www.ess-news.com/2026/05/22/bess-financing-spearmint-closes-450-million-for-600-mwh-ercot-project-powerbank-leases-60-mwh-across-new-york/",
+        "source_date": "2026-05-22"
+      },
+      "total_quantum": {
+        "value": 450000000,
+        "provenance": "stated",
+        "source": "ess-news",
+        "source_url": "https://www.ess-news.com/2026/05/22/bess-financing-spearmint-closes-450-million-for-600-mwh-ercot-project-powerbank-leases-60-mwh-across-new-york/",
+        "source_date": "2026-05-22",
+        "unit": "USD"
+      },
+      "close_date": {
+        "value": "2026-05",
+        "provenance": "stated",
+        "source": "ess-news",
+        "source_url": "https://www.ess-news.com/2026/05/22/bess-financing-spearmint-closes-450-million-for-600-mwh-ercot-project-powerbank-leases-60-mwh-across-new-york/",
+        "source_date": "2026-05-22"
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Texas",
+        "provenance": "stated",
+        "source": "ess-news",
+        "source_url": "https://www.ess-news.com/2026/05/22/bess-financing-spearmint-closes-450-million-for-600-mwh-ercot-project-powerbank-leases-60-mwh-across-new-york/",
+        "source_date": "2026-05-22"
+      },
+      "capacity": {
+        "value": "600 MWh",
+        "provenance": "stated",
+        "source": "ess-news",
+        "source_url": "https://www.ess-news.com/2026/05/22/bess-financing-spearmint-closes-450-million-for-600-mwh-ercot-project-powerbank-leases-60-mwh-across-new-york/",
+        "source_date": "2026-05-22"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "project financing",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 450000000,
+            "provenance": "stated",
+            "source": "ess-news",
+            "source_url": "https://www.ess-news.com/2026/05/22/bess-financing-spearmint-closes-450-million-for-600-mwh-ercot-project-powerbank-leases-60-mwh-across-new-york/",
+            "source_date": "2026-05-22",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "esvolta-facility-2026",
+      "name": "esVolta, expanded credit facility",
+      "technology": "STORAGE",
+      "contract_kind": "UNKNOWN",
+      "headline": "esVolta closes a $450 million expanded credit facility",
+      "summary": "",
+      "primary_source": "Energy-Storage.news",
+      "tags": [
+        "corporate-facility",
+        "storage"
+      ],
+      "sponsor": {
+        "value": "esVolta",
+        "provenance": "stated",
+        "source": "Energy-Storage.news",
+        "source_url": "https://www.energy-storage.news/esvolta-closes-us450-million-expanded-credit-facility-to-expand-us-bess-portfolio/",
+        "source_date": "2026-06-08"
+      },
+      "total_quantum": {
+        "value": 450000000,
+        "provenance": "stated",
+        "source": "Energy-Storage.news",
+        "source_url": "https://www.energy-storage.news/esvolta-closes-us450-million-expanded-credit-facility-to-expand-us-bess-portfolio/",
+        "source_date": "2026-06-08",
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "United States",
+        "provenance": "stated",
+        "source": "Energy-Storage.news",
+        "source_url": "https://www.energy-storage.news/esvolta-closes-us450-million-expanded-credit-facility-to-expand-us-bess-portfolio/",
+        "source_date": "2026-06-08"
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "credit facility",
+          "kind": "REVOLVER",
+          "amount": {
+            "value": 450000000,
+            "provenance": "stated",
+            "source": "Energy-Storage.news",
+            "source_url": "https://www.energy-storage.news/esvolta-closes-us450-million-expanded-credit-facility-to-expand-us-bess-portfolio/",
+            "source_date": "2026-06-08",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "broad-reach-880mw",
+      "name": "Broad Reach Power, ERCOT and CAISO portfolio",
+      "technology": "STORAGE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Broad Reach Power secures financing for 880 MW of ERCOT and CAISO projects",
+      "summary": "",
+      "primary_source": "Energy-Storage.news",
+      "tags": [
+        "ercot",
+        "caiso",
+        "portfolio"
+      ],
+      "sponsor": {
+        "value": "Broad Reach Power",
+        "provenance": "stated",
+        "source": "Energy-Storage.news",
+        "source_url": "https://www.energy-storage.news/broad-reach-power-secures-financing-for-880mw-of-ercot-and-caiso-projects/",
+        "source_date": "2023-07-31"
+      },
+      "total_quantum": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "ERCOT and CAISO",
+        "provenance": "stated",
+        "source": "Energy-Storage.news",
+        "source_url": "https://www.energy-storage.news/broad-reach-power-secures-financing-for-880mw-of-ercot-and-caiso-projects/",
+        "source_date": "2023-07-31"
+      },
+      "capacity": {
+        "value": "880 MW",
+        "provenance": "stated",
+        "source": "Energy-Storage.news",
+        "source_url": "https://www.energy-storage.news/broad-reach-power-secures-financing-for-880mw-of-ercot-and-caiso-projects/",
+        "source_date": "2023-07-31"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "project financing",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "energy-vault-150mw",
+      "name": "Energy Vault, 150 MW battery storage",
+      "technology": "STORAGE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Energy Vault acquires a 150 MW battery storage project",
+      "summary": "",
+      "primary_source": "Mercom Capital, Project Finance Brief",
+      "tags": [
+        "storage",
+        "acquisition"
+      ],
+      "sponsor": {
+        "value": "Energy Vault",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-energy-vault-battery-storage-project/",
+        "source_date": "2025-10-29"
+      },
+      "total_quantum": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "value": "150 MW",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-energy-vault-battery-storage-project/",
+        "source_date": "2025-10-29"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "project financing",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "atlas-renewable-refi",
+      "name": "Atlas Renewable Energy, portfolio refinancing",
+      "technology": "SOLAR",
+      "contract_kind": "UNKNOWN",
+      "headline": "Atlas Renewable secures a $3 billion refinancing",
+      "summary": "",
+      "primary_source": "Mercom Capital, Project Finance Brief",
+      "tags": [
+        "refinancing",
+        "portfolio"
+      ],
+      "sponsor": {
+        "value": "Atlas Renewable Energy",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-atlas-renewable-secures-3-billion-refinancing/",
+        "source_date": "2026-02-25"
+      },
+      "total_quantum": {
+        "value": 3000000000,
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-atlas-renewable-secures-3-billion-refinancing/",
+        "source_date": "2026-02-25",
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "refinancing",
+          "kind": "TERM_LOAN",
+          "amount": {
+            "value": 3000000000,
+            "provenance": "stated",
+            "source": "Mercom Capital, Project Finance Brief",
+            "source_url": "https://mercomcapital.com/project-finance-brief-atlas-renewable-secures-3-billion-refinancing/",
+            "source_date": "2026-02-25",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "clean-energy-fuels-rng-2026",
+      "name": "Clean Energy Fuels and bp, East Valley dairy RNG",
+      "technology": "RNG",
+      "contract_kind": "UNKNOWN",
+      "headline": "Clean Energy Fuels places the East Valley dairy RNG project in service",
+      "summary": "",
+      "primary_source": "US SEC, EDGAR",
+      "tags": [
+        "rng",
+        "joint-venture"
+      ],
+      "sponsor": {
+        "value": "Clean Energy Fuels, joint venture with bp",
+        "provenance": "stated",
+        "source": "US SEC, EDGAR",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/0001368265/000110465926057158/clne-20260507xex99d1.htm",
+        "source_date": "2026-05-07"
+      },
+      "total_quantum": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "value": "Placed in service Q1 2026",
+        "provenance": "stated",
+        "source": "US SEC, EDGAR",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/0001368265/000110465926057158/clne-20260507xex99d1.htm",
+        "source_date": "2026-05-07"
+      },
+      "location": {
+        "value": "Idaho",
+        "provenance": "stated",
+        "source": "US SEC, EDGAR",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/0001368265/000110465926057158/clne-20260507xex99d1.htm",
+        "source_date": "2026-05-07"
+      },
+      "capacity": {
+        "value": "Approximately 3.5 million gallons of RNG annually",
+        "provenance": "stated",
+        "source": "US SEC, EDGAR",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/0001368265/000110465926057158/clne-20260507xex99d1.htm",
+        "source_date": "2026-05-07"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "project financing",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "sol-systems-warehouse-2025",
+      "name": "Sol Systems, revolving construction warehouse",
+      "technology": "SOLAR_PLUS_STORAGE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Sol Systems secures $675 million in revolving construction financing",
+      "summary": "A construction warehouse facility rather than a single-project financing: one revolving line funding a pipeline, arranged by KKR Capital Markets.",
+      "primary_source": "Sol Systems, press release",
+      "tags": [
+        "warehouse",
+        "revolver",
+        "portfolio"
+      ],
+      "sponsor": {
+        "value": "Sol Systems",
+        "provenance": "stated",
+        "source": "Sol Systems, press release",
+        "source_url": "https://www.solsystems.com/news/sol-systems-secures-675-million-in-revolving-construction-financing-to-power-its-clean-energy-pipeline/",
+        "source_date": "2025-07-16"
+      },
+      "total_quantum": {
+        "value": 675000000,
+        "provenance": "stated",
+        "source": "Sol Systems, press release",
+        "source_url": "https://www.solsystems.com/news/sol-systems-secures-675-million-in-revolving-construction-financing-to-power-its-clean-energy-pipeline/",
+        "source_date": "2025-07-16",
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "value": "First group of projects expected online by end 2026",
+        "provenance": "stated",
+        "source": "Sol Systems, press release",
+        "source_url": "https://www.solsystems.com/news/sol-systems-secures-675-million-in-revolving-construction-financing-to-power-its-clean-energy-pipeline/",
+        "source_date": "2025-07-16"
+      },
+      "location": {
+        "value": "Illinois, Ohio and Texas",
+        "provenance": "stated",
+        "source": "Sol Systems, press release",
+        "source_url": "https://www.solsystems.com/news/sol-systems-secures-675-million-in-revolving-construction-financing-to-power-its-clean-energy-pipeline/",
+        "source_date": "2025-07-16"
+      },
+      "capacity": {
+        "value": "Initial 500 MW of solar and storage",
+        "provenance": "stated",
+        "source": "Sol Systems, press release",
+        "source_url": "https://www.solsystems.com/news/sol-systems-secures-675-million-in-revolving-construction-financing-to-power-its-clean-energy-pipeline/",
+        "source_date": "2025-07-16"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "value": "Facility funds construction loans, tax equity bridge loans and letters of credit",
+        "provenance": "stated",
+        "source": "Sol Systems, press release",
+        "source_url": "https://www.solsystems.com/news/sol-systems-secures-675-million-in-revolving-construction-financing-to-power-its-clean-energy-pipeline/",
+        "source_date": "2025-07-16"
+      },
+      "lenders": [
+        "BBVA New York Branch",
+        "ING Capital",
+        "Intesa Sanpaolo New York Branch",
+        "National Australia Bank",
+        "NatWest",
+        "Natixis New York Branch",
+        "KKR Capital Markets (arranger)"
+      ],
+      "tranches": [
+        {
+          "name": "revolving construction warehouse",
+          "kind": "REVOLVER",
+          "amount": {
+            "value": 675000000,
+            "provenance": "stated",
+            "source": "Sol Systems, press release",
+            "source_url": "https://www.solsystems.com/news/sol-systems-secures-675-million-in-revolving-construction-financing-to-power-its-clean-energy-pipeline/",
+            "source_date": "2025-07-16",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "pine-creek-rng",
+      "name": "Pine Creek Renewables, RNG portfolio",
+      "technology": "RNG",
+      "contract_kind": "UNKNOWN",
+      "headline": "Fiera Infrastructure Private Debt closes a senior secured facility for three RNG facilities",
+      "summary": "",
+      "primary_source": "Biomass Magazine",
+      "tags": [
+        "rng",
+        "private-debt"
+      ],
+      "sponsor": {
+        "value": "Pine Creek Renewables",
+        "provenance": "stated",
+        "source": "Biomass Magazine",
+        "source_url": "https://biomassmagazine.com/articles/20330/project-financing-agreement-to-support-3-rng-facilities",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "total_quantum": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "value": "Three RNG facilities",
+        "provenance": "stated",
+        "source": "Biomass Magazine",
+        "source_url": "https://biomassmagazine.com/articles/20330/project-financing-agreement-to-support-3-rng-facilities",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "value": "Senior secured credit facility",
+        "provenance": "stated",
+        "source": "Biomass Magazine",
+        "source_url": "https://biomassmagazine.com/articles/20330/project-financing-agreement-to-support-3-rng-facilities",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "lenders": [
+        "Fiera Infrastructure Private Debt"
+      ],
+      "tranches": [
+        {
+          "name": "senior secured credit facility",
+          "kind": "TERM_LOAN",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "clean-energy-stonepeak",
+      "name": "Clean Energy Fuels, Stonepeak senior secured term loan",
+      "technology": "RNG",
+      "contract_kind": "UNKNOWN",
+      "headline": "Clean Energy Fuels enters a $300 million senior secured term loan with Stonepeak",
+      "summary": "Includes an additional $100 million delayed draw commitment.",
+      "primary_source": "US SEC, EDGAR",
+      "tags": [
+        "rng",
+        "term-loan",
+        "delayed-draw"
+      ],
+      "sponsor": {
+        "value": "Clean Energy Fuels",
+        "provenance": "stated",
+        "source": "US SEC, EDGAR",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1368265/000110465923125562/tm2332773d1_ex99-1.htm",
+        "source_date": "2023-12-01"
+      },
+      "total_quantum": {
+        "value": 300000000,
+        "provenance": "stated",
+        "source": "US SEC, EDGAR",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1368265/000110465923125562/tm2332773d1_ex99-1.htm",
+        "source_date": "2023-12-01",
+        "unit": "USD"
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "value": "Proceeds fund new RNG production facilities and fuelling infrastructure",
+        "provenance": "stated",
+        "source": "US SEC, EDGAR",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1368265/000110465923125562/tm2332773d1_ex99-1.htm",
+        "source_date": "2023-12-01"
+      },
+      "lenders": [
+        "Stonepeak"
+      ],
+      "tranches": [
+        {
+          "name": "senior secured term loan",
+          "kind": "TERM_LOAN",
+          "amount": {
+            "value": 300000000,
+            "provenance": "stated",
+            "source": "US SEC, EDGAR",
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1368265/000110465923125562/tm2332773d1_ex99-1.htm",
+            "source_date": "2023-12-01",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        },
+        {
+          "name": "delayed draw commitment",
+          "kind": "TERM_LOAN",
+          "amount": {
+            "value": 100000000,
+            "provenance": "stated",
+            "source": "US SEC, EDGAR",
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1368265/000110465923125562/tm2332773d1_ex99-1.htm",
+            "source_date": "2023-12-01",
+            "unit": "USD"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    },
+    {
+      "key": "meta-blue-owl-jv-2025",
+      "name": "Meta and Blue Owl, Hyperion joint venture",
+      "technology": "DATA_CENTRE",
+      "contract_kind": "HYPERSCALE_LEASE",
+      "headline": "Meta announces a joint venture with Blue Owl Capital to develop the Hyperion data centre",
+      "summary": "The equity layer beneath the Beignet Investor bond: Blue Owl funds hold 80% of the joint venture and Meta retains 20%.",
+      "primary_source": "Meta, press release",
+      "tags": [
+        "joint-venture",
+        "hyperscale",
+        "equity-layer"
+      ],
+      "sponsor": {
+        "value": "Meta and funds managed by Blue Owl Capital",
+        "provenance": "stated",
+        "source": "Meta, press release",
+        "source_url": "https://investor.atmeta.com/investor-news/press-release-details/2025/Meta-Announces-Joint-Venture-with-Funds-Managed-by-Blue-Owl-Capital-to-Develop-Hyperion-Data-Center/default.aspx",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "total_quantum": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "location": {
+        "value": "Richland Parish, Louisiana",
+        "provenance": "stated",
+        "source": "Meta, press release",
+        "source_url": "https://investor.atmeta.com/investor-news/press-release-details/2025/Meta-Announces-Joint-Venture-with-Funds-Managed-by-Blue-Owl-Capital-to-Develop-Hyperion-Data-Center/default.aspx",
+        "source_date": null,
+        "source_date_unknown": true
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "Not stated in the source recorded for this entry."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "joint venture equity",
+          "kind": "SPONSOR_EQUITY",
+          "amount": {
+            "provenance": "not_disclosed",
+            "reason": "The breakdown did not give a size for this facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread, coupon or fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          },
+          "note": ""
+        }
+      ]
+    }
+  ]
+}

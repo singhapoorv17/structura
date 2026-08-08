@@ -26,3 +26,6 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Local acceptance-loop scoring history. Not part of the product.
+.acceptance-history.json

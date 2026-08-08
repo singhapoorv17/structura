@@ -24,6 +24,7 @@ from engine.tax import (
 )
 from engine.tax import Technology as TaxTechnology
 from engine.structures import (
+    PROJECT_STRUCTURES,
     FlipConfig,
     PreferredConfig,
     SaleLeasebackConfig,
@@ -93,7 +94,7 @@ def run(
 
 def test_all_five_structures_are_run_against_the_same_project() -> None:
     comparison = run()
-    assert {r.result.key for r in comparison.ranked} == set(StructureKey)
+    assert {r.result.key for r in comparison.ranked} == set(PROJECT_STRUCTURES)
     assert len(comparison.ranked) == 5
     assert [r.rank for r in comparison.ranked] == [1, 2, 3, 4, 5]
     # One project, one debt sizing, one credit determination.

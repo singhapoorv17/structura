@@ -11,4 +11,14 @@ const nextConfig = {
   },
 };
 
+// In development the Python functions are served by scripts/devapi.py on a
+// separate port, because the Vercel runtime is not running. In production
+// Vercel serves /api/** itself and this rewrite is absent.
+if (process.env.NODE_ENV === 'development') {
+  const target = process.env.DEV_API_ORIGIN || 'http://127.0.0.1:3112';
+  nextConfig.rewrites = async () => [
+    { source: '/api/:path*', destination: `${target}/api/:path*` },
+  ];
+}
+
 module.exports = nextConfig;

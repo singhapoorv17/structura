@@ -1,0 +1,465 @@
+{
+  "_note": "Extracted fields only. Article bodies are never stored. Every stated cell carries the URL it came from; where a source did not disclose a field, the cell says so.",
+  "deals": [
+    {
+      "key": "ipx-power-2026",
+      "name": "IPX Power solar and storage financing",
+      "technology": "SOLAR_PLUS_STORAGE",
+      "contract_kind": "UNKNOWN",
+      "headline": "IPX Power closes $4.95 billion solar and storage financing",
+      "primary_source": "Mercom Capital, Project Finance Brief",
+      "tags": ["four-tranche", "transfer-bridge"],
+      "sponsor": {
+        "value": "IPX Power",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-ipx-power-closes-4-95-billion-solar-storage-financing/",
+        "source_date": "2026-05-27"
+      },
+      "total_quantum": {
+        "value": 4950000000,
+        "unit": "USD",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-ipx-power-closes-4-95-billion-solar-storage-financing/",
+        "source_date": "2026-05-27",
+        "note": "Construction debt across four facilities."
+      },
+      "close_date": {
+        "value": "2026-05",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-ipx-power-closes-4-95-billion-solar-storage-financing/",
+        "source_date": "2026-05-27"
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "The brief did not give a commercial operation date."
+      },
+      "location": {
+        "provenance": "not_disclosed",
+        "reason": "The brief did not name a state or market."
+      },
+      "capacity": {
+        "provenance": "not_disclosed",
+        "reason": "The brief reported the financing, not the plant capacity."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "No offtaker, tenor or price was disclosed."
+      },
+      "credit_route": {
+        "value": "Tax equity bridge alongside a tax credit transfer bridge",
+        "provenance": "stated",
+        "source": "Mercom Capital, Project Finance Brief",
+        "source_url": "https://mercomcapital.com/project-finance-brief-ipx-power-closes-4-95-billion-solar-storage-financing/",
+        "source_date": "2026-05-27",
+        "note": "Both a tax equity bridge and a transfer bridge were raised."
+      },
+      "lenders": [],
+      "tranches": [
+        {
+          "name": "construction loan",
+          "kind": "CONSTRUCTION_LOAN",
+          "amount": {
+            "value": 1830000000,
+            "unit": "USD",
+            "provenance": "stated",
+            "source": "Mercom Capital, Project Finance Brief",
+            "source_url": "https://mercomcapital.com/project-finance-brief-ipx-power-closes-4-95-billion-solar-storage-financing/",
+            "source_date": "2026-05-27"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          }
+        },
+        {
+          "name": "tax credit transfer bridge",
+          "kind": "TRANSFER_BRIDGE",
+          "amount": {
+            "value": 1810000000,
+            "unit": "USD",
+            "provenance": "stated",
+            "source": "Mercom Capital, Project Finance Brief",
+            "source_url": "https://mercomcapital.com/project-finance-brief-ipx-power-closes-4-95-billion-solar-storage-financing/",
+            "source_date": "2026-05-27"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread or advance rate was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          }
+        },
+        {
+          "name": "tax equity bridge",
+          "kind": "TAX_EQUITY_BRIDGE",
+          "amount": {
+            "value": 911000000,
+            "unit": "USD",
+            "provenance": "stated",
+            "source": "Mercom Capital, Project Finance Brief",
+            "source_url": "https://mercomcapital.com/project-finance-brief-ipx-power-closes-4-95-billion-solar-storage-financing/",
+            "source_date": "2026-05-27"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No spread was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          }
+        },
+        {
+          "name": "letter of credit facility",
+          "kind": "LETTER_OF_CREDIT",
+          "amount": {
+            "value": 403000000,
+            "unit": "USD",
+            "provenance": "stated",
+            "source": "Mercom Capital, Project Finance Brief",
+            "source_url": "https://mercomcapital.com/project-finance-brief-ipx-power-closes-4-95-billion-solar-storage-financing/",
+            "source_date": "2026-05-27"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "No fee was disclosed."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          }
+        }
+      ]
+    },
+    {
+      "key": "soltage-nygb-2025",
+      "name": "Soltage distributed generation portfolio",
+      "technology": "SOLAR",
+      "contract_kind": "UNKNOWN",
+      "headline": "Soltage closes $675 million syndicated construction revolver and term loan",
+      "summary": "A 55-asset distributed generation portfolio, twelve of which are standalone battery systems in New York City. NY Green Bank committed $50.0 million alongside the syndicate.",
+      "primary_source": "NY Green Bank, Quarterly Report No. 46 to the NY PSC (Case 13-M-0412)",
+      "tags": ["distributed-generation", "green-bank", "revolver"],
+      "sponsor": {
+        "value": "Soltage",
+        "provenance": "stated",
+        "source": "NY Green Bank Quarterly Report No. 46",
+        "source_url": "https://greenbank.ny.gov/-/media/Project/Greenbank/Files/NYGB_Quarterly_Report_PSC_Dec_2025_260226.pdf",
+        "source_date": "2026-02-26"
+      },
+      "total_quantum": {
+        "value": 675000000,
+        "unit": "USD",
+        "provenance": "stated",
+        "source": "NY Green Bank Quarterly Report No. 46",
+        "source_url": "https://greenbank.ny.gov/-/media/Project/Greenbank/Files/NYGB_Quarterly_Report_PSC_Dec_2025_260226.pdf",
+        "source_date": "2026-02-26"
+      },
+      "close_date": {
+        "value": "2025-12-17",
+        "provenance": "stated",
+        "source": "NY Green Bank Quarterly Report No. 46",
+        "source_url": "https://greenbank.ny.gov/-/media/Project/Greenbank/Files/NYGB_Quarterly_Report_PSC_Dec_2025_260226.pdf",
+        "source_date": "2026-02-26"
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "The report gave no commercial operation date."
+      },
+      "location": {
+        "value": "National portfolio; twelve storage assets in New York City",
+        "provenance": "stated",
+        "source": "NY Green Bank Quarterly Report No. 46",
+        "source_url": "https://greenbank.ny.gov/-/media/Project/Greenbank/Files/NYGB_Quarterly_Report_PSC_Dec_2025_260226.pdf",
+        "source_date": "2026-02-26"
+      },
+      "capacity": {
+        "value": "55 distributed generation assets",
+        "provenance": "stated",
+        "source": "NY Green Bank Quarterly Report No. 46",
+        "source_url": "https://greenbank.ny.gov/-/media/Project/Greenbank/Files/NYGB_Quarterly_Report_PSC_Dec_2025_260226.pdf",
+        "source_date": "2026-02-26",
+        "note": "Megawatts were not stated."
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "No offtaker, tenor or price was disclosed."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "The report did not describe tax credit monetisation."
+      },
+      "lenders": ["National Bank of Canada (lead)", "NY Green Bank"],
+      "tranches": [
+        {
+          "name": "syndicated construction revolver and term loan",
+          "kind": "CONSTRUCTION_TO_TERM",
+          "amount": {
+            "value": 675000000,
+            "unit": "USD",
+            "provenance": "stated",
+            "source": "NY Green Bank Quarterly Report No. 46",
+            "source_url": "https://greenbank.ny.gov/-/media/Project/Greenbank/Files/NYGB_Quarterly_Report_PSC_Dec_2025_260226.pdf",
+            "source_date": "2026-02-26"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "Green bank reporting does not disclose pricing."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          }
+        },
+        {
+          "name": "NY Green Bank commitment",
+          "kind": "TERM_LOAN",
+          "amount": {
+            "value": 50000000,
+            "unit": "USD",
+            "provenance": "stated",
+            "source": "NY Green Bank Quarterly Report No. 46",
+            "source_url": "https://greenbank.ny.gov/-/media/Project/Greenbank/Files/NYGB_Quarterly_Report_PSC_Dec_2025_260226.pdf",
+            "source_date": "2026-02-26",
+            "note": "NYGB's participation within the $675m facility."
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "Green bank reporting does not disclose pricing."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          }
+        }
+      ]
+    },
+    {
+      "key": "aep-texas-edf-2026",
+      "name": "AEP Texas transmission loan",
+      "technology": "TRANSMISSION",
+      "contract_kind": "UNKNOWN",
+      "headline": "Energy Department closes $3.26 billion loan to AEP Texas",
+      "primary_source": "US Department of Energy, Office of Energy Dominance Financing",
+      "tags": ["public-lender", "transmission"],
+      "sponsor": {
+        "value": "AEP Texas",
+        "provenance": "stated",
+        "source": "US Department of Energy",
+        "source_url": "https://www.energy.gov/articles/energy-department-closes-loan-aep-texas-delivering-millions-electricity-cost-savings",
+        "source_date": "2026-07-08"
+      },
+      "total_quantum": {
+        "value": 3260000000,
+        "unit": "USD",
+        "provenance": "stated",
+        "source": "US Department of Energy",
+        "source_url": "https://www.energy.gov/articles/energy-department-closes-loan-aep-texas-delivering-millions-electricity-cost-savings",
+        "source_date": "2026-07-08"
+      },
+      "close_date": {
+        "value": "2026-07-08",
+        "provenance": "stated",
+        "source": "US Department of Energy",
+        "source_url": "https://www.energy.gov/articles/energy-department-closes-loan-aep-texas-delivering-millions-electricity-cost-savings",
+        "source_date": "2026-07-08"
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "No completion date was given for the programme."
+      },
+      "location": {
+        "value": "Texas",
+        "provenance": "stated",
+        "source": "US Department of Energy",
+        "source_url": "https://www.energy.gov/articles/energy-department-closes-loan-aep-texas-delivering-millions-electricity-cost-savings",
+        "source_date": "2026-07-08"
+      },
+      "capacity": {
+        "value": "Approximately 100 transmission projects, around 2,800 miles",
+        "provenance": "stated",
+        "source": "US Department of Energy",
+        "source_url": "https://www.energy.gov/articles/energy-department-closes-loan-aep-texas-delivering-millions-electricity-cost-savings",
+        "source_date": "2026-07-08"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "Rate-base transmission; no offtake contract applies."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "No tax credit monetisation was described."
+      },
+      "lenders": ["US Department of Energy, Office of Energy Dominance Financing"],
+      "tranches": [
+        {
+          "name": "federal loan",
+          "kind": "TERM_LOAN",
+          "amount": {
+            "value": 3260000000,
+            "unit": "USD",
+            "provenance": "stated",
+            "source": "US Department of Energy",
+            "source_url": "https://www.energy.gov/articles/energy-department-closes-loan-aep-texas-delivering-millions-electricity-cost-savings",
+            "source_date": "2026-07-08"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "Federal lending releases do not state a rate or spread."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          }
+        }
+      ]
+    },
+    {
+      "key": "amanecer-puerto-rico-2026",
+      "name": "Amanecer Puerto Rico battery storage",
+      "technology": "STORAGE",
+      "contract_kind": "UNKNOWN",
+      "headline": "Energy Department closes $489.4 million loan for Puerto Rico storage",
+      "primary_source": "US Department of Energy, Office of Energy Dominance Financing",
+      "tags": ["public-lender", "storage"],
+      "sponsor": {
+        "value": "Amanecer Puerto Rico LLC, a Pattern Energy subsidiary",
+        "provenance": "stated",
+        "source": "US Department of Energy",
+        "source_url": "https://www.energy.gov/edf/articles/does-office-energy-dominance-financing-closes-loan-strengthen-puerto-ricos-grid",
+        "source_date": "2026-08-05"
+      },
+      "total_quantum": {
+        "value": 489400000,
+        "unit": "USD",
+        "provenance": "stated",
+        "source": "US Department of Energy",
+        "source_url": "https://www.energy.gov/edf/articles/does-office-energy-dominance-financing-closes-loan-strengthen-puerto-ricos-grid",
+        "source_date": "2026-08-05"
+      },
+      "close_date": {
+        "value": "2026-08-05",
+        "provenance": "stated",
+        "source": "US Department of Energy",
+        "source_url": "https://www.energy.gov/edf/articles/does-office-energy-dominance-financing-closes-loan-strengthen-puerto-ricos-grid",
+        "source_date": "2026-08-05"
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "No commercial operation date was given."
+      },
+      "location": {
+        "value": "Puerto Rico",
+        "provenance": "stated",
+        "source": "US Department of Energy",
+        "source_url": "https://www.energy.gov/edf/articles/does-office-energy-dominance-financing-closes-loan-strengthen-puerto-ricos-grid",
+        "source_date": "2026-08-05"
+      },
+      "capacity": {
+        "value": "220 MW battery energy storage",
+        "provenance": "stated",
+        "source": "US Department of Energy",
+        "source_url": "https://www.energy.gov/edf/articles/does-office-energy-dominance-financing-closes-loan-strengthen-puerto-ricos-grid",
+        "source_date": "2026-08-05"
+      },
+      "offtake": {
+        "provenance": "not_disclosed",
+        "reason": "No offtaker, tenor or price was disclosed."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "No tax credit monetisation was described."
+      },
+      "lenders": ["US Department of Energy, Office of Energy Dominance Financing"],
+      "tranches": [
+        {
+          "name": "federal loan",
+          "kind": "TERM_LOAN",
+          "amount": {
+            "value": 489400000,
+            "unit": "USD",
+            "provenance": "stated",
+            "source": "US Department of Energy",
+            "source_url": "https://www.energy.gov/edf/articles/does-office-energy-dominance-financing-closes-loan-strengthen-puerto-ricos-grid",
+            "source_date": "2026-08-05"
+          },
+          "pricing": {
+            "provenance": "not_disclosed",
+            "reason": "Federal lending releases do not state a rate or spread."
+          },
+          "tenor_years": {
+            "provenance": "not_disclosed",
+            "reason": "No tenor was disclosed."
+          }
+        }
+      ]
+    },
+    {
+      "key": "databank-2026-1",
+      "name": "DataBank Issuer Series 2026-1",
+      "technology": "DATA_CENTRE",
+      "contract_kind": "HYPERSCALE_LEASE",
+      "headline": "DataBank Issuer, Series 2026-1 data centre securitisation",
+      "summary": "A securitisation of 36 data centres. KBRA's presale release discloses the collateral pool but the tranche table and rationale sit behind a subscription.",
+      "primary_source": "KBRA publication",
+      "tags": ["abs", "data-centre", "securitisation"],
+      "sponsor": {
+        "value": "DataBank",
+        "provenance": "stated",
+        "source": "KBRA",
+        "source_url": "https://www.kbra.com/publications/tGrWrdbr",
+        "source_date": "2026-01-01",
+        "note": "Publication date taken from the KBRA publication page."
+      },
+      "total_quantum": {
+        "provenance": "not_disclosed",
+        "reason": "The tranche table sits behind a KBRA subscription; the open release gives collateral, not sizes."
+      },
+      "close_date": {
+        "provenance": "not_disclosed",
+        "reason": "The open release is a presale and does not state pricing date."
+      },
+      "cod": {
+        "provenance": "not_disclosed",
+        "reason": "Not applicable to an operating-asset securitisation."
+      },
+      "location": {
+        "value": "United States, multiple markets",
+        "provenance": "stated",
+        "source": "KBRA",
+        "source_url": "https://www.kbra.com/publications/tGrWrdbr",
+        "source_date": "2026-01-01"
+      },
+      "capacity": {
+        "value": "36 data centres, 257.6 MW critical load",
+        "provenance": "stated",
+        "source": "KBRA",
+        "source_url": "https://www.kbra.com/publications/tGrWrdbr",
+        "source_date": "2026-01-01"
+      },
+      "offtake": {
+        "value": "1,757 customers; top 20 are 34.0% of revenue; weighted average contract term 2.0 years",
+        "provenance": "stated",
+        "source": "KBRA",
+        "source_url": "https://www.kbra.com/publications/tGrWrdbr",
+        "source_date": "2026-01-01",
+        "note": "Annualised monthly recurring revenue $433.0m; annualised adjusted net operating income $217.6m."
+      },
+      "credit_route": {
+        "provenance": "not_disclosed",
+        "reason": "No tax credit monetisation applies to this structure."
+      },
+      "lenders": [],
+      "tranches": []
+    }
+  ]
+}

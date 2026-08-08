@@ -2,22 +2,18 @@
 
 The structure selector, and the partnership-tax layer underneath it.
 
-Why this package exists
------------------------
-Two facts, both checked live on 2026-08-06:
+Market context
+--------------
+Norton Rose Fulbright's *Cost of Capital: 2026 Outlook* (2026-01-29) records
+five live structures — partnership flip, hybrid T-flip, preferred equity
+partnership, direct transfer and sale-leaseback. Traditional tax equity, where
+the investor retains the credits, was around 30% of the 2024 market and less in
+2025; *"most current deals employ hybrid or preferred equity structures."*
 
-1. **The market no longer has one answer.** Norton Rose Fulbright's *Cost of
-   Capital: 2026 Outlook* (2026-01-29) records five live structures —
-   partnership flip, hybrid T-flip, preferred equity partnership, direct
-   transfer and sale-leaseback — with traditional tax equity down to ~30% of
-   the 2024 market and less in 2025, and *"most current deals employ hybrid or
-   preferred equity structures"*. Jack Cargas of BofA: *"it feels like there are
-   now 31 different flavors."* No free tool helps anyone choose.
-2. **SAM has no partnership tax.** A grep of SAM 2026.7.3's three finance
-   modules returns **zero** hits for ``capital_account``,
-   ``deficit_restoration``, ``outside_basis``, ``704(b)`` or ``suspended_loss``
-   Its flip is a stylised percentage split with an IRR-triggered date.
-   :mod:`engine.structures.partnership` implements that layer.
+The package models all five against the same project economics, and implements
+the partnership-tax layer the comparison depends on: §704(b) capital accounts,
+DRO caps, outside basis and §704(d) suspended losses live in
+:mod:`engine.structures.partnership`.
 
 Module map
 ----------
@@ -94,6 +90,7 @@ from engine.structures.flip import (
     solve_flip_point,
 )
 from engine.structures.models import (
+    PROJECT_STRUCTURES,
     CashTiming,
     FlipConfig,
     FlipTrigger,
@@ -181,6 +178,7 @@ __all__ = [
     "SponsorTaxProfile",
     "StructureConfigs",
     "StructureContext",
+    "PROJECT_STRUCTURES",
     "StructureKey",
     "StructureResult",
     "TFlipConfig",
@@ -209,3 +207,11 @@ __all__ = [
     "compare_structures",
     "run_all_structures",
 ]
+
+from engine.structures.equipment_lease import (  # noqa: E402
+    EquipmentLeaseConfig,
+    EquipmentLeaseResult,
+    LeaseTranche,
+    PartyLedger,
+    run_equipment_lease,
+)

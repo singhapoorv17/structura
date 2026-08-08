@@ -26,9 +26,10 @@ classifiers = [
     "Topic :: Office/Business :: Financial",
 ]
 
-# Runtime dependencies. openpyxl is a runtime dep as of Phase 4: the Excel
-# export (export/) is a headline feature, not an optional extra — it is the
-# artifact SAM provably cannot produce for these structures.
+# Runtime dependencies. openpyxl is a runtime dependency rather than an extra:
+# the Excel export in export/ is part of the product surface, and it is the
+# only library that writes iterate="1" into xl/workbook.xml, which the funding
+# circularity needs.
 dependencies = [
     "scipy>=1.11",
     "numpy>=1.26",
@@ -45,5 +46,9 @@ packages = ["engine", "engine.tax", "engine.structures", "export"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
-addopts = "-q"
+addopts = "-q -m 'not acceptance'"
 filterwarnings = ["error"]
+markers = [
+    "acceptance: scored against the acceptance criteria; excluded from the default run",
+    "gate(id): the acceptance criterion this test asserts",
+]

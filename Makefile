@@ -1,6 +1,10 @@
 PYTHON := .venv/bin/python
 
-.PHONY: test test-verbose demo gate clean
+.PHONY: test test-verbose demo gate score clean
+
+## Score the build against the acceptance criteria.
+score:
+	$(PYTHON) scripts/score.py $(PHASE)
 
 ## Run the full engine test suite.
 test:

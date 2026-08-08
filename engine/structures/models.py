@@ -93,13 +93,24 @@ __all__ = [
 
 
 class StructureKey(str, Enum):
-    """The five live 2026 capital structures (NRF, *Cost of Capital: 2026 Outlook*)."""
+    """The live 2026 capital structures.
+
+    The first five are the renewable set Norton Rose Fulbright records in
+    *Cost of Capital: 2026 Outlook*. They share project economics, so the
+    selector compares them head to head on one project.
+
+    ``EQUIPMENT_LEASE`` is a sixth, and it does not belong in that comparison:
+    the asset is equipment bought by a third-party vehicle rather than a plant
+    built by a sponsor, and the operator pays rent instead of debt service. It
+    is modelled on its own terms in :mod:`engine.structures.equipment_lease`.
+    """
 
     PARTNERSHIP_FLIP = "partnership_flip"
     T_FLIP = "t_flip"
     PREFERRED_EQUITY = "preferred_equity"
     DIRECT_TRANSFER = "direct_transfer"
     SALE_LEASEBACK = "sale_leaseback"
+    EQUIPMENT_LEASE = "equipment_lease"
 
     @property
     def label(self) -> str:
@@ -109,6 +120,10 @@ class StructureKey(str, Enum):
             StructureKey.PREFERRED_EQUITY: "Preferred equity partnership",
             StructureKey.DIRECT_TRANSFER: "Direct transfer (§6418)",
             StructureKey.SALE_LEASEBACK: "Sale-leaseback",
+            StructureKey.EQUIPMENT_LEASE: (
+                "Equipment lease through an owning SPV, with a residual value "
+                "guarantee"
+            ),
         }[self]
 
     @property
@@ -121,6 +136,20 @@ class StructureKey(str, Enum):
         depreciation, so they degrade rather than disappear.
         """
         return self in (StructureKey.DIRECT_TRANSFER, StructureKey.T_FLIP)
+
+
+#: The structures the selector compares head to head. They share one set of
+#: project economics, which is what makes ranking them meaningful.
+#: ``EQUIPMENT_LEASE`` is deliberately absent: it finances equipment bought by
+#: a third-party vehicle rather than a plant built by a sponsor, so putting it
+#: in the same ranking would compare two different questions.
+PROJECT_STRUCTURES: tuple["StructureKey", ...] = (
+    StructureKey.PARTNERSHIP_FLIP,
+    StructureKey.T_FLIP,
+    StructureKey.PREFERRED_EQUITY,
+    StructureKey.DIRECT_TRANSFER,
+    StructureKey.SALE_LEASEBACK,
+)
 
 
 class FlipTrigger(str, Enum):

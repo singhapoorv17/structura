@@ -5,7 +5,8 @@ import { usePathname } from 'next/navigation';
 import { LAW_VERIFIED_ON } from '../lib/mockData';
 
 const NAV = [
-  { href: '/', label: 'Structure selector' },
+  { href: '/', label: 'Analyse a project' },
+  { href: '/library', label: 'Transaction library' },
   { href: '/current-law', label: 'Current law' },
   { href: '/methods', label: 'Methods & limits' },
 ];
@@ -18,7 +19,7 @@ export function TopBar() {
         <Link className="brand" href="/">
           <span className="dot" />
           Structura
-          <small>energy project finance · structure selector</small>
+          <small>energy project finance · structuring engine</small>
         </Link>
         <nav className="nav">
           {NAV.map((n) => (

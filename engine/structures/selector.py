@@ -1,11 +1,9 @@
 """The structure selector — run one project through all five structures.
 
 Model all five live 2026 structures against the *same* project and return a
-ranked comparison of sponsor
-after-tax IRR, effective cost of capital and cash timing. Jack Cargas of BofA,
-quoted in Norton Rose Fulbright's *Cost of Capital: 2026 Outlook*: *"it feels
-like there are now 31 different flavors."* That is the decision the market now
-agonises over, and no free tool addresses it.
+ranked comparison of sponsor after-tax IRR, effective cost of capital and cash
+timing. Jack Cargas of BofA, quoted in Norton Rose Fulbright's *Cost of
+Capital: 2026 Outlook*: *"it feels like there are now 31 different flavors."*
 
 What "same project" means here
 ------------------------------
