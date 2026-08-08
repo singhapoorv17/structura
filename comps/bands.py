@@ -21,6 +21,26 @@ NRF_COC_DATE = dt.date(2026, 1, 29)
 NRF_RFU = "Norton Rose Fulbright, 'Renewables Financing Update'"
 NRF_RFU_DATE = dt.date(2026, 6, 9)
 
+#: LevelTen publishes the index quarterly. The figures themselves sit behind
+#: its Report Center, so the citation is to the trade press that carries them,
+#: with LevelTen named as the originator.
+LEVELTEN_VIA_PVMAG = "pv magazine USA, reporting the LevelTen PPA Price Index"
+LEVELTEN_URL = (
+    "https://pv-magazine-usa.com/2026/07/27/solar-ppa-prices-dip-in-q2-while-"
+    "wind-climbs-as-july-4-tax-credit-deadline-looms-reports-levelten/"
+)
+LEVELTEN_DATE = dt.date(2026, 7, 27)
+LEVELTEN_ORIGIN = "LevelTen Energy, North American PPA Price Index, Q2 2026"
+
+CPUC_RA = (
+    "California Public Utilities Commission, Energy Division staff report on "
+    "the 2024-2025 Resource Adequacy Market Price Benchmark"
+)
+CPUC_RA_URL = (
+    "https://docs.cpuc.ca.gov/PublishedDocs/Efile/G000/M557/K608/557608990.PDF"
+)
+CPUC_RA_DATE = dt.date(2025, 2, 26)
+
 CRUX = "Crux, '1Q 2026 market update'"
 CRUX_URL = "https://www.crux.com/insights/1q2026-market-update-qa-josh-price"
 CRUX_DATE = dt.date(2026, 5, 4)
@@ -156,6 +176,69 @@ BANDS: Final[tuple[MarketBand, ...]] = (
         source_url=CRUX_URL,
         source_date=CRUX_DATE,
     ),
+    # -- contract pricing --------------------------------------------------
+    #
+    # The largest single input in the model, and until now the least sourced.
+    # LevelTen's index is the market reference for PPA pricing; the CPUC
+    # benchmark is the only free, audited capacity price in the US, and it is
+    # California-specific.
+    MarketBand(
+        key="contract_price.solar_ppa",
+        label="Solar PPA price",
+        applies_to=("solar",),
+        low=61.40,
+        high=64.49,
+        point=61.40,
+        unit="$/MWh",
+        source=LEVELTEN_VIA_PVMAG,
+        source_url=LEVELTEN_URL,
+        source_date=LEVELTEN_DATE,
+        restates=LEVELTEN_ORIGIN,
+        note=(
+            "Q2 2026 market-averaged benchmark of $61.40, against $64.49 in "
+            "Q1 — the first quarterly fall in two years. Continental North "
+            "America; individual markets diverge widely from this."
+        ),
+    ),
+    MarketBand(
+        key="contract_price.wind_ppa",
+        label="Wind PPA price",
+        applies_to=("wind",),
+        low=79.40,
+        high=83.79,
+        point=83.79,
+        unit="$/MWh",
+        source=LEVELTEN_VIA_PVMAG,
+        source_url=LEVELTEN_URL,
+        source_date=LEVELTEN_DATE,
+        restates=LEVELTEN_ORIGIN,
+        note=(
+            "Q2 2026 benchmark of $83.79, up 5.5% on the quarter and 17.5% on "
+            "the year. Continental North America."
+        ),
+    ),
+    MarketBand(
+        key="capacity_price.storage_ra",
+        label="Storage capacity payment",
+        applies_to=("storage",),
+        low=10.24,
+        high=26.26,
+        point=14.19,
+        unit="$/kW-month",
+        source=CPUC_RA,
+        source_url=CPUC_RA_URL,
+        source_date=CPUC_RA_DATE,
+        note=(
+            "2024 final system Resource Adequacy market price benchmarks "
+            "across the California IOUs, weighted average $14.19. This is a "
+            "California capacity price, not a tolling price, and not a "
+            "national figure: no free source publishes toll pricing. The "
+            "commission notes forecast system RA now surpassing $40/kW-month "
+            "on a subset of transactions it considers may reflect market "
+            "power."
+        ),
+    ),
+
     # -- ticket sizes ------------------------------------------------------
     MarketBand(
         key="ticket.tax_equity_minimum",

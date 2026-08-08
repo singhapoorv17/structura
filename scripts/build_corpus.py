@@ -671,7 +671,13 @@ def build():
         credit=ND(NOT_IN_RELEASE),
         headline="Apollo leads a $35 billion capital solution for the Broadcom AI XPV Platform",
         summary="Committed capital across a multi-year draw schedule, structured in A1 and A2 tranches. Tranche economics and credit support are not disclosed in the release.",
-        tags=["ai-compute", "equipment-lease", "platform", "private-credit"],
+        tags=[
+            "ai-compute",
+            "equipment-lease",
+            "platform",
+            "private-credit",
+            "programme-capacity",
+        ],
         lenders=["Apollo (Atlas SP Partners)", "Blackstone", "Global banks"],
         tranches=[
             tranche("Class A1", "NOTES", ND(NOT_IN_RELEASE), ND(NOT_IN_RELEASE), ND(NOT_IN_RELEASE)),

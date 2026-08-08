@@ -2370,7 +2370,8 @@
         "ai-compute",
         "equipment-lease",
         "platform",
-        "private-credit"
+        "private-credit",
+        "programme-capacity"
       ],
       "sponsor": {
         "value": "Apollo-managed funds, with Blackstone and global banks",

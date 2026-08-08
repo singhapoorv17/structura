@@ -64,19 +64,20 @@ STORAGE_ROUND_TRIP = 0.86
 #: Operating cost, dollars per kW per year. Tool defaults.
 OPEX_PER_KW_YEAR = {"solar": 18.0, "wind": 45.0, "storage": 12.0, "digital": 0.0, "rng": 90.0}
 
-#: First-year contracted price. No free source publishes PPA, toll or lease
-#: pricing, which is the single largest unsourced input in the model. Where the
-#: user does not supply one these stand in, and they say so loudly.
-CONTRACT_PRICE = {"solar": 45.0, "wind": 35.0, "rng": 25.0, "digital": 110.0}
+#: Solar and wind PPA pricing, and the storage capacity payment, now come from
+#: cited bands in :mod:`comps.bands`. These remain for the technologies where
+#: no free source publishes a price at all.
+CONTRACT_PRICE = {"rng": 25.0}
 
-#: Storage capacity payment, dollars per kW per month, converted to an implied
-#: energy price over modelled throughput.
-STORAGE_CAPACITY_PAYMENT_PER_KW_MONTH = 10.0
+#: Data centre and AI compute capacity is leased by the kilowatt-month, not
+#: sold by the megawatt-hour. No free source publishes lease rates, so this is
+#: a tool default and is badged as one.
+DIGITAL_LEASE_PER_KW_MONTH = 105.0
 
 NO_PRICE_SOURCE = (
-    "No free source publishes contract pricing, so this is a tool default "
-    "rather than a market figure. It is the largest single assumption in the "
-    "model: override it with the deal's own price."
+    "No free source publishes pricing for this technology, so this is a tool "
+    "default rather than a market figure. It is the largest single assumption "
+    "in the model: override it with the deal's own price."
 )
 
 
@@ -150,18 +151,31 @@ def resolve(spec: DealSpec, *, today: dt.date | None = None) -> Resolution:
     if spec.capex is not None:
         inputs["capex"] = _user(spec.capex, unit="USD")
     elif capacity_mw is not None and per_mw is not None:
+        note = (
+            f"Median total capital of ${per_mw / 1e6:,.2f}m per MW across "
+            f"{len(cited)} comparable financings. These are financing totals "
+            "rather than construction budgets, so the figure includes fees, "
+            "reserves and interest during construction."
+        )
+        if family == "storage":
+            # The figure scales with power, not with energy, so two systems of
+            # the same megawatt rating and different duration price the same.
+            # Deriving a per-kWh figure instead was tried and rejected: only
+            # two comparable financings disclose both, and they imply $465 and
+            # $750 per kWh against a market that installs at roughly $230-320,
+            # because a financing total is not a construction budget. Saying
+            # so is better than substituting a worse number.
+            note += (
+                " It scales with megawatts, not with duration: a two-hour and "
+                "a four-hour system of the same power will show the same "
+                "capital cost here. Supply a capex to reflect duration."
+            )
         inputs["capex"] = benchmark_value(
             capacity_mw * per_mw,
-            source="Derived from comparable transactions: "
-            + ", ".join(cited),
+            source="Derived from comparable transactions: " + ", ".join(cited),
             source_date=dt.date.today(),
             unit="USD",
-            note=(
-                f"Median total capital of ${per_mw / 1e6:,.2f}m per MW across "
-                f"{len(cited)} comparable financings. These are financing "
-                "totals rather than construction budgets, so the figure "
-                "includes fees, reserves and interest during construction."
-            ),
+            note=note,
         )
     elif capacity_mw is not None:
         fallback = FALLBACK_PER_MW.get(family)
@@ -216,19 +230,54 @@ def resolve(spec: DealSpec, *, today: dt.date | None = None) -> Resolution:
             if spec.contract.price is not None:
                 inputs["contracted_price"] = _user(spec.contract.price, unit="$/MWh")
             else:
-                annual_capacity_revenue = (
-                    capacity_mw
-                    * 1_000.0
-                    * STORAGE_CAPACITY_PAYMENT_PER_KW_MONTH
-                    * 12.0
-                )
-                inputs["contracted_price"] = assumed(
-                    annual_capacity_revenue / throughput if throughput else 0.0,
+                band = bands_module.BY_KEY["capacity_price.storage_ra"]
+                inputs["capacity_payment"] = _from_band(band, band.point_estimate)
+                # The engine prices energy, so a capacity payment has to be
+                # spread across modelled throughput. Both the band and the
+                # conversion are stated, because the second is as consequential
+                # as the first.
+                def implied(per_kw_month: float) -> float:
+                    annual = capacity_mw * 1_000.0 * per_kw_month * 12.0
+                    return annual / throughput if throughput else 0.0
+
+                inputs["contracted_price"] = benchmark_value(
+                    implied(band.point_estimate),
+                    source=band.source,
+                    source_url=band.source_url,
+                    source_date=band.source_date,
+                    low=implied(band.low),
+                    high=implied(band.high),
                     unit="$/MWh",
                     note=(
-                        f"Implied from a ${STORAGE_CAPACITY_PAYMENT_PER_KW_MONTH:,.0f}"
-                        "/kW-month capacity payment spread over modelled "
-                        f"throughput. {NO_PRICE_SOURCE}"
+                        f"Implied from a ${band.point_estimate:,.2f}/kW-month "
+                        "capacity payment spread over modelled throughput. "
+                        + band.note
+                    ),
+                )
+        elif family == "digital":
+            # Modelled as rent on installed capacity, converted to an energy
+            # price over utilised hours so the engine's revenue line works.
+            utilisation = CAPACITY_FACTOR["digital"]
+            hours = capacity_mw * 8_760.0 * utilisation
+            inputs["production_p50"] = assumed(
+                hours,
+                unit="MWh per year",
+                note=(
+                    f"IT capacity at {utilisation:.0%} utilisation. A lease "
+                    "pays on contracted capacity rather than on throughput."
+                ),
+            )
+            if spec.contract.price is not None:
+                inputs["contracted_price"] = _user(spec.contract.price, unit="$/MWh")
+            else:
+                annual = capacity_mw * 1_000.0 * DIGITAL_LEASE_PER_KW_MONTH * 12.0
+                inputs["contracted_price"] = assumed(
+                    annual / hours if hours else 0.0,
+                    unit="$/MWh",
+                    note=(
+                        f"Implied from a ${DIGITAL_LEASE_PER_KW_MONTH:,.0f}"
+                        "/kW-month lease spread over utilised hours. "
+                        + NO_PRICE_SOURCE
                     ),
                 )
         else:
@@ -241,11 +290,20 @@ def resolve(spec: DealSpec, *, today: dt.date | None = None) -> Resolution:
             if spec.contract.price is not None:
                 inputs["contracted_price"] = _user(spec.contract.price, unit="$/MWh")
             else:
-                inputs["contracted_price"] = assumed(
-                    CONTRACT_PRICE.get(family, 50.0),
-                    unit="$/MWh",
-                    note=NO_PRICE_SOURCE,
+                band = _band(
+                    family,
+                    ("contract_price.solar_ppa", "contract_price.wind_ppa"),
                 )
+                if band is not None:
+                    inputs["contracted_price"] = _from_band(
+                        band, band.point_estimate
+                    )
+                else:
+                    inputs["contracted_price"] = assumed(
+                        CONTRACT_PRICE.get(family, 50.0),
+                        unit="$/MWh",
+                        note=NO_PRICE_SOURCE,
+                    )
 
         inputs["opex_year1"] = assumed(
             capacity_mw * 1_000.0 * OPEX_PER_KW_YEAR.get(family, 25.0),
@@ -329,6 +387,12 @@ def _per_mw_from_comps(comps) -> tuple[float | None, list[str]]:
         quantum = m.record.total_quantum.value
         mw = m.record.capacity_mw()
         if not isinstance(quantum, (int, float)) or not mw:
+            continue
+        if "programme-capacity" in m.record.tags:
+            # The capacity is a multi-year programme target and the quantum is
+            # an initial raise against it. Dividing one by the other produced
+            # $1.75m per megawatt for hyperscale, which is off by a factor of
+            # five and would have flowed into every downstream number.
             continue
         ratios.append(float(quantum) / mw)
         cited.append(m.record.name)

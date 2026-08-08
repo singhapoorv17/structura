@@ -240,10 +240,26 @@ class MarketBand:
     source_url: str
     source_date: dt.date
     note: str = ""
+    #: Where the source is reporting someone else's figures, the originator.
+    #: A band that restates must name what it restates, for the same reason a
+    #: deal record must: a reader has to be able to get back to the primary.
+    restates: str = ""
+    #: The single figure to use where the model needs one. Stated explicitly
+    #: rather than derived: for a band built from two quarters the informative
+    #: value is the latest, for one built from a population it is the weighted
+    #: average, and no rule picks correctly between them.
+    point: float | None = None
 
     def __post_init__(self) -> None:
         if self.low > self.high:
             raise ValueError(f"{self.key}: band inverted, {self.low} > {self.high}")
+
+    @property
+    def point_estimate(self) -> float:
+        """The figure the model uses when it needs one number."""
+        if self.point is not None:
+            return self.point
+        return (self.low + self.high) / 2.0
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -256,4 +272,6 @@ class MarketBand:
             "source_url": self.source_url,
             "source_date": self.source_date.isoformat(),
             "note": self.note,
+            "restates": self.restates,
+            "point": self.point_estimate,
         }

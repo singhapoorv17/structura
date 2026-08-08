@@ -150,3 +150,100 @@ def test_resolution_is_fast_enough_to_feel_immediate(canonical_specs):
         resolve(DealSpec.from_dict(spec))
     elapsed = time.perf_counter() - start
     assert elapsed < MAX_SECONDS, f"{elapsed:.1f}s for {len(canonical_specs)} specs"
+
+
+@pytest.mark.gate("G3.5")
+@pytest.mark.parametrize(
+    "asset,size,contract,expect_range",
+    [
+        ("SOLAR", {"mwac": 300.0}, "PPA", (61.40, 64.49)),
+        ("WIND", {"mw": 300.0}, "HEDGE", (79.40, 83.79)),
+        ("STORAGE", {"mw": 150.0, "mwh": 600.0}, "TOLLING", None),
+    ],
+)
+def test_contract_pricing_comes_from_a_cited_band(asset, size, contract, expect_range):
+    """Contract price was the largest unsourced input in the model.
+
+    It is now a cited band for every technology where a free source publishes
+    one. This gate exists so it cannot quietly revert to a tool default: an
+    assumed price drives every downstream number and looks identical on screen
+    to a sourced one but for its badge.
+    """
+    from intake import ContractSpec, DealSpec, resolve
+
+    resolution = resolve(
+        DealSpec(
+            asset_type=asset,
+            size=size,
+            state="TX",
+            contract=ContractSpec(contract, 15),
+            cod="2028-06",
+        )
+    )
+    cell = resolution.inputs["contracted_price"]
+    assert cell.provenance.value == "benchmark", (
+        f"{asset} contract price is {cell.provenance.value}, not a cited band"
+    )
+    assert cell.source and cell.source_url and cell.source_date
+    assert cell.low is not None and cell.high is not None and cell.low < cell.high
+
+    if expect_range:
+        assert (cell.low, cell.value) == (expect_range[0], expect_range[0]) or (
+            cell.high,
+            cell.value,
+        ) == (expect_range[1], expect_range[1])
+
+
+@pytest.mark.gate("G3.5")
+def test_a_supplied_price_overrides_the_band():
+    from intake import ContractSpec, DealSpec, resolve
+
+    resolution = resolve(
+        DealSpec(
+            asset_type="SOLAR",
+            size={"mwac": 300.0},
+            state="TX",
+            contract=ContractSpec("PPA", 20, price=48.0),
+            cod="2028-06",
+        )
+    )
+    cell = resolution.inputs["contracted_price"]
+    assert cell.provenance.value == "stated"
+    assert cell.value == 48.0
+
+
+@pytest.mark.gate("G3.5")
+def test_a_band_that_restates_names_its_originator():
+    """A restated figure has to point back to whoever produced it."""
+    from comps.bands import BANDS
+
+    for band in BANDS:
+        if "leveltenenergy" in band.source_url or "reporting the" in band.source:
+            assert band.restates, f"{band.key} restates without naming a source"
+        assert band.point_estimate >= band.low
+        assert band.point_estimate <= band.high
+
+
+@pytest.mark.gate("G3.5")
+def test_resolved_revenue_is_in_a_plausible_range(canonical_spec):
+    """A revenue yield outside this range means an input is wrong somewhere.
+
+    Not a market claim — a smoke test. Contracted infrastructure does not
+    return 2% or 40% of capital cost in year-one revenue, and when this fires
+    it has always been a defaulting bug rather than an unusual deal.
+    """
+    from intake import DealSpec, resolve
+
+    resolution = resolve(DealSpec.from_dict(canonical_spec))
+    price = resolution.inputs.get("contracted_price")
+    production = resolution.inputs.get("production_p50")
+    capex = resolution.inputs.get("capex")
+    if not (price and production and capex) or not capex.value:
+        pytest.skip("this technology does not resolve a revenue line")
+
+    yield_pct = (price.value * production.value) / capex.value
+    assert 0.04 <= yield_pct <= 0.35, (
+        f"{canonical_spec['key']}: year-one revenue is {yield_pct:.1%} of "
+        f"capital cost (${price.value:,.2f}/MWh on {production.value:,.0f} MWh "
+        f"against ${capex.value / 1e6:,.0f}m)"
+    )
