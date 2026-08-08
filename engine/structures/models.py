@@ -7,8 +7,8 @@ schedule all arrive here as finished objects.
 
 Why five structures and not one
 -------------------------------
-SPEC.md §2.6, quoting Norton Rose Fulbright's *Cost of Capital: 2026 Outlook*
-(2026-01-29): traditional tax equity in which the investor retains the credits
+Norton Rose Fulbright's *Cost of Capital: 2026 Outlook* (2026-01-29) reports
+that traditional tax equity in which the investor retains the credits
 was **~30% of the market in 2024 and a smaller percentage in 2025**; **"most
 current deals employ hybrid or preferred equity structures"**; and Jack Cargas
 of BofA describes the position as *"it feels like there are now 31 different
@@ -93,7 +93,7 @@ __all__ = [
 
 
 class StructureKey(str, Enum):
-    """The five live 2026 capital structures (SPEC.md §2.6)."""
+    """The five live 2026 capital structures (NRF, *Cost of Capital: 2026 Outlook*)."""
 
     PARTNERSHIP_FLIP = "partnership_flip"
     T_FLIP = "t_flip"
@@ -210,7 +210,7 @@ class ProjectEconomics:
     interest: tuple[float, ...]
     principal: tuple[float, ...]
     distributable_cash: tuple[float, ...]
-    """Cash to equity out of the Phase 1 waterfall, after senior debt service
+    """Cash to equity out of the project waterfall, after senior debt service
     and reserves."""
     tax_depreciation: tuple[float, ...]
     book_depreciation: tuple[float, ...]
@@ -307,7 +307,7 @@ def build_context(
     discount_rate: float = 0.10,
     lockup_dscr: float | None = None,
 ) -> StructureContext:
-    """Run the Phase 1 spine and the Phase 2 tax engine once, and share them.
+    """Run the debt spine and the tax engine once, and share the results.
 
     Every structure is then measured against **the same** sculpted debt, the
     same waterfall and the same credit determination. Running the debt sizing
@@ -521,7 +521,7 @@ class FlipConfig:
 class TFlipConfig:
     """A flip with a §6418 transfer bolted on — the near-universal structure.
 
-    SPEC.md §2.6: Novogradac reports T-flips on *"pretty much every single
+    Novogradac reports T-flips on *"pretty much every single
     transaction."* The economics are a flip in which some or all of the credit
     is **sold for cash** rather than allocated to the tax-equity investor. The
     investor is then buying depreciation and cash, so it needs longer to reach
@@ -557,7 +557,7 @@ class TFlipConfig:
 class PreferredConfig:
     """Preferred equity partnership terms.
 
-    Crux (SPEC §2.2) puts preferred equity at **15% of ITC gross value in
+    Crux puts preferred equity at **15% of ITC gross value in
     2025**. Economically it sits between debt and the flip: the investor takes
     a stated return and a redemption right ahead of the sponsor's common, and
     normally also takes the tax attributes.
@@ -600,8 +600,8 @@ class PreferredConfig:
 class TransferConfig:
     """Direct sale of the credit under §6418.
 
-    28% of ITC gross value and **more than 90% of PTC value** in 2025 (Crux,
-    SPEC §2.2). The sponsor keeps the whole project and sells only the credit,
+    28% of ITC gross value and **more than 90% of PTC value** in 2025 (Crux).
+    The sponsor keeps the whole project and sells only the credit,
     so there is no partner, no capital account and no DRO — which is both the
     attraction and the limitation: depreciation stays with a sponsor who may
     not be able to use it.
@@ -623,7 +623,7 @@ class TransferConfig:
 class SaleLeasebackConfig:
     """Sale at fair market value followed by a lease back to the sponsor.
 
-    NRF (SPEC §2.6) lists sale-leaseback among the five live structures and
+    NRF lists sale-leaseback among the five live structures and
     notes it is **making a comeback**. The seller-lessee gets cash equal to
     FMV; the purchaser-lessor takes the whole tax position — the investment
     credit and the depreciation — and the lessee's only tax item is a rent
@@ -704,8 +704,8 @@ class SourcesAndUses:
     reserves. If a reported "capital raised" figure exceeds that number, the
     model is counting something that never funded the project.
 
-    The line this type draws, and why it is the whole point
-    ------------------------------------------------------
+    The line this type draws
+    ------------------------
     A **§6418 credit sale settles after the property is placed in service** —
     the credit does not exist until then. Its proceeds therefore *cannot* be a
     source of construction funding. They are a post-COD monetisation: cash that
@@ -720,7 +720,7 @@ class SourcesAndUses:
     stack; it does not build it.
 
     Where a project genuinely funds construction against an expected credit it
-    does so through an **ITC bridge loan** (SPEC §2.7: 98% advance at SOFR+150
+    does so through an **ITC bridge loan** (NRF 2026: 98% advance at SOFR+150
     if covered, 75% at SOFR+225 if not). That is debt, and Structura does not
     model it — see ``LIMITS_STRUCTURES.md``.
     """
@@ -1153,7 +1153,7 @@ def partner_after_tax_flows(
     The two switches matter more than they look. A developer with no tax
     capacity gets nothing from an allocated credit and nothing from an
     allocated loss; that is the whole reason the tax-equity and transfer
-    markets exist (SPEC §2.2: $63bn of credit monetisation in 2025). Modelling
+    markets exist (Crux: $63bn of credit monetisation in 2025). Modelling
     a sponsor as if it could use attributes it cannot use is the single most
     common way to make a flip look worse than it is.
     """

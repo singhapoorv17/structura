@@ -1,22 +1,20 @@
 """Direct transfer under §6418 — the credit sold for cents on the dollar.
 
 **§6418 is alive.** Draft bills proposed sunsetting it; the enacted OBBBA
-(P.L. 119-21) preserved it whole, and §6417 elective payment with it
-(SPEC.md §2.2, verified 2026-08-06). Any model built on the assumption that
-transferability died is modelling a bill that did not pass.
+(P.L. 119-21) preserved it whole, and §6417 elective payment with it (verified
+2026-08-06).
 
-Market shape (Crux, quoted at SPEC §2.2): total credit monetisation **$63bn in
-2025**; the transfer market alone **$32bn (2024) → $42bn (2025), +48%**. Of ITC
-gross value, direct transfer took **28%**; for PTCs, **more than 90%**. That
-last figure is the single most useful heuristic in the whole selector: a §45Y
-deal should start from a transfer assumption and justify anything else.
+Market shape (Crux): total credit monetisation **$63bn in 2025**; the transfer
+market alone **$32bn (2024) → $42bn (2025), +48%**. Of ITC gross value, direct
+transfer took **28%**; for PTCs, **more than 90%**. The selector therefore
+starts a §45Y deal from a transfer assumption.
 
 Why it is structurally different from everything else here
 ----------------------------------------------------------
 There is **no partner**. The sponsor keeps 100% of the project, sells only the
 credit, and therefore has no capital account, no DRO, no minimum gain and no
-§704(d) limitation to worry about. That simplicity is the product: a transfer
-closes in weeks where a flip closes in months.
+§704(d) limitation. A transfer closes in weeks where a flip closes in
+months.
 
 The cost of that simplicity is the other half of the trade:
 
@@ -227,7 +225,7 @@ def run_transfer(
             f"and is reimbursed out of the sale; net equity at risk after "
             f"settlement is ${max(equity - transfer.net_proceeds, 0.0):,.0f}. "
             f"Funding construction against the expected credit would require an "
-            f"ITC bridge loan (SPEC §2.7), which Structura does not model."
+            f"ITC bridge loan, which Structura does not model."
         ),
     )
     risks.extend(funding_risk_flags(sources))

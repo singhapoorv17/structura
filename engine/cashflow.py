@@ -13,7 +13,7 @@ Conventions
   *operating-year* basis, so with ``periods_per_year = 2`` both sub-periods of
   operating year 3 carry the same price and the same degradation factor.
 * An annual quantity is divided evenly across the sub-periods of its year. No
-  seasonality in Phase 1 (declared in PHASE1.md).
+  seasonality; see LIMITS.md.
 """
 
 from __future__ import annotations
@@ -61,9 +61,8 @@ def build_cashflow(
     **Tax.** Taxable income is EBITDA less straight-line book depreciation
     (less interest under ``FULL``). Negative taxable income is carried forward
     as a net operating loss and offsets later income in full. Federal only; no
-    state tax, no MACRS, no bonus depreciation - those are Phase 2 items that
-    live in ``engine/tax/`` because they are tax-law-dependent and therefore
-    need dated citations.
+    state tax, no MACRS, no bonus depreciation - those live in ``engine/tax/``
+    because they are tax-law-dependent and therefore need dated citations.
     """
     ppy = project.periods_per_year
     n = project.operating_periods

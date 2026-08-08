@@ -1,10 +1,8 @@
 """Notes - methodology, conventions, what is solver-derived, and the disclaimer.
 
-A model without a methods page is not auditable, and a model that is not
-auditable is worthless to a credit committee (SPEC.md §4.2). This sheet states
-plainly what the workbook does, what it deliberately does not do, which single
-cell came out of Python rather than out of Excel, and where the market defaults
-come from.
+This sheet states what the workbook does, what it does not do, which cells
+came out of Python rather than out of Excel, and where the market defaults come
+from.
 """
 
 from __future__ import annotations
@@ -306,14 +304,12 @@ def build(wb: WorkbookBuilder, model: ModelBundle) -> None:
     )
     _item(
         sw,
-        "Honest positioning",
-        "None of the mathematics here is novel. Debt sculpting, LLCR/PLCR and "
-        "the IDC circularity are decades-old practice, and free spreadsheet "
-        "implementations exist. What Structura contributes is packaging, "
-        "currency, reproducibility and auditability: a tested, typed, "
-        "versioned, MIT-licensed implementation in which every default carries "
-        "a citation and a date, and every check is asserted rather than "
-        "assumed.",
+        "Methods",
+        "The mathematics here is standard project finance. Debt sculpting, "
+        "LLCR/PLCR and the IDC circularity are long-established practice, and "
+        "free spreadsheet implementations exist. This implementation is "
+        "typed, tested and MIT-licensed; every default carries a citation and "
+        "a date, and every check is asserted rather than assumed.",
     )
     sw.skip()
 

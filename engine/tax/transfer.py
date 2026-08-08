@@ -1,18 +1,13 @@
 """§6418 transferability and §6417 direct pay - alive, and dominant.
 
-**The fact most models are two years behind on (SPEC §2.2, verified
-2026-08-06).** Draft bills proposed sunsetting §6418. **The enacted OBBBA
-preserved it whole, and §6417 elective payment is also intact.** Any model built
-on the assumption that transferability died is modelling a bill that did not
-pass.
+**Verified 2026-08-06.** Draft bills proposed sunsetting §6418. **The enacted
+OBBBA preserved it whole, and §6417 elective payment is also intact.**
 
-**Market shape (Crux, quoted in SPEC §2.2).** Total credit monetisation reached
-**$63bn in 2025**. The transfer market alone went **$32bn (2024) -> $42bn
-(2025), +48%**. Of ITC gross value: **partnerships 57%, direct transfer 28%,
-preferred equity 15%**. For PTCs, **more than 90% is direct transfer** - which
-is the single most useful heuristic in the whole structure selector, because it
-says a PTC deal should start from a transfer assumption and justify anything
-else.
+**Market shape (Crux).** Total credit monetisation reached **$63bn in 2025**.
+The transfer market alone went **$32bn (2024) -> $42bn (2025), +48%**. Of ITC
+gross value: **partnerships 57%, direct transfer 28%, preferred equity 15%**.
+For PTCs, **more than 90% is direct transfer**, so a PTC deal starts from a
+transfer assumption in the structure selector.
 
 **Mechanics modelled**
 
@@ -100,8 +95,8 @@ _TAXABLE_ENTITY_DIRECT_PAY_SECTIONS: frozenset[CreditSection] = frozenset(
 def default_transfer_price(credit_type: CreditType) -> float:
     """Default clearing price, cents on the dollar.
 
-    ITC: 0.90, implied by the SPEC §2.7 ITC bridge quote ("75% advance, ~67.5%
-    net at 90c"). PTC: a **placeholder** - no PTC clearing price is carried by
+    ITC: 0.90, implied by the Norton Rose Fulbright ITC bridge quote ("75%
+    advance, ~67.5% net at 90c"). PTC: a **placeholder** - no PTC clearing price is carried by
     the verified rulebook, and PTC strips price differently because they deliver
     over ten years. See ``UNVERIFIED.md``.
     """

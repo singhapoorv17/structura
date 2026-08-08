@@ -42,7 +42,7 @@ TOL = 1e-6
 
 
 def storage_project() -> ProjectInputs:
-    """A contracted 100 MW storage deal. Storage keeps §48E to 2033 (SPEC §2.1)."""
+    """A contracted 100 MW storage deal. Storage keeps §48E to 2033."""
     return ProjectInputs(
         name="Structures test - storage",
         capex=200_000_000.0,

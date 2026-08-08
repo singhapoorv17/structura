@@ -11,8 +11,9 @@ Each constant is annotated with:
 * a ``Confidence`` marker, where anything not ``VERIFIED`` is also listed in
   ``engine/tax/UNVERIFIED.md``.
 
-Law verified on **2026-08-06** against SPEC.md §2. Re-verify before any use;
-§2.5 is in active litigation and §2.3 guidance is expressly interim.
+Law verified on **2026-08-06** against the Structura rulebook. Re-verify
+before any use; the begin-construction rules are in active litigation and the
+FEOC guidance is expressly interim.
 """
 
 from __future__ import annotations
@@ -80,7 +81,7 @@ RATE_TOLERANCE: Final[float] = 1e-12
 
 
 # ---------------------------------------------------------------------------
-# Key statutory dates - SPEC §2.1, §2.2, §2.3, §2.5 (Confidence.VERIFIED)
+# Key statutory dates (Confidence.VERIFIED)
 # ---------------------------------------------------------------------------
 
 #: One Big Beautiful Bill Act, P.L. 119-21, enacted 2025-07-04.
@@ -101,24 +102,24 @@ WIND_SOLAR_PIS_BACKSTOP: Final[date] = date(2027, 12, 31)
 CONTINUITY_SAFE_HARBOR_YEARS: Final[int] = 4
 
 #: FEOC restrictions take effect for property/components and taxable years from
-#: this date. SPEC §2.3.
+#: this date.
 FEOC_EFFECTIVE_DATE: Final[date] = date(2026, 1, 1)
 
 #: IRS Notice 2025-42 - eliminated the 5% cost safe harbor for wind/solar
-#: >1.5 MW. Issued August 2025. SPEC §2.5.
+#: >1.5 MW. Issued August 2025.
 NOTICE_2025_42_ISSUE_DATE: Final[date] = date(2025, 8, 1)
 
 #: *Oregon Environmental Council v. IRS*, No. 25-4400 (CKK) (D.D.C.) vacated
 #: Notice 2025-42 in full as arbitrary and capricious under the APA and
-#: remanded. SPEC §2.5.
+#: remanded.
 NOTICE_2025_42_VACATUR_DATE: Final[date] = date(2026, 6, 6)
 
-#: IRS Notice 2026-15 - interim FEOC / MACR guidance. SPEC §2.3.
+#: IRS Notice 2026-15 - interim FEOC / MACR guidance.
 NOTICE_2026_15_RELEASE_DATE: Final[date] = date(2026, 2, 12)
 
 
 # ---------------------------------------------------------------------------
-# Credit rates - SPEC §2.1 (Confidence.VERIFIED for ITC; see UNVERIFIED.md for
+# Credit rates (Confidence.VERIFIED for ITC; see UNVERIFIED.md for
 # the PTC inflation adjustment)
 # ---------------------------------------------------------------------------
 
@@ -141,17 +142,17 @@ PTC_CREDIT_PERIOD_YEARS: Final[int] = 10
 #: Domestic content / energy community bonus, expressed in ITC percentage
 #: points. §48(a)(12)/(14) style drafting carried into §48E: 2 points at the
 #: base rate, 10 points where PWA is satisfied (the same 5x multiplier).
-#: SPEC §2.4 quotes the 10-point figure, which presumes PWA compliance.
+#: The 10-point figure presumes PWA compliance.
 ADDER_BASE_PERCENTAGE_POINTS: Final[float] = 0.02
 ADDER_PWA_PERCENTAGE_POINTS: Final[float] = 0.10
 
 #: For the PTC the bonus is a 10% *increase in the credit amount*, not a
-#: percentage-point addition. SPEC §2.4.
+#: percentage-point addition.
 PTC_ADDER_MULTIPLIER: Final[float] = 0.10
 
 
 # ---------------------------------------------------------------------------
-# Domestic content - SPEC §2.4 (Confidence.VERIFIED)
+# Domestic content (Confidence.VERIFIED)
 # ---------------------------------------------------------------------------
 
 #: Applicable-percentage threshold the domestic cost ratio must MEET OR EXCEED,
@@ -166,7 +167,7 @@ DOMESTIC_CONTENT_THRESHOLDS: Final[Mapping[int, float]] = {
 
 
 # ---------------------------------------------------------------------------
-# Non-wind/solar phase-down - SPEC §2.1 (Confidence.VERIFIED)
+# Non-wind/solar phase-down (Confidence.VERIFIED)
 # ---------------------------------------------------------------------------
 
 #: Storage, geothermal, nuclear and hydro keep the full §48E credit for
@@ -182,7 +183,7 @@ NON_WIND_SOLAR_PHASE_DOWN: Final[Mapping[int, float]] = {
 
 
 # ---------------------------------------------------------------------------
-# Begin construction - SPEC §2.5
+# Begin construction
 # ---------------------------------------------------------------------------
 
 #: The 5% cost safe harbor: the taxpayer must have paid or incurred at least
@@ -190,7 +191,7 @@ NON_WIND_SOLAR_PHASE_DOWN: Final[Mapping[int, float]] = {
 FIVE_PERCENT_SAFE_HARBOR_THRESHOLD: Final[float] = 0.05
 
 #: Notice 2025-42 removed the 5% safe harbor for wind/solar facilities with
-#: nameplate capacity ABOVE this threshold. SPEC §2.5. (Confidence.VERIFIED.)
+#: nameplate capacity ABOVE this threshold. (Confidence.VERIFIED.)
 NOTICE_2025_42_CAPACITY_THRESHOLD_MW: Final[float] = 1.5
 
 #: PLACEHOLDER. Notice 2025-42 applied prospectively to facilities beginning
@@ -255,7 +256,7 @@ DEFAULT_BONUS_RATE: Final[float] = 1.00
 
 
 # ---------------------------------------------------------------------------
-# Transfer / direct pay - SPEC §2.2 (Confidence.VERIFIED)
+# Transfer / direct pay (Confidence.VERIFIED)
 # ---------------------------------------------------------------------------
 
 #: §70512(h) bars transfer of these credits to a specified foreign entity
@@ -277,8 +278,9 @@ SECTION_70512H_EFFECTIVE_FOR_TY_BEGINNING_AFTER: Final[date] = OBBBA_ENACTMENT_D
 #: Credits eligible for a §6418 transfer election, as modelled here.
 TRANSFERABLE_SECTIONS: Final[frozenset[CreditSection]] = SECTION_70512H_PROHIBITED_SECTIONS
 
-#: Cents on the dollar. SPEC §2.7 prices the ITC bridge at "75% advance
-#: (~67.5% net at 90c)", i.e. a 90c ITC clearing price.
+#: Cents on the dollar. Norton Rose Fulbright, *Cost of Capital: 2026 Outlook*
+#: prices the ITC bridge at "75% advance (~67.5% net at 90c)", i.e. a 90c ITC
+#: clearing price.
 DEFAULT_ITC_TRANSFER_PRICE: Final[float] = 0.90
 
 #: PLACEHOLDER. No PTC clearing price is given in the verified rulebook; PTC
@@ -294,30 +296,30 @@ DEFAULT_TRANSFER_TRANSACTION_COST_PCT: Final[float] = 0.02
 #: Confidence.PROVISIONAL.
 EXCESSIVE_CREDIT_TRANSFER_PENALTY_RATE: Final[float] = 0.20
 
-#: Crux market data quoted in SPEC §2.2 - share of ITC gross value by route,
-#: 2025. Used for context/narration only; never for arithmetic on a deal.
+#: Crux market data - share of ITC gross value by route, 2025. Used for
+#: context/narration only; never for arithmetic on a deal.
 ITC_MARKET_MIX_2025: Final[Mapping[str, float]] = {
     "partnership": 0.57,
     "direct_transfer": 0.28,
     "preferred_equity": 0.15,
 }
 
-#: SPEC §2.2: ">90% direct transfer" for PTCs.
+#: Crux: ">90% direct transfer" for PTCs.
 PTC_DIRECT_TRANSFER_SHARE_2025: Final[float] = 0.90
 
-#: SPEC §2.2: transfer market $32bn (2024) -> $42bn (2025), +48%.
+#: Crux: transfer market $32bn (2024) -> $42bn (2025), +48%.
 TRANSFER_MARKET_SIZE_USD_BN: Final[Mapping[int, float]] = {2024: 32.0, 2025: 42.0}
 
 
 # ---------------------------------------------------------------------------
-# FEOC / MACR thresholds - SPEC §2.3
+# FEOC / MACR thresholds
 # ---------------------------------------------------------------------------
 #
 # ⚠️  READ THIS BEFORE TRUSTING ANY NUMBER BELOW.
 #
 # Exactly ONE threshold in this table is carried by the verified rulebook:
 # solar eligible components sold in CY2026 must reach a MACR of at least 50%
-# (SPEC §2.3). Every other cell is a PLACEHOLDER: the *structure* is right (the
+# Every other cell is a PLACEHOLDER: the *structure* is right (the
 # thresholds are technology- and year-specific and escalate over time) but the
 # values have not been confirmed against the statutory table in OBBBA §70512 or
 # against IRS Notice 2026-15. They are listed in UNVERIFIED.md and every

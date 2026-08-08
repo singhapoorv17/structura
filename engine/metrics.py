@@ -7,7 +7,7 @@ negative. The effective cost of debt is measured from the *lender's* chair -
 the facility advanced is a negative number to them - which is why the same
 routine produces the borrower's all-in cost.
 
-``pyxirr`` is used for the root-finding (SPEC.md §5.2). It is a compiled
+``pyxirr`` is used for the root-finding. It is a compiled
 Brent/Newton implementation and is materially more robust than a hand-rolled
 bisection on the long, sign-alternating cashflow series a levered project throws
 off.
@@ -129,11 +129,11 @@ def equity_cashflows(
 ) -> tuple[float, ...]:
     """Sponsor cashflow series: equity in at t=0, distributions thereafter.
 
-    Phase 1 treats the whole equity contribution as a single outflow at COD.
+    The whole equity contribution is treated as a single outflow at COD.
     Equity is in reality drawn across construction (often *ahead* of debt, on
     an equity-first funding order), which makes the true equity IRR slightly
-    lower. Declared in PHASE1.md; the monthly equity draw series is already
-    computed in ``ConstructionResult.monthly_equity_draw`` for Phase 2.
+    lower. Simplified here; see LIMITS.md. The monthly equity draw series is
+    available on ``ConstructionResult.monthly_equity_draw``.
     """
     return (-construction.equity_at_cod, *waterfall.distributions)
 
@@ -144,7 +144,7 @@ def period_dates(
     """Payment dates: COD, then the end of each model period.
 
     Uses a 365-day year scaled by period length. Exact day-count conventions
-    (30/360, act/360) are a Phase 4 Excel-parity concern, not a sizing concern.
+    (30/360, act/360) are an Excel-parity concern, not a sizing concern.
     """
     days = int(round(365.0 / periods_per_year))
     return tuple(cod_date + timedelta(days=days * i) for i in range(n_periods + 1))

@@ -72,7 +72,7 @@ def storage(boc: date, pis: date, **kw: object) -> TaxProject:
 
 
 # ---------------------------------------------------------------------------
-# The three headline wind/solar cases (SPEC §2.1)
+# The three headline wind/solar cases
 # ---------------------------------------------------------------------------
 
 
@@ -149,7 +149,7 @@ def test_continuity_failure_pushes_a_timely_project_onto_the_backstop() -> None:
 
 
 # ---------------------------------------------------------------------------
-# Storage / geothermal / nuclear / hydro runway and phase-down (SPEC §2.1)
+# Storage / geothermal / nuclear / hydro runway and phase-down
 # ---------------------------------------------------------------------------
 
 
@@ -230,7 +230,7 @@ def test_pwa_multiplier_also_scales_the_adders() -> None:
 
 
 def test_ptc_rate_refuses_to_guess_an_unsourced_inflation_factor() -> None:
-    """Honest gaps beat fabricated precision (SPEC §4, build brief).
+    """Declared gaps rather than fabricated precision.
 
     The 0.3 c/kWh base amount and the 5x multiplier are implemented; the annual
     §45Y(c) inflation adjustment factor is not shipped for any year after the
@@ -283,7 +283,7 @@ def test_ptc_adders_are_multiplicative_not_additive() -> None:
 
 
 # ---------------------------------------------------------------------------
-# The result must explain itself (SPEC §4.2, §6.6)
+# The result must explain itself
 # ---------------------------------------------------------------------------
 
 

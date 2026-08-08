@@ -6,7 +6,7 @@ const CONSTRAINT_NOTE = {
   DSCR:
     'The minimum debt service coverage test is the binding constraint — the loan is sized by coverage, not by the gearing cap or the tail. Move the target DSCR and the quantum moves with it.',
   GEARING:
-    'The gearing cap binds before the coverage test does, so achieved DSCR sits above the market floor. That headroom is the honest consequence of an ITC: a 30% §48E credit is a source, not a return, and it displaces equity. Real sponsors take the headroom as back-leverage at the holdco — which Structura does not model.',
+    'The gearing cap binds before the coverage test does, so achieved DSCR sits above the market floor. That headroom follows from the ITC: a 30% §48E credit is a source, not a return, and it displaces equity. In the market the headroom is taken as back-leverage at the holdco, which Structura does not model.',
   LLCR: 'The loan life coverage ratio binds — the lender is constrained by the present value of cash over the debt term rather than by any single year.',
   PLCR: 'The project life coverage ratio binds — the tail beyond the debt term is what limits the quantum.',
   TENOR: 'The maximum tenor binds; the loan amortises faster than coverage would require.',

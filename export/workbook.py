@@ -2,14 +2,13 @@
 
 WHY THIS FILE EXISTS AT ALL
 ---------------------------
-SPEC.md §5 makes ``openpyxl`` mandatory for one reason: it is the only writer
-that emits ``iterate="1"`` into ``xl/workbook.xml``. A lender-grade project
+``openpyxl`` is used for one reason: it is the only writer that emits
+``iterate="1"`` into ``xl/workbook.xml``. A lender-grade project
 finance model has genuine circular references - IDC depends on the debt draw,
 the draw depends on total project cost, total project cost includes IDC - and
 without iterative calculation Excel opens the file with a circular-reference
-warning and zeroes the chain. That warning is an instant credibility kill in
-front of a credit committee, so the very first thing this builder does is set
-``CalcProperties(iterate=True, ...)``.
+warning and zeroes the chain. The first thing this builder does is therefore
+set ``CalcProperties(iterate=True, ...)``.
 
 ``fullCalcOnLoad=True`` is equally mandatory but for a different reason:
 openpyxl writes ``<f>`` elements with **no cached ``<v>``**. Every formula cell
@@ -546,7 +545,7 @@ class WorkbookBuilder:
     def enable_iterative_calculation(self) -> None:
         """Switch on iterative calculation and force a full calc on open.
 
-        Both halves are non-negotiable (SPEC.md §5, §6.5):
+        Both halves are required:
 
         * ``iterate`` lets Excel resolve the IDC <-> debt size <-> fees <->
           DSRA circularity natively, instead of raising a circular-reference
@@ -616,7 +615,7 @@ class WorkbookBuilder:
         """Create a workbook-scoped named range over a single cell.
 
         Named ranges are what make the formulas readable: ``=CFADS/Target_DSCR``
-        instead of ``=D27/$C$18``. SPEC.md §6.5 requires one for every driver.
+        instead of ``=D27/$C$18``. Every driver carries one.
         """
         if name in self._names:
             raise ValueError(f"defined name {name!r} already exists")

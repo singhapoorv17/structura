@@ -2,7 +2,7 @@
 
 WHY THIS EXISTS
 ---------------
-The whole claim of Phase 4 is that the exported workbook carries *live
+The exported workbook carries *live
 formulas* that reproduce the engine - not pasted numbers. Excel is not
 available in this environment, so the only way to verify that claim honestly is
 to read the emitted formulas back and evaluate them.

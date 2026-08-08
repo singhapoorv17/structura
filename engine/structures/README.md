@@ -1,15 +1,14 @@
 # `engine/structures` — the five live 2026 structures, and the selector
 
-Phase 3 of SPEC.md §9, delivering **§6.2 (the structure selector)** and
-**§6.3 (partnership tax rigor)**. Pure Python. Imports `engine` (the Phase 1
-sculpting spine) and `engine.tax` (the Phase 2 current-law engine); duplicates
-neither.
+The structure selector and the partnership-tax layer underneath it. Pure
+Python. Imports `engine` (the sculpting spine) and `engine.tax` (the
+current-law engine); duplicates neither.
 
 ---
 
 ## Why this package exists
 
-Two verified facts, both checked live on 2026-08-06.
+Two facts, both checked live on 2026-08-06.
 
 **1. The market no longer has one answer.** Norton Rose Fulbright's *Cost of
 Capital: 2026 Outlook* (2026-01-29) records five live structures and reports
@@ -25,17 +24,15 @@ the market now agonises over, and no free tool addresses it.
 **2. SAM has no partnership tax.** A grep of SAM 2026.7.3's three finance
 modules — `cmod_levpartflip.cpp`, `cmod_singleowner.cpp`, `common.cpp` —
 returns **zero** hits for `capital_account`, `deficit_restoration`,
-`outside_basis`, `704(b)` or `suspended_loss` (SPEC §3.2). SAM's flip is a
-stylised fixed pre-flip/post-flip percentage split with an IRR-triggered date.
-It is a good model of the cash. It is not a model of the partnership.
+`outside_basis`, `704(b)` or `suspended_loss`. SAM's flip is a stylised fixed
+pre-flip/post-flip percentage split with an IRR-triggered date: a model of the
+cash rather than of the partnership. `partnership.py` implements the
+partnership layer.
 
-`partnership.py` is that gap. It is the reason this package exists.
-
-**Be honest about what this is not.** Ed Bodmer gives away a full A-to-Z tax
-equity track covering fixed and yield-based flips, 704(b) capital accounts,
-outside basis, DROs, minimum gain, PAYGO and sale-leaseback (SPEC §3.4). The
-maths here is not novel. What is different is that it is versioned, tested,
-current with OBBBA and FEOC, and honest about its own limits — see
+Ed Bodmer's Excel library covers fixed and yield-based flips, 704(b) capital
+accounts, outside basis, DROs, minimum gain, PAYGO and sale-leaseback. The
+mathematics here is not novel; what differs is that it is versioned, tested,
+current with OBBBA and FEOC, and carries a written limits file — see
 `LIMITS_STRUCTURES.md`.
 
 ---
@@ -45,7 +42,7 @@ current with OBBBA and FEOC, and honest about its own limits — see
 | Module | Responsibility |
 |---|---|
 | `defaults.py` | Every market heuristic and tolerance. Anything unsourced is a `PLACEHOLDER_` `Benchmark` carrying its own note. **No magic numbers elsewhere.** |
-| `partnership.py` | §704(b) capital accounts, DRO caps and reallocation, outside basis, §704(d) suspended losses, minimum gain chargeback, §50(c)(3). **The moat.** |
+| `partnership.py` | §704(b) capital accounts, DRO caps and reallocation, outside basis, §704(d) suspended losses, minimum gain chargeback, §50(c)(3). |
 | `models.py` | Configs, `StructureContext`, `ProjectEconomics`, `StructureResult`, risk flags, cash-timing and cost-of-capital helpers. |
 | `flip.py` | Partnership flip: yield-based (solved with `scipy.optimize.brentq`) and fixed-date. |
 | `tflip.py` | T-flip / hybrid: a flip with a §6418 transfer bolted on, plus the flip-point movement it causes. |
@@ -267,7 +264,7 @@ comparison meaningless.
 
 | Metric | Meaning |
 |---|---|
-| **Sponsor after-tax IRR** | The primary ranking metric (SPEC §6.2). Cash distributions, plus the tax effect of allocated income or loss, plus usable credits. |
+| **Sponsor after-tax IRR** | The primary ranking metric. Cash distributions, plus the tax effect of allocated income or loss, plus usable credits. |
 | **Effective cost of capital** | IRR of third-party capital *in* against everything paid or **surrendered** to those providers — debt service, investor distributions, rent, and the tax attributes given away, valued at what the recipient realises. The definition is stated in full in `models.effective_cost_of_capital`, because the number is otherwise arguable. |
 | **Cash timing** | First positive year, share received by years 5 and 10, cash-weighted average years, payback. A transfer front-loads; a flip defers past the flip point. Two structures with the same IRR are not the same deal. |
 | **Sources and uses** | Senior debt + third-party equity + sponsor equity, reconciled to capex + IDC + fees + funded reserves. **Post-COD monetisation — §6418 transfer proceeds, a sale-leaseback price — is reported in its own column and is never a source**: a credit does not exist until the property is placed in service, so its sale reimburses committed capital rather than funding construction. Sources cannot exceed uses; an over-sized commitment raises a BLOCKING `funding_oversubscribed` risk. |
@@ -296,9 +293,9 @@ then ranks on **sponsor NPV** with the **effective cost of capital** displayed
 alongside as the cross-check, `StructureComparison.headline` states which basis
 was used, and `table()["sponsor_after_tax_irr_display"]` is `None` so a UI
 cannot print the number either. The four thresholds are Structura's own
-reporting guards, not market data; they live in `structures/defaults.py`, change
-no computed number, and decide only what may be *led with*. See
-`CALIBRATION.md`.
+reporting guards, not market data; they live in `structures/defaults.py`,
+change no computed number, and decide only which rate may be shown as the
+headline.
 
 Ties — two meaningful IRRs within `RANKING_TOLERANCE` — break through a
 published chain, and every break that fires is recorded in
@@ -312,7 +309,7 @@ published chain, and every break that fires is recorded in
 ### The hard credit gate
 
 A project that fails the FEOC / Material Assistance Cost Ratio test has **no
-credit at all** (SPEC §2.3). A credit-dependent structure — a direct transfer,
+credit at all**. A credit-dependent structure — a direct transfer,
 or a T-flip, which is *defined* by its transfer leg — then cannot be ranked
 first, or at all. The selector enforces this centrally, independently of the
 individual modules, because it is exactly the kind of result that must not
@@ -324,7 +321,7 @@ Structured facts, never prose: winner, primary metric, runner-up, margin, a
 `Driver` per comparison metric with both values and the delta, the disqualified
 structures with their reasons, the tie-breaks that fired, and caveats — including
 every placeholder assumption the winner consumed and any blocking risk on it.
-The narrator (SPEC §6.6) renders this. It never computes and never overrides.
+The narrator renders this. It never computes and never overrides.
 
 ---
 
@@ -413,6 +410,6 @@ from engine.structures import (
 
 ## Not advice
 
-Illustrative modelling tool. **Not tax, legal, accounting or investment advice**
-(SPEC §4.4). Read `LIMITS_STRUCTURES.md`, `CALIBRATION.md` and
+Illustrative modelling tool. **Not tax, legal, accounting or investment
+advice.** Read `LIMITS_STRUCTURES.md`, `LIMITS.md` and
 `engine/tax/UNVERIFIED.md` before relying on any number produced here.

@@ -11,8 +11,8 @@ in turn depends on total project cost through the gearing cap::
 
     D = MIN( D_DSCR , max_gearing x TPC )
 
-That is a genuine fixed point, and it is the reason SPEC.md §5 makes
-``openpyxl`` mandatory: it is the only writer that can set ``iterate="1"``, so
+That is a genuine fixed point, and it is why ``openpyxl`` is used: it is the
+only writer that can set ``iterate="1"``, so
 this is the only toolchain in which the exported workbook resolves the loop
 natively instead of opening with a circular-reference warning.
 

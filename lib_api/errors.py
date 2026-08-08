@@ -1,7 +1,7 @@
 """One exception type, one JSON error shape.
 
-``API_CONTRACT.md``: ``400 {"error": "message", "field": "capex"}`` for
-validation, ``500 {"error": "..."}`` otherwise, and **never a stack trace**.
+``400 {"error": "message", "field": "capex"}`` for validation,
+``500 {"error": "..."}`` otherwise, and **never a stack trace**.
 Everything that is a caller's fault raises :class:`ApiError`; everything else
 escapes to the handler, which logs the traceback to stderr and returns an
 opaque 500.

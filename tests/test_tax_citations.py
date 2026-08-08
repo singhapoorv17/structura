@@ -1,8 +1,8 @@
-"""The citation registry is the moat, so it is tested like one.
+"""Tests for the citation registry.
 
-SPEC.md §4.1 requires every tax rule to carry a citation and a verified-on date,
-rendered by a `/current-law` page. SPEC §10.4 requires every rule in §2 to have
-a test *and* a citation. These tests enforce that mechanically:
+Every tax rule must carry a citation and a verified-on date, rendered by the
+`/current-law` page, and every rule must have a test as well as a citation.
+These tests enforce that mechanically:
 
 * every citation is complete (authority, plain English, source, date);
 * every citation id referenced by a rule module resolves;

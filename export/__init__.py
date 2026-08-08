@@ -1,7 +1,7 @@
 """Structura Excel export - the lender-grade workbook with live formulas.
 
-SPEC.md §6.5 and §4.2: the exported model carries **live formulas, not pasted
-values**, or the "lender-grade" claim is false. Change the DSCR input cell and
+The exported model carries **live formulas, not pasted values**. Change the
+DSCR input cell and
 every dependent figure recalculates - including the debt quantum, because the
 sculpt, the sizing tests and the construction funding circularity are all
 written as Excel formulas.

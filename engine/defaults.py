@@ -2,7 +2,7 @@
 
 Every benchmark in this module is a *public* market data point carried with its
 source and the date it was verified. Nothing here comes from a real transaction
-or from any employer's data (SPEC.md §4.5).
+or from any employer's data.
 
 The benchmarks are the August-2026 market as reported in Norton Rose Fulbright's
 *Cost of Capital: 2026 Outlook* (published 2026-01-29), which is the standard
@@ -73,8 +73,8 @@ class Benchmark:
     source:
         Citation string. Must identify a *public* document.
     verified_on:
-        Date the citation was checked. SPEC.md §4.1 makes currency the moat:
-        every default carries the date someone last looked.
+        Date the citation was checked. Every default carries the date it was
+        last looked at.
     note:
         Any interpretation the engine applies on top of the raw citation.
     """
@@ -133,7 +133,7 @@ class DebtPhase(str, Enum):
 
 
 # ---------------------------------------------------------------------------
-# Minimum DSCR by technology and revenue-risk profile  (SPEC.md §2.7)
+# Minimum DSCR by technology and revenue-risk profile
 # ---------------------------------------------------------------------------
 
 MIN_DSCR: Final[dict[tuple[Technology, RevenueContractType], Benchmark]] = {
@@ -200,7 +200,7 @@ def min_dscr(
 
 
 # ---------------------------------------------------------------------------
-# Debt pricing  (SPEC.md §2.7)
+# Debt pricing
 # ---------------------------------------------------------------------------
 
 BASE_SPREAD_BPS: Final[dict[DebtPhase, Benchmark]] = {
@@ -334,7 +334,7 @@ ITC_BRIDGE_ADVANCE: Final[dict[str, Benchmark]] = {
 FEDERAL_TAX_RATE: Final[Benchmark] = Benchmark(
     value=0.21, unit="decimal", source="IRC §11(b), 21% corporate rate",
     verified_on=VERIFIED,
-    note="Federal only. State tax is out of scope for the Phase 1 spine.",
+    note="Federal only. State tax is out of scope.",
 )
 
 

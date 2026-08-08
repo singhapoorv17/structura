@@ -1,65 +1,60 @@
 """Calibrated reference deals — the demo set, and the calibration regression.
 
-Why this module exists
-----------------------
-Structura's mechanics were verified long before its *inputs* were. A model can
-be arithmetically perfect and still produce a number no practitioner will
-believe: the shipped demo case produced a 163% sponsor IRR and reported more
-third-party capital than the project cost to build. Neither was a solver bug.
-Both were the consequence of an input set nobody had checked against how a deal
-is actually financed.
-
-This module is the answer to that. Each reference deal is a **complete, internally
-consistent capital structure** — project, debt terms, tax facts, sponsor tax
-profile and one config per structure — chosen so that:
+What a reference deal is
+------------------------
+Each reference deal is a **complete, internally consistent capital structure** —
+project, debt terms, tax facts, sponsor tax profile and one config per structure
+— constructed so that:
 
 * **Sources equal uses.** Senior debt plus third-party equity plus sponsor
   equity equals capex plus IDC plus fees plus funded reserves, exactly. Post-COD
   credit monetisation is reported separately and never counted as construction
   funding (see :class:`engine.structures.models.SourcesAndUses`).
 * **The achieved minimum DSCR clears the published market floor** for the
-  technology and revenue-risk profile (SPEC §2.7 / :data:`engine.defaults.MIN_DSCR`).
-* **The sponsor's after-tax IRR lands in a defensible band.** Real sponsor
-  equity IRRs in contracted US renewables and storage run roughly **8-15%
-  levered after tax**. Every deal states the band it expects and
+  technology and revenue-risk profile (Norton Rose Fulbright, *Cost of Capital:
+  2026 Outlook*, via :data:`engine.defaults.MIN_DSCR`).
+* **The sponsor's after-tax IRR lands in a defensible band.** Sponsor equity
+  IRRs in contracted US renewables and storage run roughly **8-15% levered
+  after tax**. Every deal states the band it expects and
   ``tests/test_reference_deals.py`` asserts it.
 
-Provenance rules, unchanged from the rest of the engine
--------------------------------------------------------
-**Never fabricate a market number.** Every assumption below is an
-:class:`Assumption` carrying its source and the date it was verified. Anything
-not traceable to a public document is ``is_placeholder=True``, is listed by
+The deals therefore double as a regression fence. A change to the engine that
+moves a reference deal outside its band fails the test suite.
+
+Provenance
+----------
+Every assumption below is an :class:`Assumption` carrying its source and the
+date it was verified. Anything not traceable to a public document is
+``is_placeholder=True``, is listed by
 :meth:`ReferenceDeal.placeholder_assumptions`, and surfaces as a warning on
 every run. That covers, in particular:
 
-* **Capex per kW and per kWh.** The ATB (SPEC §5.1) is the intended anchor and
-  is a build-time data dependency this module does not carry; the figures here
-  are round, plausible, labelled placeholders.
-* **Revenue.** SPEC §5.1 is explicit that *"PPA prices: no free source
-  exists"* — LevelTen's index is subscriber-only. Tolling rates, PPA prices and
-  data-center rents are all placeholders. So is every operating cost.
+* **Capex per kW and per kWh.** The NLR Annual Technology Baseline is the
+  intended anchor and is a build-time data dependency this module does not
+  carry; the figures here are round, plausible, labelled placeholders.
+* **Revenue.** No free source of PPA or offtake prices exists — LevelTen's
+  index is subscriber-only. Tolling rates, PPA prices and data-centre rents are
+  all placeholders. So is every operating cost.
 * **Tax-equity, preferred and lease pricing**, which
-  ``engine/structures/LIMITS_STRUCTURES.md`` §4 already records as unpublished.
+  ``engine/structures/LIMITS_STRUCTURES.md`` §4 records as unpublished.
 
 What *is* sourced: the DSCR floors, the debt spreads, the ITC bridge advance
 rates and the gearing convention (Norton Rose Fulbright, *Cost of Capital: 2026
 Outlook*, 2026-01-29, via :mod:`engine.defaults`), and every tax rule, which
 comes from :mod:`engine.tax` with its own citations.
 
-The one calibration finding worth reading before the numbers
-------------------------------------------------------------
-**An ITC-eligible project cannot simultaneously carry maximum DSCR-sized senior
-debt and monetise its credit.** A 30% §48E credit is not a return; it is a
-*source*, and it displaces equity. Stack a 75% gearing cap on top of a 30% ITC
-and the arithmetic gives 105% of cost before the sponsor writes a cheque — which
-is exactly how the original demo produced sponsor equity of 6.5% of the stack
-and a three-figure IRR. So every ITC reference deal here sets the senior gearing
-cap so that **debt + third-party equity + sponsor equity = 100%**, and reports
-the resulting minimum DSCR against the market floor rather than sizing to it.
-The deals come out *gearing-bound with DSCR headroom*, which is the honest
-result and is what the binding-constraint reporting exists to say. In the real
-market the headroom is taken as **back-leverage at the sponsor holdco**, which
-Structura does not model (``LIMITS_STRUCTURES.md``).
+How ITC monetisation interacts with senior gearing
+--------------------------------------------------
+An ITC-eligible project cannot simultaneously carry maximum DSCR-sized senior
+debt and monetise its credit. A 30% §48E credit is not a return; it is a
+*source*, and it displaces equity. A 75% gearing cap on top of a 30% ITC gives
+105% of project cost before the sponsor writes a cheque. Every ITC reference
+deal here therefore sets the senior gearing cap so that **debt + third-party
+equity + sponsor equity = 100%**, and reports the resulting minimum DSCR
+against the market floor rather than sizing to it. The deals come out
+*gearing-bound with DSCR headroom*, and the binding-constraint reporting says
+so. In the market that headroom is taken as **back-leverage at the sponsor
+holdco**, which Structura does not model (``LIMITS_STRUCTURES.md``).
 
 Usage
 -----
@@ -73,7 +68,7 @@ Usage
     for row in comparison.sources_and_uses_table():
         print(row["structure"], row["sources_total"], row["uses_total"])
 
-Not advice. Illustrative modelling only (SPEC §4.4).
+Not advice. Illustrative modelling only.
 """
 
 from __future__ import annotations
@@ -127,17 +122,17 @@ __all__ = [
 REFERENCE_DEALS_VERIFIED_ON: date = date(2026, 8, 6)
 
 _NO_PUBLIC_SOURCE = (
-    "PLACEHOLDER - no free public source. SPEC.md §5.1 records that no free "
-    "source of PPA or offtake prices exists (LevelTen's index is "
-    "subscriber-only); tax-equity, preferred and lease pricing is quoted deal "
-    "by deal (LIMITS_STRUCTURES.md §4). Override before relying on any output."
+    "PLACEHOLDER - no free public source. No free source of PPA or offtake "
+    "prices exists (LevelTen's index is subscriber-only); tax-equity, preferred "
+    "and lease pricing is quoted deal by deal (LIMITS_STRUCTURES.md §4). "
+    "Override before relying on any output."
 )
 
 _ATB_ANCHOR = (
     "PLACEHOLDER - round order-of-magnitude figure. The NLR Annual Technology "
-    "Baseline 2024 v4.0.0 (SPEC.md §5.1, CC-BY 4.0, DOI 10.25984/2377191) is "
-    "the intended anchor; this module carries no data dependency, so the figure "
-    "is not read from it and is not a citation."
+    "Baseline 2024 v4.0.0 (CC-BY 4.0, DOI 10.25984/2377191) is the intended "
+    "anchor; this module carries no data dependency, so the figure is not read "
+    "from it and is not a citation."
 )
 
 _STRUCTURA_CONVENTION = (
@@ -150,8 +145,8 @@ _STRUCTURA_CONVENTION = (
 class Assumption:
     """One input, with the provenance that makes it auditable or a placeholder.
 
-    Mirrors :class:`engine.defaults.Benchmark` deliberately: same discipline,
-    same honesty, but scoped to a single deal rather than to the market.
+    Mirrors :class:`engine.defaults.Benchmark`, scoped to a single deal rather
+    than to the market.
     """
 
     name: str
@@ -176,9 +171,8 @@ class ExpectedOutcome:
     """The band each reference deal is calibrated to, asserted by the tests.
 
     Not a forecast and not a target the engine solves for — a **regression
-    fence**. If a change to the engine moves a reference deal outside its band,
-    either the change is wrong or the calibration needs revisiting, and either
-    way somebody has to look.
+    fence**. A change to the engine that moves a reference deal outside its
+    band fails the test suite.
     """
 
     #: Inclusive band for the **winning** structure's sponsor after-tax IRR,
@@ -298,20 +292,20 @@ _FLIP_DATE_ASSUMPTION = Assumption(
         "- the credit alone repays the investor - and Structura flags that as a "
         "BLOCKING recapture risk. The market answer is a date, not a yield: "
         "these deals therefore flip on a fixed date past the recapture period, "
-        "which SPEC §6.2 lists alongside the yield-based form."
+        "which is the standard alternative to the yield-based form."
     ),
 )
 
 
 # ---------------------------------------------------------------------------
-# 1. Storage (BESS), contracted — lead with this (SPEC §2.1, §6.4)
+# 1. Storage (BESS), contracted
 # ---------------------------------------------------------------------------
 # OBBBA left standalone storage untouched by the wind/solar cliff: full §48E on
 # a begin-construction basis through 2033, then 75% (2034), 50% (2035), zero
-# from 2036. That seven-year runway is why SPEC §6.4 says lead with storage.
+# from 2036.
 
 _STORAGE_CAPEX = 140_000_000.0
-_STORAGE_EQUITY_AT_COD = 80_875_518.0  # solved by the Phase 1 circularity
+_STORAGE_EQUITY_AT_COD = 80_875_518.0  # solved by the construction circularity
 
 _storage_flip = FlipConfig(
     trigger=FlipTrigger.FIXED_DATE,
@@ -337,9 +331,9 @@ _storage_tflip_inner = FlipConfig(
     post_flip_te_cash=0.05,
     pre_flip_te_credit=0.0,
     post_flip_te_credit=0.05,
-    # Twice the commitment. Large, and stated rather than tuned quietly: it is
-    # what it takes to keep this investor's §704(b) capital account above its
-    # floor in every period. A real LLC agreement would instead restrict the
+    # Twice the commitment. That is what it takes to keep this investor's
+    # §704(b) capital account above its floor in every period. A real LLC
+    # agreement would instead restrict the
     # distribution or carry a qualified income offset, neither of which
     # Structura models (LIMITS_STRUCTURES.md §1.5).
     investor_dro_cap=30_000_000.0,
@@ -351,9 +345,10 @@ STORAGE_BESS_CONTRACTED = ReferenceDeal(
     summary=(
         "A four-hour lithium-ion battery on a fifteen-year tolling agreement, "
         "placed in service 2027. Standalone storage keeps full §48E on a "
-        "begin-construction basis to 2033 (OBBBA, SPEC §2.1), so unlike solar "
-        "and wind this is forward pipeline rather than safe-harboured "
-        "inventory - which is why SPEC §6.4 says lead the product with it."
+        "begin-construction basis to 2033 under OBBBA, phasing to 75% in 2034, "
+        "50% in 2035 and nil from 2036. Unlike wind and solar, which had to "
+        "begin construction on or before 2026-07-04, storage remains forward "
+        "pipeline rather than safe-harboured inventory."
     ),
     project=ProjectInputs(
         name="Reference BESS - 100 MW / 400 MWh, contracted",
@@ -402,10 +397,10 @@ STORAGE_BESS_CONTRACTED = ReferenceDeal(
     tax_scenario=TaxScenario(
         bonus_rate=0.0, depreciation_method=DepreciationMethod.MACRS_5
     ),
-    # A pure-play developer: no tax capacity of its own. That is the entire
-    # reason the tax-equity and transfer markets exist ($63bn of credit
-    # monetisation in 2025, SPEC §2.2) and it is what makes the five-structure
-    # comparison a real question rather than an arithmetic exercise.
+    # A pure-play developer: no tax capacity of its own. That is why the
+    # tax-equity and transfer markets exist — Crux reports $63bn of credit
+    # monetisation in 2025 — and it is what makes the five-structure comparison
+    # a real question rather than an arithmetic exercise.
     sponsor=SponsorTaxProfile(
         tax_rate=0.21, can_use_credits=False, can_use_depreciation=False
     ),
@@ -530,11 +525,11 @@ STORAGE_BESS_CONTRACTED = ReferenceDeal(
         feasible_structures=5,
         max_capital_account_breach_periods=0,
     ),
-    dscr_benchmark="storage / contracted, 1.15-1.20x (NRF 2026, SPEC §2.7)",
+    dscr_benchmark="storage / contracted, 1.15-1.20x (NRF 2026)",
     calibration_note=(
         "Gearing-bound at 45% with DSCR headroom over the 1.20x floor. The "
-        "binding constraint is the capital stack, not the lender - which is "
-        "what an ITC deal looks like once the credit is treated as a source."
+        "binding constraint is the capital stack, not the lender, because the "
+        "§48E credit is treated as a source of funds rather than a return."
     ),
 )
 
@@ -542,10 +537,10 @@ STORAGE_BESS_CONTRACTED = ReferenceDeal(
 # ---------------------------------------------------------------------------
 # 2. Solar, safe-harboured — began construction before the 2026-07-04 cliff
 # ---------------------------------------------------------------------------
-# SPEC §2.1: wind and solar must have begun construction on or before
-# 2026-07-04. That deadline passed 33 days before the spec was written, so the
-# forward solar pipeline is safe-harboured inventory. This deal is on the right
-# side of it and keeps the four-year continuity window.
+# Under OBBBA, wind and solar must have begun construction on or before
+# 2026-07-04. That date has passed, so the forward solar pipeline is
+# safe-harboured inventory. This deal is on the right side of the cliff and
+# keeps the four-year continuity window.
 
 _SOLAR_CAPEX = 180_000_000.0
 
@@ -674,8 +669,8 @@ SOLAR_SAFE_HARBOURED = ReferenceDeal(
             source=_NO_PUBLIC_SOURCE,
             is_placeholder=True,
             note=(
-                "SPEC §5.1: no free source of PPA prices exists. Use ATB LCOE "
-                "as the sanity anchor and enter a real price."
+                "No free source of PPA prices exists. Use ATB LCOE as the "
+                "sanity anchor and enter a real price."
             ),
         ),
         Assumption(
@@ -700,9 +695,8 @@ SOLAR_SAFE_HARBOURED = ReferenceDeal(
             source=_STRUCTURA_CONVENTION,
             note=(
                 "Set so the stack closes at 100% with a 30% §48E credit "
-                "monetised. See the storage deal's note - the reasoning is the "
-                "same and it is the single most important calibration decision "
-                "in this module."
+                "monetised. See the storage deal's note; the reasoning is the "
+                "same."
             ),
         ),
         Assumption(
@@ -710,16 +704,15 @@ SOLAR_SAFE_HARBOURED = ReferenceDeal(
             value="2026-03-01",
             unit="",
             source=(
-                "OBBBA (P.L. 119-21) as recorded at SPEC.md §2.1, verified "
-                "2026-08-06: wind and solar must have begun construction on or "
-                "before 2026-07-04."
+                "OBBBA (P.L. 119-21), verified 2026-08-06: wind and solar must "
+                "have begun construction on or before 2026-07-04."
             ),
             note=(
                 "Established by physical work. The 5% cost safe harbor is also "
                 "available today because *Oregon Environmental Council v. IRS*, "
                 "No. 25-4400 (CKK) vacated Notice 2025-42 on 2026-06-06 - but "
                 "an appeal is pending, so a deal relying on it should be run "
-                "through the litigation scenario (SPEC §2.5)."
+                "through the litigation scenario."
             ),
         ),
         _FLIP_DATE_ASSUMPTION,
@@ -738,7 +731,7 @@ SOLAR_SAFE_HARBOURED = ReferenceDeal(
         feasible_structures=5,
         max_capital_account_breach_periods=0,
     ),
-    dscr_benchmark="solar / contracted, 1.25-1.30x (NRF 2026, SPEC §2.7)",
+    dscr_benchmark="solar / contracted, 1.25-1.30x (NRF 2026)",
     calibration_note=(
         "Gearing-bound at 55% with DSCR headroom over the 1.30x floor, for the "
         "same reason as the storage deal: a 30% §48E credit is a source, not a "
@@ -750,17 +743,16 @@ SOLAR_SAFE_HARBOURED = ReferenceDeal(
 
 
 # ---------------------------------------------------------------------------
-# 3. Data centre powered shell — the volume story, and no credit at all
+# 3. Data centre powered shell — no clean-electricity credit
 # ---------------------------------------------------------------------------
-# SPEC §2.7: >$200bn of data-centre project debt in 2025; Morgan Stanley
-# projects $250-300bn of hyperscaler debt in 2026; NRF publishes DSCR of
-# 1.05-1.15x and pricing of SOFR+250 to 425. SPEC §6.4 pairs it with storage as
-# the technology to lead with.
+# More than $200bn of data-centre project debt was raised in 2025; Morgan
+# Stanley projects $250-300bn of hyperscaler debt in 2026. NRF publishes DSCR
+# of 1.05-1.15x and pricing of SOFR+250 to 425 for the asset class.
 #
-# It is also the deal that shows the credit gate doing its job. A powered shell
-# is not §48E property: there is no clean-electricity investment credit, so the
-# §6418 transfer and the T-flip - which is *defined* by its transfer leg - are
-# not structures at all here, and the selector says so with the rule attached.
+# A powered shell is not §48E property: there is no clean-electricity
+# investment credit, so the §6418 transfer and the T-flip - which is defined by
+# its transfer leg - are not available here, and the selector's credit gate
+# disqualifies both with the rule attached.
 
 _DC_CAPEX = 480_000_000.0
 
@@ -780,11 +772,11 @@ DATA_CENTER_POWERED_SHELL = ReferenceDeal(
     summary=(
         "A powered shell on a fifteen-year triple-net lease to an "
         "investment-grade hyperscaler. NRF publishes DSCR of 1.05-1.15x and "
-        "pricing of SOFR+250 to 425 for the asset class (SPEC §2.7), which is "
-        "materially more leverage and materially wider spreads than a "
-        "contracted renewable. No §48E credit attaches to a shell, so the "
-        "direct transfer and the T-flip are disqualified by the selector's "
-        "credit gate - which is the point of running them anyway."
+        "pricing of SOFR+250 to 425 for the asset class - materially more "
+        "leverage and materially wider spreads than a contracted renewable. No "
+        "§48E credit attaches to a shell, so the direct transfer and the "
+        "T-flip are disqualified by the selector's credit gate and three of "
+        "the five structures remain feasible."
     ),
     project=ProjectInputs(
         name="Reference data centre - 48 MW powered shell",
@@ -839,8 +831,8 @@ DATA_CENTER_POWERED_SHELL = ReferenceDeal(
         bonus_rate=0.0, depreciation_method=DepreciationMethod.SL_39
     ),
     # Unlike the developer sponsors above, a data-centre sponsor is normally a
-    # taxpayer and can use its own depreciation. That single switch is what
-    # makes the answer different, and it is why SponsorTaxProfile exists.
+    # taxpayer and can use its own depreciation. That switch alone changes
+    # which structure ranks first.
     sponsor=SponsorTaxProfile(
         tax_rate=0.21, can_use_credits=False, can_use_depreciation=True
     ),
@@ -890,8 +882,8 @@ DATA_CENTER_POWERED_SHELL = ReferenceDeal(
         _spread_assumption(
             0.07375,
             "SOFR placeholder 4.00% + 337.5bps, the mid-point of the "
-            "SOFR+250-425 range NRF publishes for data centres (SPEC §2.7). "
-            "Wider than any renewable in this library.",
+            "SOFR+250-425 range NRF publishes for data centres. Wider than any "
+            "renewable in this library.",
         ),
         Assumption(
             name="max_gearing",
@@ -919,7 +911,7 @@ DATA_CENTER_POWERED_SHELL = ReferenceDeal(
             note=(
                 "Expressed as eligible_basis=0. The selector's credit gate then "
                 "disqualifies the direct transfer and the T-flip, naming the "
-                "reason - which is the correct answer, not a modelling gap."
+                "rule that disqualifies each."
             ),
         ),
         Assumption(
@@ -937,13 +929,13 @@ DATA_CENTER_POWERED_SHELL = ReferenceDeal(
         max_capital_account_breach_periods=0,
     ),
     dscr_benchmark=(
-        "data centre / contracted, 1.05-1.15x (NRF 2026, SPEC §2.7); 1.05x is "
-        "reserved for investment-grade hyperscaler portfolios"
+        "data centre / contracted, 1.05-1.15x (NRF 2026); 1.05x is reserved "
+        "for investment-grade hyperscaler portfolios"
     ),
     calibration_note=(
         "The only deal in the library where the ordinary 75% gearing cap "
         "applies unmodified, because there is no credit to displace equity. "
-        "Two of the five structures are correctly disqualified."
+        "Two of the five structures are disqualified by the credit gate."
     ),
 )
 

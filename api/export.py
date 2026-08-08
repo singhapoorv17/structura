@@ -1,7 +1,7 @@
 """POST /api/export — the lender-grade Excel workbook, as raw bytes.
 
 Live formulas, not pasted values, with iterative calculation enabled so the
-construction funding circularity resolves natively in Excel (SPEC §4.2, §6.5).
+construction funding circularity resolves natively in Excel.
 
 The 4.5 MB Vercel response body cap is enforced in
 ``lib_api.service.run_export``: the file is measured on disk and a 413 with a

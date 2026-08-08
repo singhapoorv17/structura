@@ -1,6 +1,6 @@
 """Serialisation: the frozen contract shape, and the four integrity guarantees.
 
-``app/API_CONTRACT.md`` is frozen. These tests are the executable copy of it.
+These tests are the executable definition of the JSON response shape.
 The four rules that cannot be traded away:
 
 1. ``irr_is_meaningful`` comes from the engine's guard, and a false verdict
@@ -443,7 +443,7 @@ def test_current_law_payload():
             "confidence",
         } <= set(citation)
         assert citation["confidence"] in {"HIGH", "MEDIUM", "PLACEHOLDER"}
-    # Honest gaps are a deliverable, not an apology (SPEC §4.3).
+    # Honest gaps are a deliverable, not an apology.
     assert payload["unverified"]
     for item in payload["unverified"]:
         assert item["item"] and item["detail"] and item["impact"]

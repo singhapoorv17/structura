@@ -2,11 +2,11 @@
 
 Design rule inherited from :mod:`engine.defaults`: **no magic numbers anywhere
 else in this package.** Every market assumption below is either (a) carried by
-SPEC.md §2 and therefore verified, or (b) a clearly-labelled ``PLACEHOLDER_``
-market heuristic disclosed in ``LIMITS_STRUCTURES.md``.
+the verified rulebook, or (b) a clearly-labelled ``PLACEHOLDER_`` market
+heuristic disclosed in ``LIMITS_STRUCTURES.md``.
 
 Tax-equity pricing in particular is *not* public data. Norton Rose Fulbright's
-*Cost of Capital: 2026 Outlook* (SPEC §2.7) publishes debt pricing and DSCR by
+*Cost of Capital: 2026 Outlook* publishes debt pricing and DSCR by
 technology; it does not publish a tax-equity target yield, a pre-flip cash
 sharing ratio or a preferred coupon. Those are quoted deal by deal and Structura
 refuses to pretend otherwise: they ship as placeholders that the caller is
@@ -102,7 +102,7 @@ REALLOCATION_MAX_PASSES: Final[int] = 8
 #: Absolute currency tolerance on the sources-and-uses identity. Construction
 #: funding runs in the 1e8-1e9 range, so $1 is ~1e-9 relative: tight enough to
 #: catch a real imbalance and loose enough to survive the fixed-point residual
-#: the Phase 1 circularity solve leaves behind.
+#: the construction circularity solve leaves behind.
 FUNDING_TOLERANCE: Final[float] = 1.0
 
 #: Relative tolerance on the same identity, applied as
@@ -192,8 +192,8 @@ PLACEHOLDER_TE_INVESTMENT_PER_CREDIT_DOLLAR: Final[Benchmark] = Benchmark(
 PLACEHOLDER_PRE_FLIP_TE_ALLOCATION_SHARE: Final[Benchmark] = Benchmark(
     value=0.99,
     unit="share of income, loss and credits",
-    source="SPEC.md §6.2 states the classic 99/1 -> 5/95 flip; the ratio itself "
-    "is standard market structure, the fit to any given deal is not.",
+    source="The classic 99/1 -> 5/95 flip; the ratio itself is standard market "
+    "structure, the fit to any given deal is not.",
     verified_on=STRUCTURES_VERIFIED_ON,
     note="Pre-flip sharing ratio for the tax-equity partner.",
 )
@@ -201,7 +201,7 @@ PLACEHOLDER_PRE_FLIP_TE_ALLOCATION_SHARE: Final[Benchmark] = Benchmark(
 PLACEHOLDER_POST_FLIP_TE_ALLOCATION_SHARE: Final[Benchmark] = Benchmark(
     value=0.05,
     unit="share of income, loss and credits",
-    source="SPEC.md §6.2 (99/1 -> 5/95).",
+    source="The classic 99/1 -> 5/95 flip.",
     verified_on=STRUCTURES_VERIFIED_ON,
     note="Post-flip sharing ratio for the tax-equity partner.",
 )
@@ -209,15 +209,15 @@ PLACEHOLDER_POST_FLIP_TE_ALLOCATION_SHARE: Final[Benchmark] = Benchmark(
 PRE_FLIP_TE_CASH_SHARE: Final[Benchmark] = Benchmark(
     value=0.99,
     unit="share of distributable cash",
-    source="SPEC.md §6.2 applies the 99/1 -> 5/95 flip to 'income, loss, "
-    "credits and cash'.",
+    source="The classic 99/1 -> 5/95 flip, applied to income, loss, credits "
+    "and cash alike.",
     verified_on=STRUCTURES_VERIFIED_ON,
     low=0.0,
     high=1.0,
     note="Cash is a SEPARATE ratio in the model because it is separate in "
     "every real LLC agreement - wind PTC deals in particular run a much "
-    "lower pre-flip cash share. The default follows SPEC §6.2 rather than "
-    "inventing a split. Note the consequence: a low pre-flip cash share "
+    "lower pre-flip cash share. The default follows the classic flip rather "
+    "than inventing a split. Note the consequence: a low pre-flip cash share "
     "with a high income share makes the investor's pre-flip after-tax flow "
     "negative, which breaks the single-root property the yield solve "
     "relies on. The flip solver detects and reports that.",
@@ -226,7 +226,7 @@ PRE_FLIP_TE_CASH_SHARE: Final[Benchmark] = Benchmark(
 POST_FLIP_TE_CASH_SHARE: Final[Benchmark] = Benchmark(
     value=0.05,
     unit="share of distributable cash",
-    source="SPEC.md §6.2 (99/1 -> 5/95).",
+    source="The classic 99/1 -> 5/95 flip.",
     verified_on=STRUCTURES_VERIFIED_ON,
     note="Post-flip the cash ratio converges on the income ratio.",
 )
@@ -254,8 +254,8 @@ PLACEHOLDER_PREFERRED_RETURN: Final[Benchmark] = Benchmark(
     verified_on=STRUCTURES_VERIFIED_ON,
     low=0.07,
     high=0.12,
-    note="Preferred equity took 15% of ITC gross value in 2025 (Crux, SPEC "
-    "§2.2); the coupon is not published.",
+    note="Preferred equity took 15% of ITC gross value in 2025 (Crux); the "
+    "coupon is not published.",
 )
 
 PLACEHOLDER_PREFERRED_TARGET_TERM_YEARS: Final[Benchmark] = Benchmark(
@@ -274,7 +274,7 @@ PLACEHOLDER_LESSOR_TARGET_AFTER_TAX_IRR: Final[Benchmark] = Benchmark(
     low=0.0600,
     high=0.0900,
     note="Lease rent is solved to this yield. Sale-leaseback is reported by "
-    "NRF (SPEC §2.6) as making a comeback; its pricing is not published.",
+    "NRF as making a comeback; its pricing is not published.",
 )
 
 PLACEHOLDER_SALE_LEASEBACK_RESIDUAL_PCT: Final[Benchmark] = Benchmark(

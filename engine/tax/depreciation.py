@@ -31,7 +31,7 @@ a generic infrastructure depreciation module. It is asserted directly in
   convention;
 * the **mid-quarter** convention is not implemented;
 * state depreciation (which frequently decouples from federal bonus) is out of
-  scope for Phase 2.
+  scope.
 """
 
 from __future__ import annotations

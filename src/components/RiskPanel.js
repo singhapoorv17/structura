@@ -71,8 +71,8 @@ export default function RiskPanel({ result }) {
               <span className="badge win">clear</span>
               No blocking risks
             </div>
-            Nothing in this run voids the credit or breaks the funding stack. That is not the same as
-            the deal being financeable — read the flagged assumptions below.
+            Nothing in this run voids the credit or breaks the funding stack. That is a narrower
+            statement than the deal being financeable; the flagged assumptions are listed below.
           </div>
         )}
 

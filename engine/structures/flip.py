@@ -4,7 +4,7 @@ The structure
 -------------
 A sponsor and a tax-equity investor form an LLC taxed as a partnership. Before
 the **flip point** the investor takes the large share of income, loss, credits
-and cash — classically 99% (SPEC §6.2). After the flip point the ratios invert,
+and cash — classically 99%. After the flip point the ratios invert,
 classically to 5/95, and the sponsor takes essentially all of the economics. In
 a **yield-based** flip the flip happens when the investor's *after-tax IRR*
 reaches a contracted target; in a **fixed-date** flip it happens on a stated
@@ -19,9 +19,9 @@ used up, the investor's cashflow series changes sign more than once and its IRR
 is no longer unique. :func:`run_flip` counts the sign changes and warns.
 
 Traditional tax equity of this kind was ~30% of the market in 2024 and less in
-2025 (SPEC §2.6), so this is no longer the default answer — but it remains the
-chassis on which the T-flip, which is on "pretty much every single
-transaction", is built.
+2025 (Norton Rose Fulbright, *Cost of Capital: 2026 Outlook*), so it is no
+longer the default structure, but it remains the chassis on which the T-flip is
+built.
 
 Why the yield-based solve is genuinely circular
 -----------------------------------------------
@@ -41,9 +41,9 @@ worth more to the investor — is asserted in the tests.
 
 What makes this different from SAM's flip
 -----------------------------------------
-SAM applies the sharing ratios as fixed percentages of pre-computed cashflow
-(SPEC §3.2: zero hits for ``capital_account``, ``deficit_restoration``,
-``outside_basis``, ``suspended_loss`` across all three of its finance modules).
+SAM applies the sharing ratios as fixed percentages of pre-computed cashflow;
+a grep of its three finance modules returns zero hits for ``capital_account``,
+``deficit_restoration``, ``outside_basis`` or ``suspended_loss``.
 Here the ratios are fed into :func:`engine.structures.partnership.run_partnership`
 and every allocation is tested against the investor's DRO cap. When the
 investor's §704(b) capital account hits its floor, losses **reallocate to the
@@ -575,7 +575,7 @@ def run_flip(
                 )
                 + " - a reimbursement of committed capital, not a source of "
                 "construction funding. Funding construction against an expected "
-                "credit requires an ITC bridge loan (SPEC §2.7), which Structura "
+                "credit requires an ITC bridge loan, which Structura "
                 "does not model."
             )
             if transfer_net_proceeds > 0.0

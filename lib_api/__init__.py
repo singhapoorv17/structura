@@ -7,7 +7,7 @@ identical across endpoints:
 ``errors``      the one exception type that maps cleanly onto an HTTP status
 ``validate``    request parsing, type checking and the DoS guardrails
 ``build``       request -> ``ProjectInputs`` / ``DebtTerms`` / ``TaxProject`` / configs
-``serialise``   engine objects -> the exact JSON in ``app/API_CONTRACT.md``
+``serialise``   engine objects -> the JSON response shape
 ``service``     the two real operations: compare, and export
 ``http``        BaseHTTPRequestHandler plumbing, CORS, structured logging
 

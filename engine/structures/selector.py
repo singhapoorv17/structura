@@ -1,7 +1,7 @@
 """The structure selector — run one project through all five structures.
 
-**This is the differentiator.** SPEC.md §6.2: model all five live 2026
-structures against the *same* project and return a ranked comparison of sponsor
+Model all five live 2026 structures against the *same* project and return a
+ranked comparison of sponsor
 after-tax IRR, effective cost of capital and cash timing. Jack Cargas of BofA,
 quoted in Norton Rose Fulbright's *Cost of Capital: 2026 Outlook*: *"it feels
 like there are now 31 different flavors."* That is the decision the market now
@@ -19,8 +19,8 @@ Ranking, and why it is boring on purpose
 Ranking is **deterministic and explainable**. There is no scoring function, no
 weighting, and no judgement call hidden in a constant:
 
-1. **Sponsor after-tax IRR, descending** — the primary metric, per SPEC §6.2 —
-   but only where that rate is *meaningful*.
+1. **Sponsor after-tax IRR, descending** — the primary metric — but only
+   where that rate is *meaningful*.
 2. Structures whose IRR is **not meaningful** rank after those whose IRR is,
    ordered by sponsor NPV at the stated discount rate. A rate is not meaningful
    where no net sponsor investment exists, where the equity base is de minimis,
@@ -54,7 +54,7 @@ published chain, and every break that actually fires is recorded in
 The hard gate
 -------------
 A project that **fails the FEOC / Material Assistance Cost Ratio test has no
-credit at all** (SPEC §2.3; ``engine.tax.feoc`` returns ``passes=False`` and
+credit at all** (``engine.tax.feoc`` returns ``passes=False`` and
 ``evaluate_eligibility`` converts that into a zero credit). A credit-dependent
 structure — a direct transfer, or a T-flip, which is *defined* by its transfer
 leg — cannot then be ranked first, or at all. The selector enforces that
@@ -64,7 +64,7 @@ result that must not depend on one module remembering to check.
 The output is facts, not prose
 ------------------------------
 :class:`WhyThisWins` is a structured comparison keyed to the numbers. The
-narrator (SPEC §6.6) renders it; it never computes and never overrides.
+narrator renders it; it never computes and never overrides.
 """
 
 from __future__ import annotations
@@ -251,7 +251,7 @@ class StructureComparison:
         raise KeyError(key)
 
     def table(self) -> tuple[Mapping[str, object], ...]:
-        """Flat rows for the M3 comparison table (SPEC §7)."""
+        """Flat rows for the comparison table."""
         rows: list[Mapping[str, object]] = []
         for entry in self.ranked:
             r = entry.result
@@ -532,7 +532,7 @@ def _build_why(
             True,
             "sponsor_after_tax_irr",
             "decimal IRR p.a.",
-            "The primary ranking metric (SPEC §6.2).",
+            "The primary ranking metric.",
         ),
         _pair(
             lambda x: x.effective_cost_of_capital,

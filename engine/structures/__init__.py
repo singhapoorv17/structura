@@ -1,11 +1,10 @@
 """``engine.structures`` — the five live 2026 capital structures, and a selector.
 
-Phase 3 of SPEC.md §9, delivering **§6.2 (the structure selector)** and
-**§6.3 (partnership tax rigor)**.
+The structure selector, and the partnership-tax layer underneath it.
 
 Why this package exists
 -----------------------
-Two verified facts from SPEC.md, both checked live on 2026-08-06:
+Two facts, both checked live on 2026-08-06:
 
 1. **The market no longer has one answer.** Norton Rose Fulbright's *Cost of
    Capital: 2026 Outlook* (2026-01-29) records five live structures —
@@ -17,8 +16,8 @@ Two verified facts from SPEC.md, both checked live on 2026-08-06:
 2. **SAM has no partnership tax.** A grep of SAM 2026.7.3's three finance
    modules returns **zero** hits for ``capital_account``,
    ``deficit_restoration``, ``outside_basis``, ``704(b)`` or ``suspended_loss``
-   (SPEC §3.2). Its flip is a stylised percentage split with an IRR-triggered
-   date. :mod:`engine.structures.partnership` is that gap.
+   Its flip is a stylised percentage split with an IRR-triggered date.
+   :mod:`engine.structures.partnership` implements that layer.
 
 Module map
 ----------
@@ -70,7 +69,7 @@ Quick start
         print(row["rank"], row["label"], row["sponsor_after_tax_irr"])
     print(comparison.why_this_wins.margin)
 
-Not advice. Illustrative modelling only (SPEC §4.4). Read
+Not advice. Illustrative modelling only. Read
 ``LIMITS_STRUCTURES.md`` before relying on any number in here.
 """
 

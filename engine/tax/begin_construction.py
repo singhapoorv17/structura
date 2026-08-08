@@ -1,12 +1,12 @@
-"""Begin construction - and the litigation fork that no incumbent models.
+"""Begin construction, and the litigation fork.
 
-**Why this module exists.** Under OBBBA the single most valuable fact about a
-wind or solar project is whether it *began construction* on or before
+Under OBBBA the controlling fact about a wind or solar project is whether it
+*began construction* on or before
 2026-07-04. Whether it did depends on which of two tests it used, and whether
 that test was available to it - and that availability is, as of the verification
 date, the subject of a live appeal.
 
-The chain of events (SPEC §2.5, verified 2026-08-06):
+The chain of events, verified 2026-08-06:
 
 1. Two long-standing routes establish begin construction: the **5% cost safe
    harbor** (pay or incur at least 5% of total facility cost) and the

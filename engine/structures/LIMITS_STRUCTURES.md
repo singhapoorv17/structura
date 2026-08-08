@@ -2,11 +2,9 @@
 
 **Built 2026-08-06. Law state inherited from `engine/tax`, verified 2026-08-06.**
 
-This file is a required deliverable, not an apology. SPEC.md §4.3 makes honesty
-about limits a non-negotiable and §11 names overclaiming as the single largest
-risk to the project. Partnership tax can absorb infinite time (SPEC §11); the
-rule followed here is **implement the structure, declare the simplification,
-never invent tax precision**.
+The rule followed in this package is **implement the structure, declare the
+simplification, never invent tax precision**. This file is the list of
+simplifications.
 
 The companion file is `engine/tax/UNVERIFIED.md`. Everything disclosed there —
 most importantly the **MACR threshold table** and the **§45Y inflation
@@ -54,8 +52,8 @@ an optional test hook.
    not separately identified. Where a project distributes refinancing proceeds,
    the modelled share is understated.
 
-3. **Minimum gain chargeback is a simplification, and this is the declaration
-   SPEC §6.3 asks for.** A net decrease in minimum gain triggers a chargeback of
+3. **Minimum gain chargeback is simplified.** A net decrease in minimum gain
+   triggers a chargeback of
    gross income allocated in proportion to each partner's tracked minimum-gain
    share, limited to the year's book income with the excess carried forward
    (Treas. Reg. §1.704-2(f)(3)). **Not implemented:** the exceptions and waivers
@@ -75,8 +73,7 @@ an optional test hook.
 5. **Qualified income offset is not implemented.** The DRO-cap floor prevents
    the deficits an allocation could create, but a **distribution** can still
    drive a capital account below its floor. Treas. Reg. §1.704-1(b)(2)(ii)(d)
-   would cure that with a QIO. Structura instead **reports** it, and since the
-   calibration pass (`CALIBRATION.md` §1.3, §2.4) it reports it as a
+   would cure that with a QIO. Structura instead **reports** it, as a
    *structured* result rather than a sentence: `PartnershipResult` carries a
    `CapitalAccountBreach` per affected partner with every period, every year,
    the worst breach and its period, which becomes a `capital_account_below_floor`
@@ -102,8 +99,8 @@ an optional test hook.
    §1.704-1(b)(2)(iv)(f) permits a revaluation on entry of a new partner; the
    engine has no event for it.
 
-9. **HLBV** (hypothetical liquidation at book value) reporting is a stretch
-   goal in SPEC §6.3 and is **not** implemented. The ledger contains everything
+9. **HLBV** (hypothetical liquidation at book value) reporting is **not**
+   implemented. The ledger contains everything
    an HLBV calculation needs — capital accounts, DRO, minimum gain — but no
    liquidation waterfall is run.
 
@@ -125,8 +122,8 @@ an optional test hook.
 * **PAYGO** — contingent investor contributions tied to production, standard in
   wind PTC deals — is not implemented. The investor funds once, at closing.
 * **Back-leverage** at the sponsor holdco is not modelled. This is the most
-  consequential omission in the package and it drives the whole calibration
-  argument in `CALIBRATION.md`: a 30% §48E credit is a **source**, not a return,
+  consequential omission in the package, and it drives how the reference deals
+  are calibrated: a 30% §48E credit is a **source**, not a return,
   so an ITC deal cannot also carry maximum DSCR-sized senior debt without the
   stack exceeding 100% of cost. Real sponsors take the resulting DSCR headroom
   as holdco back-leverage. Structura instead expects the caller to set a senior
@@ -155,15 +152,15 @@ an optional test hook.
   pure flip with the **same investor commitment**. In practice an investor
   buying only depreciation would also write a smaller cheque, which would offset
   part of the deferral.
-* No **ITC bridge loan** is modelled, even though SPEC §2.7 carries the advance
-  rates (98% covered at SOFR+150; 75% uncovered at SOFR+225). Transfer proceeds
+* No **ITC bridge loan** is modelled, though the market advance rates are
+  published (98% covered at SOFR+150; 75% uncovered at SOFR+225; NRF 2026).
+  Transfer proceeds
   arrive in the settlement year, undiscounted and unbridged. This is why
   `SourcesAndUses.credit_proceeds_at_cod` is always zero: **a §6418 credit does
   not exist until the property is placed in service, so its sale cannot fund
   construction.** Proceeds are reported as `post_cod_monetisation` — a
-  reimbursement of committed capital — and are deliberately excluded from every
-  source total. Counting them as construction capital was a real defect and is
-  regression-tested (`CALIBRATION.md` §1.1).
+  reimbursement of committed capital — and are excluded from every source
+  total. That exclusion is regression-tested in `tests/test_calibration.py`.
 
 ### Preferred equity (`preferred.py`)
 
@@ -230,8 +227,8 @@ an optional test hook.
   `models.effective_cost_of_capital`. A different but equally defensible
   definition would value the attributes at what the *sponsor* gives up, and
   would rank differently for a sponsor with no tax appetite.
-* **Ranking is on sponsor after-tax IRR**, per SPEC §6.2 — **but only where that
-  rate is meaningful.** IRR is a rate *on an equity base*; shrink the base far
+* **Ranking is on sponsor after-tax IRR** — **but only where that rate is
+  meaningful.** IRR is a rate *on an equity base*; shrink the base far
   enough and the rate describes the base rather than the deal.
   `models.irr_meaningfulness` refuses a rate on four grounds — no net sponsor
   investment, sponsor equity below `DE_MINIMIS_SPONSOR_EQUITY_SHARE` (10%) of
@@ -244,35 +241,35 @@ an optional test hook.
 
   **These four thresholds are Structura's own reporting guards, not market
   data.** They live in `engine/structures/defaults.py` with every other
-  constant, they change no computed number, and they decide only what may be
-  *led with*. `effective_cost_of_capital` is unaffected and remains the
+  constant, they change no computed number, and they decide only which rate is
+  shown as the headline. `effective_cost_of_capital` is unaffected and remains the
   cross-check, displayed alongside in `table()`, in `WhyThisWins.drivers` and in
   `StructureComparison.headline`.
 
 * **Sources cannot exceed uses.** Every structure returns a `SourcesAndUses`
-  statement reconciling senior debt + third-party equity + sponsor equity to the
-  Phase 1 total project cost. An over-sized commitment does not silently floor
+  statement reconciling senior debt + third-party equity + sponsor equity to
+  total project cost. An over-sized commitment does not silently floor
   sponsor equity at zero: it raises a **BLOCKING** `funding_oversubscribed` risk
   naming the excess. Asserted as a property across all five structures over
   seven configurations in `tests/test_calibration.py`.
 * **No scenario sweep.** `compare_structures` runs one scenario. P50/P90/P99,
-  the begin-construction litigation fork and the FEOC-fail case are Phase 5
-  (SPEC §7 M6); the plumbing exists — pass a different `TaxScenario` or reuse a
+  the begin-construction litigation fork and the FEOC-fail case are not swept;
+  the plumbing exists — pass a different `TaxScenario` or reuse a
   `StructureContext`.
 * **Annual periods.** Sub-annual model periods are summed into tax years by
   `models._annualise`, and a trailing part-year is treated as a whole year.
   Partnership tax is annual, so this is correct for the tax ledger, but it loses
   intra-year cash timing.
-* **No state tax** anywhere. Federal only, consistent with Phase 1.
+* **No state tax** anywhere. Federal only.
 
 ---
 
 ## 4. Market assumptions that are placeholders, not data
 
-Tax-equity and lease pricing is quoted deal by deal. Norton Rose Fulbright
-(SPEC §2.7) publishes debt pricing and DSCR by technology; it publishes no
-tax-equity target yield, no pre-flip sharing split and no preferred coupon.
-Crux (SPEC §2.2) publishes market *shares*, not prices. So the following ship as
+Tax-equity and lease pricing is quoted deal by deal. Norton Rose Fulbright,
+*Cost of Capital: 2026 Outlook*, publishes debt pricing and DSCR by technology;
+it publishes no tax-equity target yield, no pre-flip sharing split and no
+preferred coupon. Crux publishes market *shares*, not prices. So the following ship as
 labelled placeholders in `engine/structures/defaults.py`, are surfaced as
 warnings on every result that consumed one, and are expected to be overridden:
 
@@ -285,16 +282,16 @@ warnings on every result that consumed one, and are expected to be overridden:
 | `PLACEHOLDER_PREFERRED_TARGET_TERM_YEARS` | 10 | **PLACEHOLDER.** |
 | `PLACEHOLDER_LESSOR_TARGET_AFTER_TAX_IRR` | 7.00% | **PLACEHOLDER.** |
 | `PLACEHOLDER_SALE_LEASEBACK_RESIDUAL_PCT` | 20% | **PLACEHOLDER**, set at the Rev. Proc. 2001-28 guideline floor. A floor is not a forecast. |
-| `PLACEHOLDER_PRE_FLIP_TE_ALLOCATION_SHARE` / `..._POST_...` | 99% / 5% | Structure taken from SPEC §6.2; the fit to any given deal is not sourced. |
-| `PRE_FLIP_TE_CASH_SHARE` / `POST_FLIP_TE_CASH_SHARE` | 99% / 5% | Follows SPEC §6.2, which applies the flip to cash as well. Real deals — wind PTC especially — run a much lower pre-flip cash share. |
+| `PLACEHOLDER_PRE_FLIP_TE_ALLOCATION_SHARE` / `..._POST_...` | 99% / 5% | The classic 99/1 → 5/95 flip; the fit to any given deal is not sourced. |
+| `PRE_FLIP_TE_CASH_SHARE` / `POST_FLIP_TE_CASH_SHARE` | 99% / 5% | The classic flip applied to cash as well. Real deals — wind PTC especially — run a much lower pre-flip cash share. |
 
 `engine/reference_deals.py` adds a second, deal-scoped layer of the same
 discipline: capex per kW, offtake pricing, operating cost and every tax-equity /
 preferred / lease commitment ship as `Assumption(is_placeholder=True)` with
 their reason, are listed by `ReferenceDeal.placeholder_assumptions()`, and reach
-`StructureComparison.warnings`. SPEC §5.1 is explicit that **no free source of
-PPA prices exists**, so a reference deal claiming a sourced revenue line would
-be a fabrication; a test asserts every deal carries at least one placeholder.
+`StructureComparison.warnings`. **No free source of PPA prices exists**, so no
+reference deal carries a sourced revenue line; a test asserts every deal
+carries at least one placeholder.
 
 The statutory constants (`ITC_RECAPTURE_PERIOD_YEARS`,
 `ITC_RECAPTURE_VESTING_PER_YEAR`, `ITC_BASIS_REDUCTION_FRACTION`,
@@ -311,8 +308,7 @@ Result objects in this package carry `citation_ids` such as
 `section-50d4-sale-leaseback-window` and `rev-proc-2007-65-flip-guidelines`.
 
 **These are local identifiers.** They are not yet registered in
-`engine/tax/citations.py`, which is owned by the Phase 2 workstream and was not
-modified here. Before the `/current-law` page (SPEC §7 M4) renders them, add a
+`engine/tax/citations.py`. Before the `/current-law` page renders them, add a
 `Citation` for each with its `authority`, `plain_english`, `source`,
 `verified_on` and `confidence`, following the runbook in
 `engine/tax/README.md` § "When the law changes".
@@ -321,6 +317,6 @@ modified here. Before the `/current-law` page (SPEC §7 M4) renders them, add a
 
 ## 6. Not advice
 
-Illustrative modelling tool. **Not tax, legal, accounting or investment advice**
-(SPEC §4.4). Public sources only; no real transaction's assumptions and no
-employer data appear anywhere in this package (SPEC §4.5).
+Illustrative modelling tool. **Not tax, legal, accounting or investment
+advice.** Public sources only; no real transaction's assumptions and no
+employer data appear anywhere in this package.

@@ -1,7 +1,7 @@
 """The bundle of engine objects every sheet builder receives.
 
-One frozen container rather than seven positional arguments, so a Phase 2 or
-Phase 3 sheet can be added without changing any existing builder signature.
+One frozen container rather than seven positional arguments, so a new sheet
+can be added without changing any existing builder signature.
 The derived properties here are the handful of quantities that more than one
 sheet needs (period counts, style codes, period-end dates) - deliberately
 computed once, in one place, so two sheets cannot disagree about them.

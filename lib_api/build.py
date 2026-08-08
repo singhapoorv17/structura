@@ -7,7 +7,7 @@ scratch, because a bare ``ProjectInputs()`` is not a deal: it has no tax facts,
 no sponsor profile and no investor commitments, and it would produce exactly the
 kind of unbelievable number the calibration work existed to eliminate.
 
-The honest consequence, and it is stated in the response rather than hidden:
+The consequence is stated in the response rather than left implicit:
 **overriding a reference deal does not re-solve its capital structure.** The
 tax-equity cheque, the preferred commitment, the DRO caps and the gearing cap
 are fixed dollar amounts chosen so that sources equal uses on the *base* deal.
@@ -42,8 +42,8 @@ __all__ = [
     "apply_overrides",
 ]
 
-#: Used when the caller sends no ``deal_key``. SPEC §6.4 says lead with storage,
-#: and it is the deal the calibration was anchored on.
+#: Used when the caller sends no ``deal_key``. This is the deal the
+#: calibration was anchored on.
 DEFAULT_DEAL_KEY = "storage_bess_contracted"
 
 #: contract technology -> (engine technology, tax technology, credit-eligible).

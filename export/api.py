@@ -85,8 +85,8 @@ def build_workbook(
 ) -> Path:
     """Write the Structura workbook to ``path`` and return the path.
 
-    The workbook carries **live formulas**, not pasted values (SPEC.md §4.2,
-    §6.5). It is written with iterative calculation enabled so the construction
+    The workbook carries **live formulas**, not pasted values. It is written
+    with iterative calculation enabled so the construction
     funding circularity resolves natively in Excel, and with
     ``fullCalcOnLoad`` so it calculates on open.
 

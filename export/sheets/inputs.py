@@ -226,8 +226,8 @@ def build(wb: WorkbookBuilder, model: ModelBundle) -> None:
         "years",
         "Depreciation_Years",
         styles.NUMBER_0,
-        "Straight line. MACRS, bonus and the ITC basis reduction are Phase 2 "
-        "(engine/tax) and will arrive on a dedicated Tax sheet.",
+        "Straight line. MACRS, bonus and the ITC basis reduction live in "
+        "engine/tax and are not on this sheet.",
     )
     sw.skip()
 

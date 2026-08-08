@@ -1,8 +1,6 @@
 # UNVERIFIED — what `engine/tax` does not know for certain
 
-**Law state verified: 2026-08-06.** This file is a required deliverable, not an
-apology. SPEC.md §4.3 makes honesty about limits a non-negotiable, and §11 names
-overclaiming as the single largest risk to the project. Where a specific numeric
+**Law state verified: 2026-08-06.** Where a specific numeric
 threshold or rule detail could not be sourced in this build, the **structure**
 was implemented and the **number** was made a clearly-named placeholder. Nothing
 below was invented to look complete.
@@ -16,7 +14,7 @@ Confidence levels:
 
 | Level | Meaning |
 |---|---|
-| `VERIFIED` | Carried by the verified rulebook (SPEC §2, checked live 2026-08-06) or black-letter statutory text. |
+| `VERIFIED` | Carried by the verified rulebook (checked live 2026-08-06) or black-letter statutory text. |
 | `PROVISIONAL` | Believed correct and consistent with practice; not confirmed against primary text in this build. |
 | `PLACEHOLDER` | Structure only. The number is a stand-in. **Do not rely on it.** |
 
@@ -28,7 +26,7 @@ Confidence levels:
 **Where:** `constants.PROVISIONAL_MACR_THRESHOLDS`, consumed by
 `feoc.macr_threshold()`.
 
-**What is verified:** exactly one cell. SPEC §2.3 states that solar eligible
+**What is verified:** exactly one cell. The rulebook states that solar eligible
 components sold in **CY2026 require a MACR of at least 50%**. That cell is
 registered in `constants.VERIFIED_MACR_CELLS` and is the only lookup that
 returns `is_placeholder=False`.
@@ -73,7 +71,7 @@ would flow straight into a sponsor IRR, so refusing is the correct failure mode.
 `adders.domestic_content_adder()`.
 
 **What is verified:** that Notice 2025-08 (January 2025) exists and provides
-elective safe-harbor cost percentages for the domestic content adder (SPEC §2.4).
+elective safe-harbor cost percentages for the domestic content adder.
 
 **What is not:** the percentages themselves, which are published per technology
 **and per component** — a far richer structure than the single ratio stubbed
@@ -92,7 +90,7 @@ lookup to accept a component schedule.
 
 **What is verified:** that Notice 2025-42 (August 2025) eliminated the **5% cost
 safe harbor** for **wind and solar above 1.5 MW**, and that it was **vacated in
-full** on 2026-06-06 (SPEC §2.5).
+full** on 2026-06-06.
 
 **What is not:** the exact date after which the notice applied. IRS notices of
 this kind are normally prospective; the placeholder is set to the notice's issue
@@ -152,7 +150,7 @@ Declared simplifications in `depreciation.py`:
 * the **mid-quarter** convention (required where >40% of basis is placed in
   service in the final quarter) is **not** implemented;
 * **state** depreciation, which frequently decouples from federal bonus, is out
-  of scope for Phase 2.
+  of scope.
 
 The **MACRS 5-year and 15-year GDS tables** themselves (IRS Pub. 946 Table A-1)
 and the **§50(c)(3) 50% basis reduction** are verified.
@@ -160,7 +158,7 @@ and the **§50(c)(3) 50% basis reduction** are verified.
 ---
 
 ### 9. `section-6417-direct-pay` — applicable entity list
-That §6417 survived OBBBA intact is verified (SPEC §2.2). The enumerated list of
+That §6417 survived OBBBA intact is verified. The enumerated list of
 applicable entities in `transfer.APPLICABLE_ENTITIES`, and the rule that a
 taxable entity may elect direct pay only for §45Q/§45V/§45X, are stated from the
 statutory categories rather than confirmed against text. §45V is not modelled.
@@ -181,21 +179,21 @@ they are declared:
 
 | Constant | Value | Basis |
 |---|---|---|
-| `DEFAULT_ITC_TRANSFER_PRICE` | 0.90 | Implied by the SPEC §2.7 ITC bridge quote ("75% advance, ~67.5% net at 90¢"). |
+| `DEFAULT_ITC_TRANSFER_PRICE` | 0.90 | Implied by the Norton Rose Fulbright ITC bridge quote ("75% advance, ~67.5% net at 90¢"). |
 | `DEFAULT_PTC_TRANSFER_PRICE` | 0.92 | **Placeholder.** No PTC clearing price is carried by the verified rulebook. |
 | `DEFAULT_TRANSFER_TRANSACTION_COST_PCT` | 0.02 | **Placeholder.** Broker fee + credit insurance + legal. |
 
 `ITC_MARKET_MIX_2025`, `PTC_DIRECT_TRANSFER_SHARE_2025` and
-`TRANSFER_MARKET_SIZE_USD_BN` are Crux figures quoted in SPEC §2.2 and are used
+`TRANSFER_MARKET_SIZE_USD_BN` are Crux figures and are used
 for **context and narration only** — never as arithmetic inputs to a deal.
 
 ---
 
-## Out of scope for Phase 2 (not gaps — deferred by plan)
+## Out of scope for this package (not gaps — they live elsewhere)
 
 * §704(b) capital accounts, deficit restoration obligations, outside basis,
-  suspended losses, minimum gain chargeback (SPEC §6.3, Phase 2 partnership
-  work — a sibling workstream).
+  suspended losses, minimum gain chargeback — these live in
+  `engine/structures/partnership.py`, not here.
 * State and local tax credits and incentives.
 * §45X advanced manufacturing production credit as a *product* (the section is
   modelled only as a transferable credit type for the §70512(h) test).

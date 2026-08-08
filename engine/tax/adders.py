@@ -5,12 +5,11 @@ Both adders share a structure that trips people up, so it is stated plainly:
 * **On the ITC** the bonus is expressed in **percentage points added to the
   energy percentage**: 2 points at the base rate, or **10 points where PWA is
   satisfied**. The same 5x multiplier that lifts 6% to 30% lifts 2 points to 10.
-  SPEC §2.4 quotes the 10-point figure, which presumes PWA compliance; this
-  module models both.
+  The 10-point figure presumes PWA compliance; this module models both.
 * **On the PTC** the bonus is a **10% increase in the credit amount** -
   multiplicative, not additive.
 
-**Domestic content (SPEC §2.4).** The domestic cost ratio must **meet or
+**Domestic content.** The domestic cost ratio must **meet or
 exceed** an escalating applicable percentage:
 
 ===========  ===========
@@ -39,7 +38,7 @@ metropolitan statistical area** meeting a fossil-fuel employment or tax-revenue
 test *and* an unemployment test; (iii) a **census tract** (or adjoining tract) in
 which a coal mine closed after 1999 or a coal-fired generating unit was retired
 after 2009. Running those tests requires the annual IRS/DOE appendices and a
-geospatial join, neither of which is in scope for Phase 2.
+geospatial join, neither of which is in scope.
 
 **Structura therefore does not determine energy community status. The caller
 asserts it** via ``TaxProject.energy_community`` and names the category in

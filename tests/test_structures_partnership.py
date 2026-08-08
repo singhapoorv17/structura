@@ -1,6 +1,6 @@
 """§704(b) capital accounts, DRO caps, outside basis, suspended losses.
 
-The properties asserted here are the ones SAM provably does not have (SPEC §3.2)
+The properties asserted here are the ones SAM provably does not have
 and are therefore the ones the product is staked on. Every golden number below
 is computed longhand in the docstring of the test that uses it, so a reviewer
 can check the engine against arithmetic rather than against the engine.

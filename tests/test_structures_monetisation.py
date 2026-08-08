@@ -1,7 +1,7 @@
 """Direct transfer, preferred equity and sale-leaseback.
 
 The three structures that do not turn on a flip point. Between them they cover
-43% of ITC gross value and more than 90% of PTC value in 2025 (Crux, SPEC §2.2)
+43% of ITC gross value and more than 90% of PTC value in 2025 (Crux)
 - so a model that treats them as afterthoughts to the flip has the market
 upside down.
 """

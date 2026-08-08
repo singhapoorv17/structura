@@ -187,7 +187,7 @@ def test_sources_never_exceed_uses_in_any_structure(case: str) -> None:
 
 @pytest.mark.parametrize("case", _ALL_COMPARISONS)
 def test_uses_reconcile_to_the_phase_1_funding_solve(case: str) -> None:
-    """The uses side is not restated here — it is the Phase 1 total project cost."""
+    """The uses side is not restated here — it is the total project cost."""
     comparison = _comparison(case)
     expected = comparison.context.economics.total_project_cost
     for entry in comparison.ranked:

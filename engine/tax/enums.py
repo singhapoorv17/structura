@@ -182,12 +182,12 @@ class ForeignEntityStatus(str, Enum):
 class Confidence(str, Enum):
     """How well sourced a rule in this package is.
 
-    The whole point of Structura's tax module is that it is honest about what it
-    knows. Every citation and every threshold carries one of these.
+    Every citation and every threshold carries one of these, so a consumer can
+    tell verified law from a provisional reading or a placeholder.
     """
 
-    #: Taken directly from the verified rulebook (SPEC.md §2, verified live on
-    #: 2026-08-06) or from black-letter statutory text.
+    #: Taken directly from the verified rulebook (checked live on 2026-08-06)
+    #: or from black-letter statutory text.
     VERIFIED = "verified"
     #: Believed correct and consistent with practice, but not confirmed against
     #: primary text in this build. Displayed with a caveat.

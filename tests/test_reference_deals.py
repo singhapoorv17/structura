@@ -8,7 +8,7 @@ produce a 163% sponsor IRR on a stack that raises more than the project costs.
 So this file fences the **calibration**:
 
 * sponsor after-tax IRR inside a defensible band;
-* achieved minimum DSCR clearing the published market floor (SPEC §2.7);
+* achieved minimum DSCR clearing the published market floor;
 * sources equal uses, with post-COD monetisation excluded;
 * the right number of structures feasible, for the right reason;
 * every unsourced input labelled and surfaced.
@@ -49,7 +49,7 @@ def comparisons() -> dict[str, object]:
 
 
 def test_the_library_covers_the_three_technologies_spec_asks_for() -> None:
-    """SPEC §6.4: lead with storage and data centres; solar is safe-harboured."""
+    """Storage and data centres are forward pipeline; solar is safe-harboured."""
     assert set(reference_deal_keys()) == {
         "storage_bess_contracted",
         "solar_safe_harboured",
@@ -76,7 +76,7 @@ def test_every_assumption_carries_a_source_and_a_date(case: str) -> None:
 
 @pytest.mark.parametrize("case", _CASES)
 def test_every_unsourced_number_is_labelled_a_placeholder(case: str) -> None:
-    """SPEC §4.5 and the established engine pattern: never fabricate a number."""
+    """The engine pattern throughout: never fabricate a market number."""
     deal = REFERENCE_DEALS[case]
     for a in deal.assumptions:
         if "PLACEHOLDER" in a.source:
@@ -93,7 +93,7 @@ def test_the_placeholder_warning_names_every_placeholder(case: str) -> None:
     placeholders = deal.placeholder_assumptions()
     assert placeholders, (
         "no reference deal can be fully sourced - offtake pricing has no free "
-        "public source (SPEC §5.1) - so a deal claiming none is a lie"
+        "public source - so a deal claiming none is a lie"
     )
     warning = deal.placeholder_warning()
     for a in placeholders:
@@ -125,7 +125,7 @@ def test_the_dscr_assumption_is_taken_from_the_published_benchmark(
 
 
 # ---------------------------------------------------------------------------
-# Gearing and coverage — SPEC §2.7
+# Gearing and coverage
 # ---------------------------------------------------------------------------
 
 
@@ -366,7 +366,7 @@ def test_the_two_credit_deals_actually_generate_a_credit() -> None:
 
 
 def test_the_solar_deal_is_on_the_right_side_of_the_begin_construction_cliff() -> None:
-    """SPEC §2.1: wind and solar must have begun construction by 2026-07-04."""
+    """Under OBBBA, wind and solar must have begun construction by 2026-07-04."""
     deal = REFERENCE_DEALS["solar_safe_harboured"]
     assert deal.tax_project.begin_construction_date is not None
     assert deal.tax_project.begin_construction_date.isoformat() <= "2026-07-04"

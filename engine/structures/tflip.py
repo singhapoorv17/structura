@@ -1,12 +1,10 @@
 """T-flip / hybrid — a partnership flip with a §6418 transfer bolted on.
 
-**This is the structure the 2026 market actually uses.** SPEC.md §2.6, quoting
 Norton Rose Fulbright's *Cost of Capital: 2026 Outlook* (2026-01-29) and
-Novogradac: traditional tax equity in which the investor retains the credits was
-~30% of the market in 2024 and less in 2025; *"most current deals employ hybrid
-or preferred equity structures"*; and T-flips appear on **"pretty much every
-single transaction."** A model that offers a pure 99/1 flip and nothing else is
-describing a shrinking minority of deals.
+Novogradac report that traditional tax equity in which the investor retains the
+credits was ~30% of the market in 2024 and less in 2025; that *"most current
+deals employ hybrid or preferred equity structures"*; and that T-flips appear
+on **"pretty much every single transaction."**
 
 The mechanic
 ------------

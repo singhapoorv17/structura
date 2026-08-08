@@ -1,13 +1,12 @@
 """Hygiene: no answer keys, no personal data, and the disclaimer is present.
 
-SPEC.md §4.4 ("not advice", prominent disclaimer), §4.5 ("public sources only;
-never use a real transaction's assumptions or any employer data") and §10.9
-("no employer data, no real-deal assumptions, no PII anywhere").
+The hygiene rules: "not advice" appears as a prominent disclaimer; public
+sources only; no real transaction's assumptions, no employer data and no PII
+anywhere in the workbook.
 
-The "answer key" test is the one that protects the product claim: if an engine
-output were quietly pasted into a cell, the workbook would agree with the
-engine for the wrong reason and would stop agreeing the moment a user changed
-an input.
+The "answer key" test matters most: if an engine output were quietly pasted
+into a cell, the workbook would agree with the engine for the wrong reason and
+would stop agreeing the moment a user changed an input.
 """
 
 from __future__ import annotations
@@ -178,7 +177,7 @@ def test_workbook_metadata_carries_no_author_identity():
 
 
 def test_no_sheet_mentions_a_real_counterparty_or_employer():
-    """Every default must be a published market benchmark (SPEC §4.5)."""
+    """Every default must be a published market benchmark."""
     path, _ = build_case("base")
     text = " ".join(t for _, _, t in _all_strings(path)).lower()
     for token in ("envirospark", "internal use only", "apoorv", "singh"):
@@ -244,13 +243,13 @@ def test_notes_sheet_attributes_its_market_defaults():
     assert "MIT" in notes
 
 
-def test_notes_sheet_is_honest_about_novelty():
-    """SPEC §4.3 and §11: overclaiming is the largest credibility risk."""
+def test_notes_sheet_states_the_methods_are_standard():
+    """The workbook says plainly that the mathematics is standard practice."""
     path, _ = build_case("base")
     notes = " ".join(
         text for sheet, _, text in _all_strings(path) if sheet == "Notes"
     ).lower()
-    assert "none of the mathematics here is novel" in notes
+    assert "standard project finance" in notes
 
 
 def test_notes_sheet_explains_iterative_calculation():

@@ -3,7 +3,7 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Methods & limits — Structura',
   description:
-    'How Structura computes, what is solver-derived versus live formula in the Excel, and an honest comparison against SAM and Edward Bodmer.',
+    'How Structura computes, what is solver-derived versus live formula in the Excel, and how it compares against SAM and Edward Bodmer\u2019s models.',
 };
 
 const SAM_ROWS = [
@@ -49,14 +49,14 @@ const SAM_ROWS = [
   },
   {
     axis: 'Physical modelling — resource, yield, dispatch, degradation',
-    sam: 'Decades of validated performance modelling across every technology. This is what SAM is for.',
-    structura: 'None. Production is an input. Pair the two; do not substitute one for the other.',
+    sam: 'Decades of validated performance modelling across every technology.',
+    structura: 'None. Production is an input; Structura is not a substitute for a performance model.',
     verdict: 'sam',
   },
   {
     axis: 'Track record and validation',
     sam: 'A national-laboratory tool with a long publication record and a large user base.',
-    structura: 'A 2026 build with golden-case tests and a published limits file. That is not the same thing.',
+    structura: 'A 2026 build with golden-case tests and a published limits file.',
     verdict: 'sam',
   },
 ];
@@ -65,39 +65,31 @@ export default function MethodsPage() {
   return (
     <main>
       <div className="pagehead">
-        <div className="kicker">methods · limits · honest comparison</div>
-        <h1>How this computes, and what it deliberately does not claim</h1>
+        <div className="kicker">methods · limits · comparison</div>
+        <h1>How this computes, and what it does not do</h1>
         <p>
-          Overclaiming is the single largest risk to a tool aimed at practitioners, so the limits get
-          the same real estate as the features. Everything below is the position stated in the
-          repository&rsquo;s own <code>LIMITS_STRUCTURES.md</code>, <code>UNVERIFIED.md</code> and{' '}
-          <code>CALIBRATION.md</code> — files written before this page existed, not marketing copy
-          retrofitted onto it.
+          The limits on this page are the ones recorded in the repository&rsquo;s{' '}
+          <code>LIMITS.md</code>, <code>LIMITS_STRUCTURES.md</code> and{' '}
+          <code>UNVERIFIED.md</code>.
         </p>
       </div>
 
-      {/* ---------------- the one-paragraph honest summary ---------------- */}
+      {/* ---------------- scope ---------------- */}
       <section className="panel">
         <header>
-          <h2>The claim, stated precisely</h2>
+          <h2>Scope</h2>
         </header>
         <div className="body prose">
           <p>
-            The claim is <strong>not</strong> that nobody models partnership flips — that is false,
-            and a practitioner will know it within ten seconds. The reference tool in this market
-            ships flips, sale-leasebacks and DSCR-sized debt today. The claim is narrower and
-            defensible:{' '}
-            <strong>
-              nobody produces a current, auditable, shareable structuring artifact
-            </strong>{' '}
-            — one that is right about the 2026 tax code, carries real partnership tax mechanics,
-            exports a workbook that recalculates, and opens in a browser.
+            Structura sizes non-recourse debt to a target DSCR, models five capital structures
+            against that single sizing under 2026 US federal tax law, and exports a workbook whose
+            arithmetic recalculates in Excel. Every tax rule carries an authority and a verified-on
+            date.
           </p>
           <p>
-            The edge over the free spreadsheet libraries is <strong>packaging, currency,
-            reproducibility and auditability</strong> — <em>not</em> novelty of the math. The math is
-            standard project finance. Claiming novelty here would be the fastest way to lose the
-            audience this is built for.
+            The mathematics is standard project finance. Partnership flips, sale-leasebacks and
+            DSCR-sized debt are all modelled elsewhere, including in free tools; the comparison
+            tables below set out what each does and does not cover.
           </p>
         </div>
       </section>
@@ -116,7 +108,7 @@ export default function MethodsPage() {
             credit officer asks. Reserves cover DSRA (months-based and forward-looking), MRA and O&amp;M.
           </p>
 
-          <h3>Circularity — solved twice, deliberately</h3>
+          <h3>Circularity — solved twice</h3>
           <p>
             Interest during construction depends on the debt size, which depends on fees, which
             depend on the debt size, and the DSRA sizes off debt service. Two independent solutions
@@ -136,10 +128,9 @@ export default function MethodsPage() {
             </li>
           </ul>
           <p>
-            Both paths must agree within a documented tolerance, and the test suite asserts it. This
-            is the only reason the export can be called lender-grade: without iterative calculation
-            the workbook opens with circular-reference warnings, which is an instant credibility
-            kill.
+            Both paths must agree within a documented tolerance, and the test suite asserts it.
+            Without iterative calculation enabled, a workbook containing these relationships opens
+            with circular-reference warnings and does not resolve.
           </p>
 
           <h3>What is a live formula in the Excel, and what is a value</h3>
@@ -217,8 +208,8 @@ export default function MethodsPage() {
             Structures are ranked on sponsor after-tax IRR — <strong>but only where that rate is
             meaningful.</strong> IRR is a rate on an equity base; shrink the base far enough and the
             rate describes the base rather than the deal. A sale-leaseback that returns the whole
-            construction equity at closing will happily print 41%, and printing it as a headline
-            would be the single fastest way to lose a reader who knows better.
+            construction equity at closing can print 41% on a residual base of a few hundred
+            thousand dollars.
           </p>
           <p>The rate is refused on four grounds:</p>
           <ul>
@@ -229,7 +220,8 @@ export default function MethodsPage() {
           </ul>
           <p>
             These four thresholds are <strong>Structura&rsquo;s own reporting guards, not market
-            data.</strong> They change no computed number and decide only what may be led with. A
+            data.</strong> They change no computed number and decide only which rate is shown as
+            the headline. A
             refused structure is ranked on sponsor NPV, behind every structure with a real rate, and
             carries its reason on the row. Effective cost of capital is unaffected and is displayed
             alongside as the cross-check.
@@ -255,9 +247,8 @@ export default function MethodsPage() {
         <div className="body">
           <p style={{ color: 'var(--text-dim)', marginTop: 0, maxWidth: '86ch' }}>
             The findings below come from reading <code>cmod_levpartflip.cpp</code>,{' '}
-            <code>cmod_singleowner.cpp</code> and <code>common.cpp</code> in source — not from
-            documentation, and not from a summary. SAM is the real competitor and it is very good at
-            what it does. Two of the eight rows below go to SAM.
+            <code>cmod_singleowner.cpp</code> and <code>common.cpp</code> in source, not from
+            documentation.
           </p>
           <div className="tablewrap">
             <table>
@@ -306,7 +297,7 @@ export default function MethodsPage() {
       <section className="panel">
         <header>
           <h2>How this differs from Edward Bodmer&rsquo;s models</h2>
-          <span className="sub">the most underrated free competitor</span>
+          <span className="sub">a free, ungated Excel model library</span>
         </header>
         <div className="body prose">
           <p>
@@ -317,12 +308,7 @@ export default function MethodsPage() {
             accounts, outside basis, DROs, minimum gain, PAYGO wind, back-leverage, sale-leaseback and
             inverted lease.
           </p>
-          <p>
-            <strong>
-              Anyone evaluating this project should ask why not just use those models. The honest
-              answer:
-            </strong>
-          </p>
+          <p>Row by row:</p>
           <div className="tablewrap">
             <table>
               <thead>
@@ -351,7 +337,7 @@ export default function MethodsPage() {
                     No evidence of OBBBA or FEOC updates.
                   </td>
                   <td style={{ color: 'var(--text-dim)' }}>
-                    The whole point. Dated citations, a verified-on stamp, and a{' '}
+                    Dated citations, a verified-on stamp, and a{' '}
                     <Link href="/current-law">changelog page</Link>.
                   </td>
                 </tr>
@@ -372,7 +358,7 @@ export default function MethodsPage() {
                     <span className="sname">Reproducibility</span>
                   </td>
                   <td style={{ color: 'var(--text-dim)' }}>
-                    A downloaded spreadsheet whose provenance you cannot reconstruct.
+                    A downloaded spreadsheet with no version history.
                   </td>
                   <td style={{ color: 'var(--text-dim)' }}>
                     <code>make test</code> reruns every golden case.
@@ -381,10 +367,6 @@ export default function MethodsPage() {
               </tbody>
             </table>
           </div>
-          <p style={{ marginTop: 11 }}>
-            <strong>Summary: the edge is packaging, currency, reproducibility and auditability — not
-            novelty of the math.</strong>
-          </p>
         </div>
       </section>
 

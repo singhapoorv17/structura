@@ -1,6 +1,6 @@
 """Formula-versus-engine agreement: the test that makes the export claim honest.
 
-SPEC.md §10.2 requires the Python numeric model and the emitted Excel model to
+The Python numeric model and the emitted Excel model must
 agree within a documented tolerance, asserted in tests. Excel is not available
 here, so the workbook is read back and its **formula graph is evaluated** by
 ``test_export_evaluator`` - iteratively, exactly as Excel does with
@@ -461,7 +461,7 @@ def test_cost_of_capital_matches_the_engine(name):
 
 
 def test_changing_the_dscr_input_re_sizes_the_facility():
-    """SPEC.md §6.5's golden test, run against the formula graph.
+    """The golden test, run against the formula graph.
 
     Change the DSCR target cell - nothing else - and the debt quantum, the
     sculpted profile, IDC, the equity cheque and the sponsor's IRR must all

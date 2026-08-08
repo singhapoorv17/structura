@@ -5,8 +5,8 @@ import { pct, usdM, xmult, years } from '../lib/format';
 /**
  * The structure comparison table.
  *
- * The hard rule (API_CONTRACT.md, Conventions): where `irr_is_meaningful` is
- * false the IRR must NOT be a headline figure. It is struck through and greyed,
+ * Where `irr_is_meaningful` is false the IRR is not shown as a headline
+ * figure. It is struck through and greyed,
  * the reason is carried inline and on the title attribute, and the row leads
  * with `sponsor_npv` instead.
  */

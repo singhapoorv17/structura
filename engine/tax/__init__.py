@@ -1,15 +1,14 @@
-"""``engine.tax`` - Structura's current-law tax engine (SPEC.md §6.4).
+"""``engine.tax`` - the current-law tax engine.
 
-**This package is the moat.** SPEC §3.2 establishes that SAM - the only credible
-incumbent - has *zero* mentions of OBBBA, transferability, the domestic content
-adder, the energy community adder, the §48E/§45Y phase-out or FEOC across all
-released versions. It has not been updated for the 2025-26 US tax regime at all.
-Bodmer's library, the other serious free resource, shows no evidence of OBBBA or
-FEOC updates either. Currency *is* the product.
+Implements the 2025-26 US federal regime for clean-electricity credits: the
+OBBBA bifurcation of §48E/§45Y, the domestic content and energy community
+adders, FEOC/MACR, begin-construction, depreciation with the §50(c)(3) basis
+reduction, and §6418/§6417 monetisation. Every rule carries a citation and a
+verified-on date.
 
-Law state encoded here was verified on **2026-08-06**. Re-verify before launch:
-§2.5 (begin construction) is in active litigation, and the FEOC guidance is
-expressly interim.
+Law state encoded here was verified on **2026-08-06**. Re-verify before use:
+begin construction is in active litigation, and the FEOC guidance is expressly
+interim.
 
 Modules
 -------
@@ -71,7 +70,7 @@ Quick start
     for warning in result.credit.warnings:
         print("!", warning)  # e.g. the MACR threshold is a PLACEHOLDER
 
-Not advice. Illustrative modelling only (SPEC §4.4).
+Not advice. Illustrative modelling only.
 """
 
 from __future__ import annotations

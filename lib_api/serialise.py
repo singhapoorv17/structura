@@ -1,23 +1,22 @@
-"""Engine objects -> the exact JSON in ``app/API_CONTRACT.md``.
+"""Engine objects -> the JSON response shape.
 
-Four rules are non-negotiable and each is asserted by ``tests/test_api_*.py``:
+Four rules hold, and each is asserted by ``tests/test_api_*.py``:
 
 1. ``irr_is_meaningful`` comes from the engine's own guard
    (``StructureResult.sponsor_irr_is_meaningful``). When it is false the IRR is
-   still emitted — the contract says so — carrying
-   ``irr_not_meaningful_reason``. The UI leads with ``sponsor_npv`` instead.
+   still emitted, carrying ``irr_not_meaningful_reason``. The UI leads with
+   ``sponsor_npv`` instead.
 2. **Every** warning reaches the response. Engine, tax, structure and reference
    deal warnings are concatenated, de-duplicated in first-seen order, and never
-   filtered. A PLACEHOLDER warning that does not reach the screen is the exact
-   failure mode SPEC §4.3 exists to prevent.
+   filtered.
 3. ``risks`` carry severity, and BLOCKING survives verbatim.
 4. ``capital_account_breaches`` are first-class, not a footnote.
 
-One documented divergence from the contract text: the contract enumerates
-``severity: BLOCKING|HIGH|MEDIUM|LOW`` while the engine's
-``RiskSeverity`` is ``BLOCKING|CAUTION|INFO``. ``severity`` carries the
-contract's vocabulary so a strict client never sees an unknown value, and
-``severity_engine`` carries the engine's own word so nothing is lost.
+One documented divergence: the response enumerates
+``severity: BLOCKING|HIGH|MEDIUM|LOW`` while the engine's ``RiskSeverity`` is
+``BLOCKING|CAUTION|INFO``. ``severity`` carries the response vocabulary so a
+strict client never sees an unknown value, and ``severity_engine`` carries the
+engine's own word so nothing is lost.
 
 Non-finite floats (NaN, ±inf) can legitimately fall out of a ratio with a zero
 denominator — an LLCR on a project with no debt, for example. JSON has no

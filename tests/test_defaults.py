@@ -1,8 +1,7 @@
 """The market-benchmark library.
 
-These tests are provenance tests as much as value tests. SPEC.md §4.1 makes
-currency the moat: every default must carry a source and a verified-on date, or
-the claim that Structura is current is unsupported.
+These tests are provenance tests as much as value tests. Every default must
+carry a source and a verified-on date.
 """
 
 from __future__ import annotations
@@ -34,7 +33,7 @@ def test_every_benchmark_carries_a_source_and_a_verification_date() -> None:
 
 
 def test_published_dscr_benchmarks_match_the_spec() -> None:
-    """SPEC.md §2.7, from NRF's Cost of Capital: 2026 Outlook."""
+    """From NRF's Cost of Capital: 2026 Outlook."""
     assert min_dscr(Technology.SOLAR).low == 1.25
     assert min_dscr(Technology.SOLAR).high == 1.30
     assert min_dscr(Technology.WIND).low == 1.35

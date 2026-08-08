@@ -1,6 +1,6 @@
 """Structura core engine - energy project-finance structuring.
 
-Phase 1 scope (SPEC.md §6.1): the debt-sizing / sculpting / waterfall spine.
+Scope: the debt-sizing / sculpting / waterfall spine.
 Pure Python, no web dependencies, no Excel, no tax structures.
 
 Typical use::
@@ -83,7 +83,7 @@ def run_model(
     lockup_dscr: float | None = None,
     discount_rate: float = 0.10,
 ) -> tuple[FundingSolution, WaterfallResult, ReturnsResult]:
-    """End-to-end Phase 1 run: cashflow -> funding solve -> waterfall -> returns.
+    """End-to-end run: cashflow -> funding solve -> waterfall -> returns.
 
     The convenience entry point the API layer will call. Everything it does is
     available piecewise from the individual modules; nothing is hidden here.

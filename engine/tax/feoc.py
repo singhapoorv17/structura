@@ -1,6 +1,6 @@
 """FEOC and the Material Assistance Cost Ratio - a pass/fail gate, not a warning.
 
-**The law (SPEC §2.3, verified 2026-08-06).** OBBBA §70512 introduced foreign
+**The law (verified 2026-08-06).** OBBBA §70512 introduced foreign
 entity of concern (FEOC) restrictions effective **2026-01-01**. IRS **Notice
 2026-15**, released **2026-02-12**, is the interim guidance. It defines the
 **Material Assistance Cost Ratio (MACR)** methodology, provides interim safe
@@ -118,7 +118,7 @@ def macr_threshold(technology: Technology, year: int) -> MacrThreshold:
 
     verified = (technology, year) in VERIFIED_MACR_CELLS
     note = (
-        "Threshold carried by the verified rulebook (SPEC §2.3): solar eligible "
+        "Threshold carried by the verified rulebook: solar eligible "
         "components sold in CY2026 require MACR >= 50%."
         if verified
         else "PLACEHOLDER threshold. The statutory MACR table in OBBBA §70512 "

@@ -2,7 +2,7 @@ PYTHON := .venv/bin/python
 
 .PHONY: test test-verbose demo gate clean
 
-## Run the full engine test suite (SPEC.md §4.6 reproducibility requirement).
+## Run the full engine test suite.
 test:
 	$(PYTHON) -m pytest
 
@@ -16,7 +16,7 @@ demo:
 	print(s.sizing.summary()); \
 	print(f'IDC \$${s.construction.idc/1e6:,.1f}m  equity \$${s.equity/1e6:,.1f}m  IRR {r.equity_irr_post_tax:.2%}')"
 
-## SPEC.md §9 Phase 1 gate: openpyxl must be able to write iterate="1".
+## Gate: openpyxl must be able to write iterate="1".
 gate:
 	$(PYTHON) -c "import zipfile, tempfile, os, openpyxl; \
 	from openpyxl.workbook.properties import CalcProperties; \

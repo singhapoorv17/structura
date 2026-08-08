@@ -102,11 +102,8 @@ export default function CurrentLawPage() {
         <h1>Current law</h1>
         <p>
           Every tax rule Structura implements, with its authority, what it means in plain English,
-          where the statement comes from, and the date it was last checked. This page is the moat:
-          the market&rsquo;s reference financial model has, on a full release-note and issue search,{' '}
-          <strong>zero mentions of OBBBA, transferability, the domestic content adder or FEOC
-          across all versions</strong>. When the law moves, this page moves — and the changelog is
-          the product.
+          where the statement comes from, and the date it was last checked. Rules whose confidence
+          is below <em>verified</em> are listed separately below.
         </p>
       </div>
 

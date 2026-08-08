@@ -2,7 +2,7 @@
 
 Each scenario is constructed so that exactly one test is meant to bind, and the
 assertion is that the engine names that one. Practitioners care about *which*
-test binds (SPEC.md §6.1), so getting the attribution right matters as much as
+test binds, so getting the attribution right matters as much as
 getting the quantum right.
 """
 

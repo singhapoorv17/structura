@@ -1,6 +1,6 @@
 """§48E ITC and §45Y PTC eligibility, rate build-up and phase-down.
 
-This is the module the whole product hangs off. SPEC §2.1, verified 2026-08-06.
+Verified 2026-08-06.
 
 **OBBBA (P.L. 119-21, enacted 2025-07-04) did not repeal §48E/§45Y. It
 bifurcated them.**
@@ -28,10 +28,8 @@ cliff. They keep **full §48E for construction begun through 2033**, then **75%
 The FEOC gate is multiplicative-by-zero on purpose: a MACR failure is a
 disqualification, never a haircut (:mod:`engine.tax.feoc`).
 
-**Product consequence, stated because it drives everything downstream (SPEC
-§6.4): lead with storage.** Wind and solar's forward pipeline is now
-safe-harboured inventory with a 2030 outside date; storage has a seven-year
-runway.
+The consequence for a forward pipeline: wind and solar are now safe-harboured
+inventory with a 2030 outside date, while storage retains a runway to 2033.
 """
 
 from __future__ import annotations
@@ -129,8 +127,8 @@ def evaluate_eligibility(
     is not duplicated; otherwise they are computed here.
 
     The returned :class:`~engine.tax.models.CreditResult` carries an ordered
-    ``steps`` list explaining **why** the answer is what it is - the narrator
-    (SPEC §6.6) renders it and is forbidden from adding to it.
+    ``steps`` list explaining **why** the answer is what it is. The narrator
+    renders it and is forbidden from adding to it.
     """
     scenario = scenario or TaxScenario()
     boc_result = begin_construction or assess_begin_construction(project, scenario)
@@ -360,7 +358,7 @@ def evaluate_eligibility(
 
 
 # ---------------------------------------------------------------------------
-# Path determination - the heart of SPEC §2.1
+# Path determination
 # ---------------------------------------------------------------------------
 
 

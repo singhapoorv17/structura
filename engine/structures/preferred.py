@@ -1,9 +1,9 @@
 """Preferred equity partnership — priority return, redemption, then common.
 
-**15% of ITC gross value in 2025** (Crux, quoted at SPEC.md §2.2), and named by
-Norton Rose Fulbright as one of the five live structures — with the observation
-that *"most current deals employ hybrid or preferred equity structures"*
-(SPEC §2.6).
+**15% of ITC gross value in 2025** (Crux), and named by Norton Rose Fulbright,
+*Cost of Capital: 2026 Outlook*, as one of the five live structures — with the
+observation that *"most current deals employ hybrid or preferred equity
+structures"*.
 
 The structure sits between debt and a flip. A preferred investor contributes
 capital, takes a **stated preferred return** on unreturned capital, is
@@ -19,7 +19,7 @@ the same engine and not as a second debt tranche.
 
 The cash waterfall inside the partnership
 -----------------------------------------
-Per year, out of the cash the Phase 1 waterfall releases to equity:
+Per year, out of the cash the project waterfall releases to equity:
 
 1. **Current preferred return** on unreturned capital (compounding on unpaid
    amounts if elected — the market norm, because an unpaid preferred that does

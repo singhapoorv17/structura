@@ -1,8 +1,7 @@
 """The cash waterfall - the order in which a project's cash is allowed to move.
 
 Priority of payments, senior to junior. This is the order written into a
-non-recourse credit agreement, and the whole point of the structure: cash
-cannot skip a step.
+non-recourse credit agreement: cash cannot skip a step.
 
 1. **Revenue less operating expense less cash tax** - i.e. CFADS, produced by
    ``engine.cashflow``. Everything below is a financing item.
@@ -12,23 +11,24 @@ cannot skip a step.
 3. **Debt Service Reserve Account.** Drawn *up* the waterfall to cure a debt
    service shortfall, and topped back up here, below debt service and above
    everything junior. Excess over target is released and becomes distributable.
-4. **Maintenance Reserve Account.** Exogenous in Phase 1 (see PHASE1.md): the
-   caller supplies the deposit and release schedule from a maintenance plan.
+4. **Maintenance Reserve Account.** Exogenous in this implementation (see
+   LIMITS.md): the caller supplies the deposit and release schedule from a
+   maintenance plan.
 5. **Cash sweep.** A contractual percentage of the remaining surplus prepays
    senior debt. Prepayments are applied in **inverse order of maturity** -
    they retire the back end of the schedule first - which is the market
    standard because it shortens the loan without changing near-term service.
 6. **Distribution lock-up test.** If DSCR falls below the lock-up level, the
    remaining cash may not leave the project. Modelled here as a 100% sweep in
-   that period (declared as a simplification in PHASE1.md; a real agreement
+   that period (a declared simplification, see LIMITS.md; a real agreement
    traps the cash in a blocked account first and releases it after a cure
    period).
 7. **Distributions to equity** - the residual, and the only line the sponsor
    actually owns.
 
-Subordinated / back-leverage debt sits between (6) and (7). Phase 1 exposes the
-hook (``subordinated_service``) but does not size a sub-debt tranche; that is
-Phase 3, where back-leverage matters for the structure comparison.
+Subordinated / back-leverage debt sits between (6) and (7). The engine exposes
+the hook (``subordinated_service``) but does not size a sub-debt tranche; see
+LIMITS.md.
 
 **Cash conservation is an asserted invariant.** For every period::
 

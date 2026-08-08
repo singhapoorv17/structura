@@ -1,6 +1,6 @@
 """The structure selector: ranking, determinism, and the hard credit gate.
 
-SPEC §6.2 makes this the product's differentiator, so the properties tested here
+The selector is the package's entry point, so the properties tested here
 are about **trust**, not arithmetic: the ranking must be reproducible, the
 reason for the ranking must be attached to the numbers that produced it, and a
 project with no credit must never be told to sell one.
@@ -45,7 +45,7 @@ from engine.structures.selector import _sort_key
 #: 105% of cost before the sponsor contributes anything: it left sponsor equity
 #: at 6.5% of the stack and produced a 163% sponsor IRR. Ranking behaviour
 #: asserted on inputs like that tests the artefact, not the selector. See
-#: ``CALIBRATION.md`` and ``engine/reference_deals.py``.
+#: ``engine/reference_deals.py``.
 _REFERENCE = reference_deal("storage_bess_contracted")
 
 
@@ -133,7 +133,7 @@ def test_the_ranking_is_sorted_by_sponsor_after_tax_irr_descending() -> None:
     structure with a real rate; the reason travels with it. A sale-leaseback is
     the standing example: effectively 100% financing, so its IRR is computed
     over a sliver of residual equity and is not a return. See
-    ``engine.structures.models.irr_meaningfulness`` and ``CALIBRATION.md``.
+    ``engine.structures.models.irr_meaningfulness``.
     """
     comparison = run()
     rates = [
@@ -184,7 +184,7 @@ def test_infeasible_structures_rank_last() -> None:
 
 
 def test_a_macr_failure_cannot_leave_a_credit_dependent_structure_first() -> None:
-    """SPEC §2.3: below the threshold, the credit is denied outright.
+    """Below the MACR threshold, the credit is denied outright.
 
     A direct transfer and a T-flip both exist only to monetise a credit. With
     no credit they must be infeasible, must not rank first, and must say why.

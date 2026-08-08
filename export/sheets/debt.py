@@ -1,10 +1,9 @@
 """Debt - the sizing tests, the sculpt, and the amortisation schedule.
 
-THIS SHEET IS THE PRODUCT
--------------------------
-SPEC.md §6.5 requires the exported model to carry live formulas, not pasted
-values, or the "lender-grade" claim is false. This is the sheet where that
-claim is actually cashed: the debt quantum, the sculpted service profile, the
+LIVE FORMULAS
+-------------
+The exported model carries live formulas, not pasted values. This is the sheet
+that most depends on it: the debt quantum, the sculpted service profile, the
 interest / principal split, the DSCR row and the LLCR/PLCR rows are all
 formulas. Change the target DSCR on Inputs and the facility re-sizes.
 

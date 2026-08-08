@@ -199,7 +199,7 @@ def test_export_returns_a_real_workbook():
     with zipfile.ZipFile(io.BytesIO(response.body)) as archive:
         names = archive.namelist()
         assert "xl/workbook.xml" in names
-        # SPEC §9 gate: iterative calculation must survive the round trip.
+        # Iterative calculation must survive the round trip.
         assert 'iterate="1"' in archive.read("xl/workbook.xml").decode()
 
 

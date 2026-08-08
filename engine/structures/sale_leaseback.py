@@ -1,7 +1,8 @@
-"""Sale-leaseback — the structure NRF says is making a comeback.
+"""Sale-leaseback.
 
-SPEC.md §2.6 lists sale-leaseback as one of the five live 2026 structures and
-records Norton Rose Fulbright's observation that it is **making a comeback**.
+Norton Rose Fulbright, *Cost of Capital: 2026 Outlook*, lists sale-leaseback as
+one of the five live 2026 structures and records that it is **making a
+comeback**.
 It returns whenever tax equity is scarce or expensive, because it is the only
 structure on the list that is effectively **100% financing**: the developer
 sells the asset at fair market value and gets its whole cost back in cash at

@@ -1,13 +1,11 @@
-"""GET /api/current-law — the citation registry, rendered for the moat page.
+"""GET /api/current-law — the citation registry, rendered for the ``/current-law`` page.
 
-SPEC §4.1: *"Current law is the moat. Every tax rule carries a citation and a
-'verified on' date in code. A /current-law page renders them."* This endpoint is
-that render feed. It reads ``engine.tax.citations`` directly, so the page cannot
-drift from the rules the engine actually applies, and it returns the
-unverified/placeholder block separately because honest gaps are a feature
-(SPEC §4.3).
+Every tax rule carries a citation and a verified-on date in code. This endpoint
+is the render feed for them. It reads ``engine.tax.citations`` directly, so the
+page cannot drift from the rules the engine actually applies, and it returns
+the unverified/placeholder block separately.
 
-``vercel.json`` rewrites the hyphenated contract path onto this file.
+``vercel.json`` rewrites the hyphenated path onto this file.
 """
 
 from __future__ import annotations

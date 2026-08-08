@@ -1,6 +1,6 @@
 """Structural tests for the exported workbook.
 
-The gate SPEC.md §9 makes blocking, the "live formulas, not pasted values"
+The blocking gate, the "live formulas, not pasted values"
 requirement from §4.2 and §6.5, and the named-range requirement from §6.5.
 """
 
@@ -18,7 +18,7 @@ from export.workbook import ITERATE_COUNT, ITERATE_DELTA
 from test_export_evaluator import build_case, evaluated_case
 
 # ---------------------------------------------------------------------------
-# SPEC §9 gate: iterative calculation must reach xl/workbook.xml
+# Gate: iterative calculation must reach xl/workbook.xml
 # ---------------------------------------------------------------------------
 
 
@@ -30,7 +30,7 @@ def _calc_pr(path) -> str:
 
 
 def test_workbook_xml_declares_iterative_calculation():
-    """The blocking finding of SPEC.md §5 and §9.
+    """The blocking gate on the exporter.
 
     Without ``iterate="1"`` the workbook opens with a circular-reference
     warning and zeroes the IDC / debt-size / fee chain, and the entire
@@ -91,7 +91,7 @@ def test_expected_sheets_in_expected_order():
 
 
 def test_registry_leaves_room_for_the_deferred_phase_2_and_3_sheets():
-    """Tax (Phase 2) and Structures (Phase 3) slot in without renumbering."""
+    """Tax and Structures sheets slot in without renumbering."""
     orders = {spec.name: spec.display_order for spec in registered_sheets()}
     assert orders["Debt"] < 55 < orders["Waterfall"], "no gap for a Tax sheet"
     assert orders["Waterfall"] < 75 < orders["Returns"], "no gap for Structures"
@@ -229,7 +229,7 @@ def test_only_one_solver_derived_cell_exists_and_it_is_flagged():
 # Named ranges
 # ---------------------------------------------------------------------------
 
-#: SPEC §6.5: "Named ranges for every driver." Every input a user would want to
+#: Named ranges for every driver. Every input a user would want to
 #: change must be reachable by name.
 _REQUIRED_DRIVER_NAMES = [
     "Capacity_MW",

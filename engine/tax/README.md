@@ -5,23 +5,17 @@ in active litigation and one is expressly interim guidance.
 
 ---
 
-## Why this package is the product
+## Why this package exists
 
-SPEC.md §3.2 establishes the competitive fact this whole build rests on. A full
-release-note and issue search of **SAM 2026.7.3 / SSC 308** — the only credible
-incumbent, and a genuinely good piece of software — returns **zero mentions** of
-OBBBA, "One Big Beautiful Bill", transferability, the domestic content adder,
-the energy community adder, the §48E/§45Y phase-out, or FEOC, across all
-versions. **SAM has not been updated for the current tax regime at all.** Ed
-Bodmer's library, the other serious free resource, shows no evidence of OBBBA or
+A full release-note and issue search of **SAM 2026.7.3 / SSC 308** returns zero
+mentions of OBBBA, "One Big Beautiful Bill", transferability, the domestic
+content adder, the energy community adder, the §48E/§45Y phase-out, or FEOC,
+across all versions. Ed Bodmer's Excel library shows no evidence of OBBBA or
 FEOC updates either.
 
-Structura's edge over both is **not novelty of the math**. It is packaging,
-currency, reproducibility and auditability. Say that plainly; claiming novelty
-you do not have is the fastest way to lose a practitioner audience (SPEC §3.4).
-
-That makes this package a maintenance commitment, not a feature. Treat law
-updates as **features, not maintenance** (SPEC §11).
+This package encodes the 2025–26 regime, with a citation and a verified-on date
+on every rule. It is a standing maintenance commitment: the law moves, and the
+citations have to move with it.
 
 ---
 
@@ -34,10 +28,8 @@ updates as **features, not maintenance** (SPEC §11).
 | **Wind, solar** | Must have **begun construction on or before 2026-07-04**. If so: standard **four-year continuity window**. If not: must be **placed in service by 2027-12-31**, or the credit is **zero**. |
 | **Storage, geothermal, nuclear, hydro** | Untouched by the accelerated cliff. Full §48E for **begin construction through 2033**, then **75% (2034)**, **50% (2035)**, **0% from 2036**. |
 
-The product consequence is stated in SPEC §6.4 and should drive the demo:
-**lead with storage and data centers.** Wind and solar's forward pipeline is now
-safe-harboured inventory with a 2030 outside date; storage has a seven-year
-runway.
+The consequence for a forward pipeline: wind and solar are now safe-harboured
+inventory with a 2030 outside date, while storage retains a runway to 2033.
 
 ### 2. Rate build-up
 
@@ -51,8 +43,8 @@ base 6% ITC                                  (0.3 ¢/kWh PTC, 2022 dollars)
 ```
 
 Without PWA the adders are **2 points**, not 10 — the same 5x multiplier that
-lifts 6% to 30% lifts 2 points to 10. SPEC §2.4 quotes the 10-point figure,
-which presumes PWA compliance.
+lifts 6% to 30% lifts 2 points to 10. The 10-point figure presumes PWA
+compliance.
 
 ### 3. Domestic content threshold escalates
 
@@ -92,7 +84,7 @@ TaxScenario(notice_2025_42_status=Notice202542Status.REINSTATED_ON_APPEAL) # the
 ```
 
 For a >1.5 MW wind project that relied on the 5% safe harbor, flipping that one
-enum is the difference between a 30% ITC and zero. That is the whole point.
+enum is the difference between a 30% ITC and zero.
 
 ### 6. §6418 transferability is ALIVE, and §6417 direct pay is intact
 
@@ -101,7 +93,7 @@ Draft bills proposed a sunset; the enacted OBBBA preserved both. New restriction
 foreign entity** (§7701(a)(51)(B)), for taxable years beginning after 2025-07-04
 — first tested **2026-01-01** for a calendar-year taxpayer.
 
-Market shape (Crux, SPEC §2.2): transfer market **$32bn (2024) → $42bn (2025),
+Market shape (Crux): transfer market **$32bn (2024) → $42bn (2025),
 +48%**; total monetisation $63bn in 2025. ITC gross value split **partnerships
 57% / direct transfer 28% / preferred equity 15%**; PTCs **>90% direct transfer**.
 
@@ -173,14 +165,13 @@ on_appeal = compute_tax(project, TaxScenario(
 ```
 
 Every result object carries `steps` (ordered `DeterminationStep`s) and
-`citation_ids`. The narrator (SPEC §6.6) renders those and **never computes**.
+`citation_ids`. The narrator renders those and **never computes**.
 
 ---
 
 ## When the law changes — the update runbook
 
-This is the process that keeps the moat. Follow it in order; each step is
-enforced by a test.
+Follow these steps in order; each one is enforced by a test.
 
 1. **`citations.py` first.** Add or amend the `Citation`. Set `authority`,
    `plain_english`, `source`, `verified_on` and `confidence`. Never edit a rule
@@ -194,7 +185,7 @@ enforced by a test.
    fails otherwise.
 4. **The rule module fourth.** Add the `DeterminationStep` that explains the new
    behaviour to a user, and attach the citation id to it.
-5. **A test fifth.** SPEC §10.4: every rule in §2 has a test and a citation. If
+5. **A test fifth.** Every rule has a test and a citation. If
    the change moves a boundary (a date, a threshold), test **both sides** of it —
    the whole package is boundary behaviour.
 6. **Bump `LAW_VERIFIED_ON`** only when you have actually re-checked every
@@ -233,6 +224,6 @@ enforced by a test.
 
 ## Not advice
 
-Illustrative modelling tool. Not tax, legal, accounting or investment advice
-(SPEC §4.4). Public sources only; no real transaction's assumptions and no
-employer data appear anywhere in this package (SPEC §4.5).
+Illustrative modelling tool. Not tax, legal, accounting or investment advice.
+Public sources only; no real transaction's assumptions and no employer data
+appear anywhere in this package.

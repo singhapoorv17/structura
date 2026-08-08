@@ -1,16 +1,12 @@
 /**
- * Local mock of the frozen API contract (API_CONTRACT.md, frozen 2026-08-07).
+ * Local mock of the API response shape.
  *
- * Every figure below is taken from the engine's own calibration record
- * (CALIBRATION.md §3.2 / §3.3) and reference-deal library
- * (engine/reference_deals.py). Nothing here is invented to look good: the
- * sale-leaseback IRR really is refused as a headline, the reference deals
- * really do come out gearing-bound with DSCR headroom, and the placeholder
- * warnings really are the ones the engine emits.
+ * Every figure below is taken from the engine's own output for the reference
+ * deals in `engine/reference_deals.py`: the same refused sale-leaseback IRR,
+ * the same gearing-bound results, the same placeholder warnings.
  *
- * This exists so the UI is buildable and demonstrable before the Python
- * serverless layer lands. `lib/api.js` prefers the real endpoints and falls
- * back here.
+ * This exists so the UI renders when the Python serverless layer is
+ * unreachable. `lib/api.js` prefers the real endpoints and falls back here.
  */
 
 export const LAW_VERIFIED_ON = '2026-08-06';
@@ -117,10 +113,7 @@ const STRUCTURE_LABELS = {
   sale_leaseback: 'Sale-leaseback',
 };
 
-/**
- * Calibrated base cases. Source: CALIBRATION.md §3.2 and §3.3 — the tables
- * printed by the engine itself after the calibration pass.
- */
+/** Calibrated base cases, as printed by the engine for each reference deal. */
 const BASE = {
   storage_bess_contracted: {
     funding_requirement: 147046397,
@@ -398,7 +391,7 @@ const STANDING_WARNINGS = [
   'engine.structures: PLACEHOLDER_TE_TARGET_AFTER_TAX_IRR = 6.50% — the single most important input to a yield-based flip. Norton Rose Fulbright publishes debt pricing and DSCR but no tax-equity target yield. Override before relying on any output.',
   'engine.structures: PLACEHOLDER_PREFERRED_RETURN = 9.00% and PLACEHOLDER_PREFERRED_TARGET_TERM_YEARS = 10. Preferred pricing is quoted deal by deal and is not published.',
   'engine.structures: PLACEHOLDER_LESSOR_TARGET_AFTER_TAX_IRR = 7.00%; PLACEHOLDER_SALE_LEASEBACK_RESIDUAL_PCT = 20%, set at the Rev. Proc. 2001-28 guideline floor. A floor is not a forecast.',
-  'engine.reference_deals: capex per kW, offtake pricing and every operating cost ship as placeholders. SPEC §5.1 records that no free source of PPA or offtake prices exists (LevelTen is subscriber-only), so a sourced revenue line would be a fabrication.',
+  'engine.reference_deals: capex per kW, offtake pricing and every operating cost ship as placeholders. No free source of PPA or offtake prices exists (LevelTen is subscriber-only), so no revenue line here is sourced.',
   'engine.structures.selector: one debt sizing serves all five structures. A lender would size a sale-leaseback differently from a flip; re-sizing per structure would make the comparison meaningless, so the simplification is deliberate.',
   'engine.structures: no scenario sweep. This is a single P50 run — P90/P99, merchant share and rate shocks are not applied.',
   'engine.tax: §704(c), qualified income offset, §465 at-risk and §469 passive activity limitations are not modelled. Federal tax only; no state tax anywhere.',
@@ -933,7 +926,7 @@ export function mockCurrentLaw() {
         headline: 'Domestic content threshold escalates to 50% in 2026',
         summary:
           'The applicable percentage runs 40% (pre-2025) → 45% (2025) → 50% (2026) → 55% thereafter.',
-        source: 'SPEC §2.4, verified 2026-08-06.',
+        source: 'Structura verified rulebook, checked live 2026-08-06.',
         topic: 'adders',
         verified_on: LAW_VERIFIED_ON,
         confidence: 'VERIFIED',
@@ -943,7 +936,7 @@ export function mockCurrentLaw() {
         authority: 'I.R.C. §48(a)(12) drafting carried into §48E; §45Y(g)(11)',
         headline: 'Domestic content bonus: 2 points base, 10 points with PWA',
         summary: 'The adder is 10 percentage points on the ITC, or 10% on the PTC, where PWA is met.',
-        source: 'SPEC §2.4.',
+        source: 'Structura verified rulebook, checked live 2026-08-06.',
         topic: 'adders',
         verified_on: LAW_VERIFIED_ON,
         confidence: 'VERIFIED',
@@ -955,7 +948,7 @@ export function mockCurrentLaw() {
         summary:
           'Notice 2025-08 provides elective safe-harbor cost percentages for the domestic content adder, published per technology and per component. Structura ships only a stub; electing the safe harbor raises rather than returning a made-up ratio. Actual-cost build-up works normally.',
         source:
-          'Existence and purpose of the notice are from SPEC §2.4; the percentages themselves were not obtained.',
+          'The existence and purpose of the notice are carried by the verified rulebook; the percentages themselves were not obtained.',
         topic: 'adders',
         verified_on: LAW_VERIFIED_ON,
         confidence: 'PLACEHOLDER',
@@ -966,7 +959,7 @@ export function mockCurrentLaw() {
         headline: 'Energy community bonus: 2 points base, 10 points with PWA',
         summary:
           'Structura does not determine energy community status — the test needs the annual IRS/DOE appendices and a geospatial join. The caller asserts qualification and names the limb; the engine records the assertion and marks the adder provisional.',
-        source: 'Adder amount from SPEC §2.4; the qualification tests are not implemented.',
+        source: 'Adder amount from the verified rulebook; the qualification tests are not implemented.',
         topic: 'adders',
         verified_on: LAW_VERIFIED_ON,
         confidence: 'PROVISIONAL',
@@ -977,7 +970,7 @@ export function mockCurrentLaw() {
         headline: 'FEOC restrictions effective 2026-01-01',
         summary:
           'Foreign entity of concern restrictions took effect on 2026-01-01 and operate as a pass/fail gate on credit eligibility.',
-        source: 'SPEC §2.3, verified 2026-08-06.',
+        source: 'Structura verified rulebook, checked live 2026-08-06.',
         topic: 'feoc',
         verified_on: LAW_VERIFIED_ON,
         confidence: 'VERIFIED',
@@ -988,7 +981,7 @@ export function mockCurrentLaw() {
         headline: 'Material Assistance Cost Ratio — interim methodology',
         summary:
           'The interim guidance defines the MACR methodology with interim safe harbors, supplier certifications and DOE-derived default cost tables. Broader PFE-status guidance was deferred.',
-        source: 'SPEC §2.3, verified 2026-08-06.',
+        source: 'Structura verified rulebook, checked live 2026-08-06.',
         topic: 'feoc',
         verified_on: LAW_VERIFIED_ON,
         confidence: 'VERIFIED',
@@ -1011,7 +1004,7 @@ export function mockCurrentLaw() {
         headline: 'A MACR failure kills the credit',
         summary:
           'Failing the Material Assistance Cost Ratio is disqualifying, not reducing. Structura renders it as a BLOCKING risk and voids every credit-dependent structure.',
-        source: 'SPEC §2.3.',
+        source: 'Structura verified rulebook, checked live 2026-08-06.',
         topic: 'feoc',
         verified_on: LAW_VERIFIED_ON,
         confidence: 'VERIFIED',
@@ -1023,7 +1016,7 @@ export function mockCurrentLaw() {
           'No transfer of §45Q/45X/45Y/45Z/48E credits to a specified foreign entity',
         summary:
           'Effective for taxable years beginning after 2025-07-04 — first tested 2026-01-01 for calendar-year taxpayers.',
-        source: 'SPEC §2.2, verified 2026-08-06.',
+        source: 'Structura verified rulebook, checked live 2026-08-06.',
         topic: 'transfer',
         verified_on: LAW_VERIFIED_ON,
         confidence: 'VERIFIED',
@@ -1067,7 +1060,7 @@ export function mockCurrentLaw() {
         headline: '5% safe harbor eliminated for wind/solar above 1.5 MW',
         summary:
           'The notice removed the 5% cost safe harbor for wind and solar facilities above 1.5 MW, forcing reliance on the Physical Work Test. It was vacated in full on 2026-06-06 — see the litigation panel.',
-        source: 'SPEC §2.5, verified 2026-08-06.',
+        source: 'Structura verified rulebook, checked live 2026-08-06.',
         topic: 'begin_construction',
         verified_on: LAW_VERIFIED_ON,
         confidence: 'VERIFIED',
@@ -1079,7 +1072,7 @@ export function mockCurrentLaw() {
         headline: 'Notice 2025-42 VACATED IN FULL — 5% safe harbor restored',
         summary:
           'The U.S. District Court for the District of Columbia vacated Notice 2025-42 in full as arbitrary and capricious under the APA, and remanded. The 5% safe harbor is restored. A government appeal or stay is expected; the court acknowledged the appellate timeline runs past 2026-07-04.',
-        source: 'SPEC §2.5, verified 2026-08-06.',
+        source: 'Structura verified rulebook, checked live 2026-08-06.',
         topic: 'begin_construction',
         verified_on: LAW_VERIFIED_ON,
         confidence: 'VERIFIED',
@@ -1145,7 +1138,7 @@ export function mockCurrentLaw() {
         headline: '§6418 transferability survived OBBBA intact',
         summary:
           'Draft bills proposed a sunset; the enacted OBBBA preserved §6418 whole. §6417 direct pay is also intact.',
-        source: 'SPEC §2.2, verified 2026-08-06.',
+        source: 'Structura verified rulebook, checked live 2026-08-06.',
         topic: 'transfer',
         verified_on: LAW_VERIFIED_ON,
         confidence: 'VERIFIED',
@@ -1157,7 +1150,7 @@ export function mockCurrentLaw() {
         summary:
           'The enumerated list of applicable entities, and the rule that a taxable entity may elect direct pay only for §45Q/§45V/§45X, are stated from the statutory categories rather than confirmed against text.',
         source:
-          'Survival of §6417 is from SPEC §2.2; the applicable-entity list was not confirmed.',
+          'Survival of §6417 is carried by the verified rulebook; the applicable-entity list was not confirmed.',
         topic: 'transfer',
         verified_on: LAW_VERIFIED_ON,
         confidence: 'PROVISIONAL',
@@ -1179,7 +1172,7 @@ export function mockCurrentLaw() {
         headline: 'Transfer market $32bn (2024) → $42bn (2025), +48%',
         summary:
           'Total monetisation was $63bn in 2025. For ITCs: partnerships 57% of gross value, direct transfer 28%, preferred equity 15%. For PTCs: over 90% direct transfer. 1 in 4 Fortune 1000 companies now participate.',
-        source: 'Crux, quoted in SPEC §2.2. Context and narration only — never an arithmetic input.',
+        source: 'Crux 2025 transferability market data. Context and narration only — never an arithmetic input.',
         topic: 'market',
         verified_on: LAW_VERIFIED_ON,
         confidence: 'VERIFIED',
@@ -1190,7 +1183,7 @@ export function mockCurrentLaw() {
         headline: 'Default ITC clearing price ~90¢',
         summary:
           'Implied by the ITC bridge quote: 98% advance at SOFR+150 if covered/committed; 75% advance (~67.5% net at 90¢) at SOFR+225 if uncovered. The PTC price of 92¢ is a placeholder — no PTC clearing price is carried by the verified rulebook.',
-        source: 'SPEC §2.7 market benchmarks.',
+        source: 'Norton Rose Fulbright, Cost of Capital: 2026 Outlook market benchmarks.',
         topic: 'market',
         verified_on: LAW_VERIFIED_ON,
         confidence: 'VERIFIED',
@@ -1234,7 +1227,7 @@ export function mockCurrentLaw() {
         detail:
           'Target after-tax IRR of 6.50% for tax equity, 9.00% preferred return, 7.00% lessor target and a 20% sale-leaseback residual all ship as labelled placeholders. NRF publishes debt pricing and DSCR by technology; it publishes no tax-equity target yield, no pre-flip split and no preferred coupon. Crux publishes market shares, not prices.',
         impact:
-          'The tax-equity target yield is the single most important input to a yield-based flip. Override it before relying on any flip output.',
+          'The tax-equity target yield drives the flip solve. Override it before relying on any flip output.',
         confidence: 'PLACEHOLDER',
       },
       {
@@ -1242,7 +1235,7 @@ export function mockCurrentLaw() {
         detail:
           'No free source of PPA prices exists — LevelTen’s index is subscriber-only. Capex figures are round order-of-magnitude placeholders; the NLR Annual Technology Baseline 2024 v4.0.0 is the intended anchor but is not yet a data dependency.',
         impact:
-          'Every reference deal carries at least one placeholder assumption, asserted by a test. A reference deal claiming a sourced revenue line would be a fabrication.',
+          'Every reference deal carries at least one placeholder assumption, asserted by a test.',
         confidence: 'PLACEHOLDER',
       },
       {

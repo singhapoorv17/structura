@@ -20,8 +20,8 @@ And the debt in turn depends on total project cost through the gearing cap::
     D = min( D_DSCR , max_gearing * TPC )
 
 That is a genuine fixed point. In Excel it is solved by switching on iterative
-calculation (which is exactly why the Phase 4 workbook must be written with
-``iterate="1"``, SPEC.md §5). Here it is solved numerically and deterministically,
+calculation, which is why the exported workbook is written with
+``iterate="1"``. Here it is solved numerically and deterministically,
 so the Python model never depends on Excel's solver.
 
 THE SOLUTION - AN EXPLICIT TWO-LEVEL ITERATION SCHEDULE

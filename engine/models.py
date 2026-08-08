@@ -2,7 +2,7 @@
 
 Plain frozen dataclasses only - no pydantic, no web framework types. The engine
 is a pure library; validation that belongs at the API boundary lives at the API
-boundary (SPEC.md §6: "the web app is a thin shell over this").
+boundary.
 
 Vocabulary used throughout (standard project-finance terminology):
 
@@ -142,10 +142,10 @@ class ProjectInputs:
     * ``periods_per_year`` of 1 gives annual periods, 2 gives semi-annual. The
       engine applies a simple nominal convention: the per-period interest rate
       is the annual rate divided by ``periods_per_year``, and an annual
-      cashflow is split into equal sub-periods. There is no seasonality in
-      Phase 1 (declared in PHASE1.md).
+      cashflow is split into equal sub-periods. There is no seasonality; see
+      LIMITS.md.
     * Contracted volume is a *share of production*, not a fixed MWh block. A
-      fixed-volume PPA with a shortfall obligation is a Phase 2+ item.
+      fixed-volume PPA with a shortfall obligation is not modelled.
     * Degradation compounds: year-n production = P * (1 - d)^(n-1).
     """
 
@@ -186,7 +186,7 @@ class ProjectInputs:
     tax_rate: float = FEDERAL_TAX_RATE.value
     tax_treatment: TaxTreatment = TaxTreatment.NONE
     #: Straight-line book depreciation life used when tax is modelled at the
-    #: project level. MACRS and bonus depreciation are Phase 2 (`engine/tax/`).
+    #: project level. MACRS and bonus depreciation live in `engine/tax/`.
     depreciation_years: float = 20.0
 
     # --- horizon ------------------------------------------------------------
@@ -307,7 +307,7 @@ class DebtTerms:
 
         A grace period is interest-only: interest is paid current out of CFADS,
         principal repayment is deferred. Interest *capitalisation* during
-        operations is not modelled in Phase 1.
+        operations is not modelled.
         """
         g = int(self.grace_period_months * periods_per_year // MONTHS_PER_YEAR)
         return min(g, self.periods(periods_per_year))

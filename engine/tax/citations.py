@@ -1,9 +1,9 @@
-"""The citation registry - the moat, as a first-class artifact.
+"""The citation registry.
 
-SPEC.md §4.1: *"Current law is the moat. Every tax rule carries a citation and a
-'verified on' date in code. A /current-law page renders them."*
+Every tax rule carries a citation and a verified-on date in code, and the
+``/current-law`` page renders them.
 
-This module is therefore not documentation. It is data. Every rule implemented
+This module is not documentation. It is data. Every rule implemented
 anywhere in ``engine/tax`` registers a :class:`Citation` here, and every result
 object returned by the package carries the ids of the citations that produced
 it. ``get_all_citations()`` is the render feed for the ``/current-law`` page and
@@ -90,7 +90,7 @@ def _c(
     plain_english: str,
     module: str,
     *,
-    source: str = "SPEC.md §2 (Structura verified rulebook, checked live 2026-08-06)",
+    source: str = "Structura verified rulebook, checked live 2026-08-06",
     verified_on: date = LAW_VERIFIED_ON,
     confidence: Confidence = Confidence.VERIFIED,
     note: str = "",
@@ -222,8 +222,9 @@ _ALL: tuple[Citation, ...] = (
         "component to compute the domestic cost ratio.",
         "adders",
         confidence=Confidence.PLACEHOLDER,
-        source="Existence and purpose of the notice are from SPEC §2.4; the "
-        "per-component percentage tables were not sourced in this build.",
+        source="The existence and purpose of the notice are carried by the "
+        "verified rulebook; the per-component percentage tables were not "
+        "sourced in this build.",
         note="Ship the real tables into "
         "constants.PLACEHOLDER_NOTICE_2025_08_SAFE_HARBOR_PCT before enabling "
         "the safe-harbor election in production.",
@@ -238,8 +239,8 @@ _ALL: tuple[Citation, ...] = (
         "closed coal mine or retired coal-fired generating unit.",
         "adders",
         confidence=Confidence.PROVISIONAL,
-        source="Adder amount from SPEC §2.4; the qualification tests are "
-        "summarised from the statutory categories.",
+        source="Adder amount from the verified rulebook; the qualification "
+        "tests are summarised from the statutory categories.",
         note="Structura does NOT run the census-tract / brownfield / "
         "coal-closure test. The caller asserts qualification and the category. "
         "Declared simplification - see UNVERIFIED.md.",
@@ -274,7 +275,7 @@ _ALL: tuple[Citation, ...] = (
         "feoc",
         confidence=Confidence.PLACEHOLDER,
         source="Only the solar-CY2026 50% cell is carried by the verified "
-        "rulebook (SPEC §2.3). All other cells are placeholders.",
+        "rulebook. All other cells are placeholders.",
         note="Replace constants.PROVISIONAL_MACR_THRESHOLDS with the statutory "
         "table before production use. Every lookup reports "
         "`threshold_is_placeholder`.",
@@ -426,8 +427,8 @@ _ALL: tuple[Citation, ...] = (
         "and §45X.",
         "transfer",
         confidence=Confidence.PROVISIONAL,
-        source="Survival of §6417 is from SPEC §2.2; the applicable-entity list "
-        "is the statutory enumeration.",
+        source="Survival of §6417 is carried by the verified rulebook; the "
+        "applicable-entity list is the statutory enumeration.",
     ),
     _c(
         "excessive-credit-transfer-penalty",
@@ -441,7 +442,7 @@ _ALL: tuple[Citation, ...] = (
     ),
     _c(
         "transfer-market-2025",
-        "Crux 2025 transferability market data, quoted in SPEC §2.2",
+        "Crux 2025 transferability market data",
         "Transfer market $32bn (2024) -> $42bn (2025), +48%",
         "Total credit monetisation reached $63bn in 2025. Of ITC gross value, "
         "partnerships took 57%, direct transfer 28% and preferred equity 15%. "
@@ -457,7 +458,8 @@ _ALL: tuple[Citation, ...] = (
         "The ITC bridge market prices an uncovered 75% advance at roughly 67.5% "
         "net, implying a 90c clearing price on the underlying credit.",
         "transfer",
-        source="SPEC §2.7 market benchmarks.",
+        source="Norton Rose Fulbright, *Cost of Capital: 2026 Outlook* "
+        "market benchmarks.",
     ),
 )
 
@@ -507,7 +509,6 @@ def unverified_citations() -> tuple[Citation, ...]:
     """Every rule that is provisional or a placeholder.
 
     The ``/current-law`` page renders these in a separate, visually distinct
-    block. Honest gaps are a feature (SPEC §4.3); silent approximation is a
-    credibility failure.
+    block. Gaps are declared rather than approximated silently.
     """
     return tuple(c for c in get_all_citations() if c.confidence is not Confidence.VERIFIED)

@@ -1,11 +1,11 @@
 # `engine/` — the Structura core spine
 
 Pure Python. No web framework, no Excel, no network, no I/O. The web app and the
-`.xlsx` exporter are thin shells over this package, and both are later phases.
+`.xlsx` exporter are thin shells over this package.
 
-This is **Phase 1** of SPEC.md: debt sizing, sculpting, reserves, the funding
-circularity and the cash waterfall. Tax structures (`engine/tax/`), the
-partnership mechanics and the five-structure selector are Phases 2–3.
+This package covers debt sizing, sculpting, reserves, the funding circularity
+and the cash waterfall. Tax treatment lives in `engine/tax/`; the partnership
+mechanics and the five-structure selector live in `engine/structures/`.
 
 ---
 
@@ -156,9 +156,9 @@ D   = min( D_DSCR , max_gearing · TPC )
 ```
 
 Every term after `capex` depends on `D`, and `D` depends on `TPC`. In Excel this
-is what iterative calculation is for (`iterate="1"`, SPEC §5 — the reason the
-stack is `openpyxl`). Here it is solved numerically so the Python model never
-depends on Excel's solver, and Phase 4 asserts the two agree.
+is what iterative calculation is for (`iterate="1"`, which is why the export
+uses `openpyxl`). Here it is solved numerically so the Python model never
+depends on Excel's solver, and the export tests assert the two agree.
 
 **Inner solve — the drawdown.** For a trial facility `D`, let `X` be the
 debt-funded capex. Simulating the construction period month by month gives a

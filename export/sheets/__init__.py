@@ -11,11 +11,11 @@ runs, which only matters when a sheet references another sheet's *rows*
 Gaps are left deliberately:
 
 =====  ============================================================
-55     **Tax** (Phase 2, ``engine/tax``): section 48E / 45Y
+55     **Tax** (``engine/tax``): section 48E / 45Y
        eligibility and phase-down, FEOC / material assistance cost
        ratio, domestic content adder, MACRS and bonus depreciation,
        the 50% ITC basis reduction.
-75     **Structures** (Phase 3): partnership flip, T-flip, preferred
+75     **Structures**: partnership flip, T-flip, preferred
        equity, direct transfer under section 6418, sale-leaseback,
        and the ranked cost-of-capital comparison.
 =====  ============================================================
@@ -43,7 +43,7 @@ __all__ = ["register_default_sheets"]
 
 
 def register_default_sheets() -> None:
-    """Register the Phase 4 sheet set. Idempotent - safe to call repeatedly."""
+    """Register the default sheet set. Idempotent - safe to call repeatedly."""
     register_sheet(
         summary.SHEET_NAME,
         summary.build,

@@ -1,12 +1,11 @@
 """§704(b) capital accounts, DROs, outside basis and suspended losses.
 
-**This module is the moat.** SPEC.md §3.2 records the finding that a grep of
-SAM's three finance modules (``cmod_levpartflip.cpp``, ``cmod_singleowner.cpp``,
-``common.cpp``) returns **zero** hits for ``capital_account``,
-``deficit_restoration``, ``outside_basis``, ``704(b)`` or ``suspended_loss``.
-SAM's partnership flip is a *stylised fixed percentage split with an
-IRR-triggered flip date*. It is a good model of the cash; it is not a model of
-the partnership. Everything below is what sits in that gap.
+A grep of SAM's three finance modules (``cmod_levpartflip.cpp``,
+``cmod_singleowner.cpp``, ``common.cpp``) returns zero hits for
+``capital_account``, ``deficit_restoration``, ``outside_basis``, ``704(b)`` or
+``suspended_loss``: its partnership flip is a stylised fixed percentage split
+with an IRR-triggered flip date. This module implements the partnership-tax
+layer underneath such a split.
 
 The ledgers, and why there are three of them
 --------------------------------------------

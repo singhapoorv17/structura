@@ -1,15 +1,14 @@
 """Input and output data structures for the current-law tax engine.
 
-Deliberately self-contained: this package imports nothing from the rest of
-``engine`` (SPEC §6.4 makes ``engine/tax`` the current-law module, and keeping
-it dependency-free means it can be lifted into the ``/current-law`` page, the
-narrator, or a separate service without dragging the sculpting spine along).
+Self-contained: this package imports nothing from the rest of ``engine``, so
+it can be lifted into the ``/current-law`` page, the narrator, or a separate
+service without dragging the sculpting spine along.
 
 All result types are frozen dataclasses carrying (a) the numbers, (b) an ordered
 list of :class:`DeterminationStep` explaining how the numbers arose, and (c) the
-ids of the citations that authorise each step. (b) and (c) exist because SPEC
-§4.2 requires every output to be traceable and SPEC §6.6 has a narrator layer
-that must never invent a reason.
+ids of the citations that authorise each step. (b) and (c) make every output
+traceable, and give the narrator layer something to render without inventing a
+reason.
 """
 
 from __future__ import annotations
@@ -79,9 +78,8 @@ __all__ = [
 class DeterminationStep:
     """One link in the chain of reasoning from project facts to a tax outcome.
 
-    The narrator (SPEC §6.6) renders these verbatim. It never computes and never
-    overrides, so if a conclusion is not explained by a step here, it cannot be
-    explained to the user at all.
+    The narrator renders these verbatim. It never computes and never overrides,
+    so a conclusion not explained by a step here cannot be explained at all.
     """
 
     label: str
@@ -178,9 +176,9 @@ class ForeignEntityFlags:
 class TaxScenario:
     """Modelled legal/behavioural assumptions, separate from project facts.
 
-    Separating this from :class:`TaxProject` is what makes SPEC §2.5 a
-    *scenario* rather than a hard-coded assumption: the same project can be run
-    against current law and against the appeal outcome.
+    Separating this from :class:`TaxProject` makes the begin-construction
+    litigation a *scenario* rather than a hard-coded assumption: the same
+    project can be run against current law and against the appeal outcome.
     """
 
     #: The litigation fork. Default is current law as of 2026-08-06.
@@ -202,8 +200,7 @@ class TaxProject:
     """The facts of one project, as a tax analyst would state them.
 
     Only the four fields without defaults are genuinely required; everything
-    else has a defensible default so a screening run needs minimal input
-    (SPEC §7 M1: "minimal required fields").
+    else has a defensible default, so a screening run needs minimal input.
     """
 
     technology: Technology

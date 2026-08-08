@@ -1,7 +1,6 @@
 /**
  * The single switch between the real Python serverless layer and the local
- * mock. Build against API_CONTRACT.md (frozen 2026-08-07); nothing else in the
- * app knows whether the API exists.
+ * mock. Nothing else in the app knows whether the API exists.
  *
  * Mode resolution:
  *   NEXT_PUBLIC_API_MODE = "live" → always hit /api/*, never fall back.
@@ -9,9 +8,9 @@
  *   unset (default)              → try /api/*, fall back to the mock if the
  *                                  endpoint is absent or unreachable.
  *
- * The default matters: the page must work end to end before the API lands, and
- * must switch to the real engine the moment it does, with no code change.
- * Every response carries `_source: 'live' | 'mock'` so the UI can say which.
+ * Under the default, the page renders end to end whether or not the API is
+ * reachable. Every response carries `_source: 'live' | 'mock'` so the UI can
+ * say which it used.
  */
 
 import { mockCompare, mockCurrentLaw, mockReferenceDeals } from './mockData';
@@ -86,9 +85,8 @@ export async function currentLaw() {
 }
 
 /**
- * POST /api/export → .xlsx bytes. Deliberately NOT mocked: a fake workbook
- * would be worse than an honest failure, because the whole "lender-grade
- * Excel" claim rests on the real one recalculating.
+ * POST /api/export → .xlsx bytes. Not mocked: a placeholder workbook would not
+ * recalculate, so an export failure is surfaced instead.
  */
 export async function exportWorkbook(payload) {
   const res = await fetch(url('/api/export'), {
