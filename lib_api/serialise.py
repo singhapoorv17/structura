@@ -380,6 +380,38 @@ def comparison_to_dict(
 # ---------------------------------------------------------------------------
 
 
+def _deal_inputs(d: ReferenceDeal) -> dict:
+    """The deal's ACTUAL calibrated inputs, in the /api/compare override schema.
+
+    The UI seeds its form from this. Before this existed the frontend seeded
+    from a hand-written mock, then posted those mock values as overrides to the
+    live engine — so the landing page silently displayed an *uncalibrated*
+    deal (a 29.71% sponsor IRR against the calibrated 14.85%). The form must be
+    able to show the real numbers, so the API has to publish them.
+    """
+    p, t, tx = d.project, d.debt_terms, d.tax_project
+    out = {
+        "capex": _num(p.capex),
+        "opex_year1": _num(p.opex_year1),
+        "production_p50": _num(p.production_p50),
+        "contracted_price": _num(p.contracted_price),
+        "contract_years": _num(p.contract_years),
+        "project_life_years": _num(p.project_life_years),
+        "target_dscr": _num(t.target_dscr),
+        "interest_rate": _num(t.interest_rate),
+        "tenor_years": _num(t.tenor_years),
+        "technology": _enum_value(tx.technology),
+        "is_pwa_compliant": bool(getattr(tx, "is_pwa_compliant", False)),
+    }
+    for src, key in (
+        ("begin_construction_date", "begin_construction_date"),
+        ("placed_in_service_date", "placed_in_service_date"),
+    ):
+        v = getattr(tx, src, None)
+        out[key] = v.isoformat() if hasattr(v, "isoformat") else v
+    return out
+
+
 def reference_deals_payload(deals: Mapping[str, ReferenceDeal]) -> dict:
     return {
         "deals": [
@@ -392,6 +424,7 @@ def reference_deals_payload(deals: Mapping[str, ReferenceDeal]) -> dict:
                 "dscr_benchmark": d.dscr_benchmark,
                 "calibration_note": d.calibration_note,
                 "placeholder_count": len(d.placeholder_assumptions()),
+                "inputs": _deal_inputs(d),
             }
             for d in deals.values()
         ],

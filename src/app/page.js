@@ -14,7 +14,15 @@ import { pct, usdM } from '../lib/format';
 
 const DEFAULT_DEAL = 'storage_bess_contracted';
 
-function inputsFor(key) {
+/**
+ * Seed the form from the deal's REAL calibrated inputs, as published by
+ * /api/reference-deals. The mock is a last-resort fallback for when the API is
+ * unreachable — it must never be the source of values we post back to a live
+ * engine, or the page silently displays an uncalibrated deal.
+ */
+function inputsFor(key, deals) {
+  const fromApi = (deals || []).find((d) => d.key === key);
+  if (fromApi && fromApi.inputs) return { ...fromApi.inputs };
   return { ...(MOCK_DEAL_INPUTS[key] || MOCK_DEAL_INPUTS[DEFAULT_DEAL]) };
 }
 
@@ -78,12 +86,20 @@ export default function Page() {
     []
   );
 
+  // First run: wait for the deal list so the form and the engine both use the
+  // deal's real calibrated inputs. Sending mock values to the live engine
+  // produces a different, uncalibrated deal.
+  const seeded = useRef(false);
   useEffect(() => {
-    run(DEFAULT_DEAL, inputsFor(DEFAULT_DEAL));
-  }, [run]);
+    if (seeded.current || dealsLoading) return;
+    seeded.current = true;
+    const next = inputsFor(DEFAULT_DEAL, deals);
+    setValues(next);
+    run(DEFAULT_DEAL, next);
+  }, [run, deals, dealsLoading]);
 
   const selectDeal = (key) => {
-    const next = inputsFor(key);
+    const next = inputsFor(key, deals);
     setDealKey(key);
     setValues(next);
     setDirty(false);
@@ -101,7 +117,7 @@ export default function Page() {
   };
 
   const onReset = () => {
-    const next = inputsFor(dealKey);
+    const next = inputsFor(dealKey, deals);
     setValues(next);
     setDirty(false);
     run(dealKey, next);
