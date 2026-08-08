@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/**/*.py": {
+      "maxDuration": 60,
+      "excludeFiles": "{.venv/**,node_modules/**,.next/**,tests/**,samples/**,.pytest_cache/**,**/__pycache__/**,**/*.pyc,**/*.md}"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/reference-deals", "destination": "/api/reference_deals" },
+    { "source": "/api/current-law", "destination": "/api/current_law" }
+  ]
+}

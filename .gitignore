@@ -1,0 +1,28 @@
+# --- JavaScript / Next.js (owned by the frontend workstream) ---
+node_modules/
+.next/
+out/
+build/
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.DS_Store
+
+# --- Python (owned by the engine / API workstream; extend, do not remove) ---
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+
+# --- Local env ---
+.env
+.env.*
+!.env.example

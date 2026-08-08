@@ -1,0 +1,20 @@
+# Structura — RUNTIME dependencies for the Vercel Python functions in api/.
+#
+# Pinned to the versions the engine was built and tested against. Keep this file
+# runtime-only: every package here is unpacked into the 500 MB function bundle,
+# and the test runner plus its transitive deps cost ~15 MB for nothing. Dev
+# tooling lives in requirements-dev.txt.
+#
+# Measured unpacked footprint (macOS arm64, Python 3.14):
+#   scipy    99 MB   brentq, used by the funding circularity, the flip solve
+#                    and the sale-leaseback level-rent solve
+#   numpy    34 MB   scipy's own dependency
+#   openpyxl  2.8 MB the lender-grade workbook (export/)
+#   pyxirr    1.0 MB IRR / XIRR
+#   -------------
+#   ~137 MB, plus ~40 MB of CPython and the app itself. Well inside 500 MB.
+
+scipy==1.18.0
+numpy==2.5.1
+pyxirr==0.10.8
+openpyxl==3.1.5
