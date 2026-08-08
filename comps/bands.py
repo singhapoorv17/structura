@@ -41,6 +41,16 @@ CPUC_RA_URL = (
 )
 CPUC_RA_DATE = dt.date(2025, 2, 26)
 
+EIA_CF = (
+    "US Energy Information Administration, Electric Power Monthly, Table 6.07.B"
+)
+EIA_CF_URL = "https://www.eia.gov/electricity/monthly/xls/table_6_07_b.xlsx"
+EIA_CF_DATE = dt.date(2026, 7, 23)
+
+BUILD_INC = "Build Inc, 'Hyperscale Data Center Lease Terms in 2026'"
+BUILD_INC_URL = "https://build.inc/insights/hyperscale-data-center-lease-terms-2026"
+BUILD_INC_DATE = dt.date(2026, 6, 16)
+
 CRUX = "Crux, '1Q 2026 market update'"
 CRUX_URL = "https://www.crux.com/insights/1q2026-market-update-qa-josh-price"
 CRUX_DATE = dt.date(2026, 5, 4)
@@ -236,6 +246,64 @@ BANDS: Final[tuple[MarketBand, ...]] = (
             "commission notes forecast system RA now surpassing $40/kW-month "
             "on a subset of transactions it considers may reflect market "
             "power."
+        ),
+    ),
+
+    # -- production --------------------------------------------------------
+    #
+    # Fleet-wide capacity factors from the EIA's own workbook, read from the
+    # file rather than from a page rendering of it. The range spans 2016 to
+    # 2025; the point is the most recent full year.
+    MarketBand(
+        key="capacity_factor.solar",
+        label="Solar capacity factor",
+        applies_to=("solar",),
+        low=0.232,
+        high=0.256,
+        point=0.244,
+        unit="of nameplate",
+        source=EIA_CF,
+        source_url=EIA_CF_URL,
+        source_date=EIA_CF_DATE,
+        note=(
+            "US utility-scale photovoltaic fleet, 24.4% in 2025. A fleet "
+            "average spans every resource region; a specific site will differ."
+        ),
+    ),
+    MarketBand(
+        key="capacity_factor.wind",
+        label="Wind capacity factor",
+        applies_to=("wind",),
+        low=0.332,
+        high=0.359,
+        point=0.342,
+        unit="of nameplate",
+        source=EIA_CF,
+        source_url=EIA_CF_URL,
+        source_date=EIA_CF_DATE,
+        note=(
+            "US utility-scale wind fleet, 34.2% in 2025. A fleet average "
+            "spans every resource region; a specific site will differ."
+        ),
+    ),
+
+    # -- digital -------------------------------------------------------------
+    MarketBand(
+        key="lease_price.hyperscale",
+        label="Hyperscale lease rate",
+        applies_to=("digital",),
+        low=100.0,
+        high=150.0,
+        point=125.0,
+        unit="$/kW-month",
+        source=BUILD_INC,
+        source_url=BUILD_INC_URL,
+        source_date=BUILD_INC_DATE,
+        note=(
+            "Primary US markets, build-to-suit at 4 MW and above, typically "
+            "on 10 to 15 year terms. Wholesale colocation runs $150-250 and "
+            "retail $200-400, so applying either to a hyperscale deal "
+            "overstates it substantially."
         ),
     ),
 

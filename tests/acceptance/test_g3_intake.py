@@ -247,3 +247,70 @@ def test_resolved_revenue_is_in_a_plausible_range(canonical_spec):
         f"capital cost (${price.value:,.2f}/MWh on {production.value:,.0f} MWh "
         f"against ${capex.value / 1e6:,.0f}m)"
     )
+
+
+@pytest.mark.gate("G3.6")
+def test_every_assumption_says_it_is_unsourced(canonical_spec):
+    """An assumption that reads like a fact is worse than a missing number.
+
+    A reader filtering to "show only what is assumed" gets a consistent
+    statement rather than a mix of explanations and silences.
+    """
+    from intake import DealSpec, resolve
+    from intake.resolve import UNSOURCED
+
+    resolution = resolve(DealSpec.from_dict(canonical_spec))
+    vague = []
+    for name, cell in resolution.inputs.items():
+        if cell.provenance.value != "assumed":
+            continue
+        if UNSOURCED not in cell.note:
+            vague.append(f"{name}: {cell.note[:70]!r}")
+    assert not vague, "assumptions that do not declare themselves:\n" + "\n".join(vague)
+
+
+@pytest.mark.gate("G3.6")
+def test_capacity_factors_match_the_eia_workbook():
+    """Read from the file, not from a rendering of it.
+
+    A page-scrape of this table returned 23.6% for wind against the workbook's
+    34.2%. The band is pinned here so a future edit has to justify itself.
+    """
+    from comps.bands import BY_KEY
+
+    solar = BY_KEY["capacity_factor.solar"]
+    wind = BY_KEY["capacity_factor.wind"]
+    assert solar.point_estimate == pytest.approx(0.244)
+    assert wind.point_estimate == pytest.approx(0.342)
+    for band in (solar, wind):
+        assert "eia.gov" in band.source_url
+        assert band.low < band.point_estimate < band.high
+
+
+@pytest.mark.gate("G3.6")
+def test_a_hyperscale_deal_is_not_priced_off_a_colocation_rate():
+    """The published colocation rate is for a sub-megawatt requirement.
+
+    CBRE's widely quoted $195.94/kW-month covers a 250-500 kW deployment.
+    Applying it to a 250 MW build-to-suit overstates revenue by roughly half
+    again, which is the trap this band exists to avoid.
+    """
+    from comps.bands import BY_KEY
+    from intake import ContractSpec, DealSpec, resolve
+
+    band = BY_KEY["lease_price.hyperscale"]
+    assert band.high <= 150.0, "the band has drifted into colocation pricing"
+    assert "colocation" in band.note.lower()
+
+    resolution = resolve(
+        DealSpec(
+            asset_type="DATA_CENTRE",
+            size={"it_mw": 250.0},
+            state="VA",
+            contract=ContractSpec("HYPERSCALE_LEASE", 15),
+            cod="2028-09",
+        )
+    )
+    rate = resolution.inputs["lease_rate"]
+    assert rate.provenance.value == "benchmark"
+    assert 100.0 <= rate.value <= 150.0

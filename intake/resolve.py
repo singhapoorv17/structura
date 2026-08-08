@@ -48,21 +48,37 @@ FALLBACK_PER_MW: dict[str, float] = {
     "rng": 4_000_000.0,
 }
 
+#: Every default below is a tool assumption. None is sourced, and each note
+#: says so in the same words, so a reader filtering the model to "show only
+#: what is assumed" sees a consistent statement rather than a mix of
+#: explanations and silences.
+UNSOURCED = "No public source publishes this, so it is a tool default."
+
 #: Engine defaults that have no published market source.
 CONSTRUCTION_MONTHS = {"solar": 18, "storage": 12, "wind": 24, "digital": 30}
 
-#: Net capacity factor by technology family. Publicly reported fleet averages
-#: vary by resource and region; these are tool defaults, not a sourced table,
-#: and they are badged accordingly.
-CAPACITY_FACTOR = {"solar": 0.26, "wind": 0.40, "digital": 0.85, "rng": 0.85}
+#: Fallback capacity factors, used only where no cited band covers the
+#: technology. Solar and wind now come from the EIA fleet data in
+#: :mod:`comps.bands`; these remain for the rest.
+CAPACITY_FACTOR = {"digital": 0.85, "rng": 0.85}
 
 #: Storage throughput assumptions: one full cycle a day at this round-trip
 #: efficiency.
 STORAGE_CYCLES_PER_YEAR = 365.0
 STORAGE_ROUND_TRIP = 0.86
 
-#: Operating cost, dollars per kW per year. Tool defaults.
-OPEX_PER_KW_YEAR = {"solar": 18.0, "wind": 45.0, "storage": 12.0, "digital": 0.0, "rng": 90.0}
+#: Operating cost, dollars per kW per year. Tool defaults: plant-level
+#: operating costs are not published at project level by any free source, and
+#: the surveys that carry them are subscription products.
+OPEX_PER_KW_YEAR = {
+    "solar": 18.0,
+    "wind": 45.0,
+    "storage": 12.0,
+    # A hyperscale lease passes metered power through to the tenant, so the
+    # landlord's own operating cost is small relative to rent.
+    "digital": 12.0,
+    "rng": 90.0,
+}
 
 #: Solar and wind PPA pricing, and the storage capacity payment, now come from
 #: cited bands in :mod:`comps.bands`. These remain for the technologies where
@@ -75,9 +91,8 @@ CONTRACT_PRICE = {"rng": 25.0}
 DIGITAL_LEASE_PER_KW_MONTH = 105.0
 
 NO_PRICE_SOURCE = (
-    "No free source publishes pricing for this technology, so this is a tool "
-    "default rather than a market figure. It is the largest single assumption "
-    "in the model: override it with the deal's own price."
+    UNSOURCED + " Contract pricing is the single most consequential input in "
+    "the model: override it with the deal's own price."
 )
 
 
@@ -185,8 +200,8 @@ def resolve(spec: DealSpec, *, today: dt.date | None = None) -> Resolution:
                 unit="USD",
                 note=(
                     f"No comparable transaction in the corpus carries both a "
-                    f"size and a quantum for {family}. This is a tool default "
-                    f"of ${fallback / 1e6:,.2f}m per MW with no external source."
+                    f"size and a quantum for {family}, so a default of "
+                    f"${fallback / 1e6:,.2f}m per MW is used. {UNSOURCED}"
                 ),
             )
 
@@ -224,7 +239,7 @@ def resolve(spec: DealSpec, *, today: dt.date | None = None) -> Resolution:
                 unit="MWh per year",
                 note=(
                     f"One full cycle a day at {STORAGE_ROUND_TRIP:.0%} round-trip "
-                    "efficiency. Real dispatch depends on the toll."
+                    f"efficiency. Real dispatch depends on the toll. {UNSOURCED}"
                 ),
             )
             if spec.contract.price is not None:
@@ -264,29 +279,61 @@ def resolve(spec: DealSpec, *, today: dt.date | None = None) -> Resolution:
                 unit="MWh per year",
                 note=(
                     f"IT capacity at {utilisation:.0%} utilisation. A lease "
-                    "pays on contracted capacity rather than on throughput."
+                    f"pays on contracted capacity rather than throughput. "
+                    f"{UNSOURCED}"
                 ),
             )
             if spec.contract.price is not None:
                 inputs["contracted_price"] = _user(spec.contract.price, unit="$/MWh")
             else:
-                annual = capacity_mw * 1_000.0 * DIGITAL_LEASE_PER_KW_MONTH * 12.0
-                inputs["contracted_price"] = assumed(
-                    annual / hours if hours else 0.0,
+                band = bands_module.BY_KEY["lease_price.hyperscale"]
+                inputs["lease_rate"] = _from_band(band, band.point_estimate)
+
+                def implied(per_kw_month: float) -> float:
+                    annual = capacity_mw * 1_000.0 * per_kw_month * 12.0
+                    return annual / hours if hours else 0.0
+
+                inputs["contracted_price"] = benchmark_value(
+                    implied(band.point_estimate),
+                    source=band.source,
+                    source_url=band.source_url,
+                    source_date=band.source_date,
+                    low=implied(band.low),
+                    high=implied(band.high),
                     unit="$/MWh",
                     note=(
-                        f"Implied from a ${DIGITAL_LEASE_PER_KW_MONTH:,.0f}"
-                        "/kW-month lease spread over utilised hours. "
-                        + NO_PRICE_SOURCE
+                        f"Implied from a ${band.point_estimate:,.0f}/kW-month "
+                        "lease spread over utilised hours. " + band.note
                     ),
                 )
         else:
-            factor = CAPACITY_FACTOR.get(family, 0.35)
-            inputs["production_p50"] = assumed(
-                capacity_mw * 8_760.0 * factor,
-                unit="MWh per year",
-                note=f"Net capacity factor of {factor:.0%}. No sourced table.",
+            cf_band = _band(
+                family, ("capacity_factor.solar", "capacity_factor.wind")
             )
+            if cf_band is not None:
+                factor = cf_band.point_estimate
+                inputs["capacity_factor"] = _from_band(cf_band, factor)
+                inputs["production_p50"] = benchmark_value(
+                    capacity_mw * 8_760.0 * factor,
+                    source=cf_band.source,
+                    source_url=cf_band.source_url,
+                    source_date=cf_band.source_date,
+                    low=capacity_mw * 8_760.0 * cf_band.low,
+                    high=capacity_mw * 8_760.0 * cf_band.high,
+                    unit="MWh per year",
+                    note=f"At a {factor:.1%} capacity factor. " + cf_band.note,
+                )
+            else:
+                factor = CAPACITY_FACTOR.get(family, 0.35)
+                inputs["production_p50"] = assumed(
+                    capacity_mw * 8_760.0 * factor,
+                    unit="MWh per year",
+                    note=(
+                        f"Net capacity factor of {factor:.0%}. No public "
+                        "source publishes a fleet figure for this technology, "
+                        "so this is a tool default."
+                    ),
+                )
             if spec.contract.price is not None:
                 inputs["contracted_price"] = _user(spec.contract.price, unit="$/MWh")
             else:
@@ -310,7 +357,9 @@ def resolve(spec: DealSpec, *, today: dt.date | None = None) -> Resolution:
             unit="USD per year",
             note=(
                 f"${OPEX_PER_KW_YEAR.get(family, 25.0):,.0f} per kW-year. "
-                "Tool default, no sourced table."
+                f"{UNSOURCED} Plant operating costs are not published at "
+                "project level; the surveys that carry them are subscription "
+                "products."
             ),
         )
 
@@ -319,15 +368,27 @@ def resolve(spec: DealSpec, *, today: dt.date | None = None) -> Resolution:
     inputs["construction_months"] = assumed(
         CONSTRUCTION_MONTHS.get(family, 18),
         unit="months",
-        note="Typical build duration for the technology. No published source.",
+        note=(
+            f"Typical build duration for the technology. {UNSOURCED} It is a "
+            "schedule assumption rather than a market observation, and it "
+            "moves interest during construction."
+        ),
     )
     inputs["project_life_years"] = assumed(
         35 if family == "digital" else 25,
         unit="years",
-        note="Modelling horizon. No published source.",
+        note=(
+            f"Modelling horizon, not an asset life. {UNSOURCED} It sets where "
+            "the tail cash flows stop and so affects PLCR."
+        ),
     )
     inputs["tenor_years"] = assumed(
-        18.0, unit="years", note="Debt tenor. No published source; adjust to the deal."
+        18.0,
+        unit="years",
+        note=(
+            f"Debt tenor. {UNSOURCED} Lenders quote spreads publicly and "
+            "tenors deal by deal; set this to the term sheet."
+        ),
     )
 
     return Resolution(
