@@ -6,7 +6,7 @@ Structura is a project-finance structuring engine for energy deals. Put in a pro
 
 It is not "a partnership flip model." Post-OBBBA, pure flips are roughly 30% of the market and shrinking; hybrids, transfers and preferred equity dominate. Structura is a **structure selector** built on a debt-sculpting spine.
 
-🔗 **Live demo:** _(deploying — link here)_ · 📊 **[Sample output workbook](samples/)** · 📖 **[Methods](#methods-and-honesty)**
+🔗 **[Live demo → structura-pf.vercel.app](https://structura-pf.vercel.app)** · 📖 **[Current law](https://structura-pf.vercel.app/current-law)** · ⚠️ **[What this does not claim](LIMITS.md)**
 
 ---
 
