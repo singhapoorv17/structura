@@ -111,6 +111,7 @@ class StructureKey(str, Enum):
     DIRECT_TRANSFER = "direct_transfer"
     SALE_LEASEBACK = "sale_leaseback"
     EQUIPMENT_LEASE = "equipment_lease"
+    SECURITISED_LEASE = "securitised_lease"
 
     @property
     def label(self) -> str:
@@ -123,6 +124,10 @@ class StructureKey(str, Enum):
             StructureKey.EQUIPMENT_LEASE: (
                 "Equipment lease through an owning SPV, with a residual value "
                 "guarantee"
+            ),
+            StructureKey.SECURITISED_LEASE: (
+                "Securitised lease: a joint venture vehicle funded by notes "
+                "against a long-term tenant lease"
             ),
         }[self]
 

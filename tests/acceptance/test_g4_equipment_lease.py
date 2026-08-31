@@ -173,3 +173,73 @@ def test_every_party_has_a_ledger_and_the_ledgers_reconcile(config):
                 "appears from nowhere"
             )
         assert CASH_TOLERANCE > 0
+
+
+@pytest.mark.gate("G4.7")
+def test_a_data_centre_gets_a_structure_that_actually_computes():
+    """A hyperscale campus was being handed a renewable tax-equity structure.
+
+    Every data centre came back with preferred equity partnership as the only
+    option and every quantitative cell not meaningful, because the engine
+    cannot size a renewable structure without a tax project. A securitised
+    lease is what these are actually financed with.
+    """
+    import datetime as dt
+
+    from compare import build_comparison
+    from compare.table import NotMeaningful
+    from intake import ContractSpec, DealSpec, resolve
+
+    today = dt.date(2026, 8, 8)
+    resolution = resolve(
+        DealSpec(
+            asset_type="DATA_CENTRE",
+            size={"it_mw": 250.0},
+            state="VA",
+            contract=ContractSpec("HYPERSCALE_LEASE", 15),
+            cod="2028-09",
+        ),
+        today=today,
+    )
+    table = build_comparison(resolution, today=today)
+
+    keys = {s.value for s in table.structures}
+    assert "securitised_lease" in keys
+    assert "preferred_equity" not in keys, (
+        "a renewable tax-equity structure is still being offered for a campus"
+    )
+
+    populated = [
+        row
+        for row in table.quantitative
+        if not isinstance(row.values["securitised_lease"], NotMeaningful)
+    ]
+    assert len(populated) >= 3, "the structure produces no numbers"
+
+
+@pytest.mark.gate("G4.7")
+def test_the_lease_structures_produce_party_ledgers():
+    """Both lease structures carry every counterparty, so both must report them."""
+    from lib_api.analyse import run_analyse
+
+    for asset, size, expect in (
+        ("AI_COMPUTE", {"mw": 1000.0}, "equipment_lease"),
+        ("DATA_CENTRE", {"it_mw": 250.0}, "securitised_lease"),
+    ):
+        payload = run_analyse(
+            {
+                "asset_type": asset,
+                "size": size,
+                "state": "TX",
+                "contract": {"kind": "HYPERSCALE_LEASE", "tenor_years": 15},
+                "cod": "2028-01",
+            }
+        )
+        parties = payload["parties"]
+        assert expect in parties, f"{asset} produced no party ledgers"
+        view = parties[expect]
+        assert not view["conservation"], view["conservation"]
+        assert len(view["ledgers"]) >= 4
+        for ledger in view["ledgers"]:
+            metrics = ledger["metrics"]
+            assert metrics["irr"] is not None or metrics["not_meaningful_reason"]

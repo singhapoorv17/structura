@@ -144,6 +144,17 @@ MATRIX: Final[tuple[Cell, ...]] = (
     _c(K.EQUIPMENT_LEASE, "covenant_burden", 3, "Lease covenants bind the operator, but there is no project-level debt package."),
     _c(K.EQUIPMENT_LEASE, "tax_law_sensitivity", 5, "The structure does not depend on any credit regime."),
     _c(K.EQUIPMENT_LEASE, "optionality", 3, "Renewal or return at term end; the residual belongs to the vehicle."),
+    # -- securitised lease ---------------------------------------------------
+    _c(K.SECURITISED_LEASE, "execution_complexity", 2, "A joint venture, a bankruptcy-remote issuer, a rated note and a long-term lease all have to close together."),
+    _c(K.SECURITISED_LEASE, "time_to_close", 2, "Rating and marketing a long-dated note is a full issuance cycle."),
+    _c(K.SECURITISED_LEASE, "counterparty_depth", 4, "Insurers and pension funds buy long amortising paper against an investment-grade tenant; the buyer base is deep for the right credit."),
+    _c(K.SECURITISED_LEASE, "documentation_burden", 2, "Joint venture documents, an indenture and a lease, plus the rating process."),
+    _c(K.SECURITISED_LEASE, "recapture_exposure", 5, "No tax credit is involved, so there is nothing to recapture."),
+    _c(K.SECURITISED_LEASE, "exit_flexibility", 3, "The joint venture interest can be sold; the notes stay with the asset."),
+    _c(K.SECURITISED_LEASE, "accounting_treatment", 4, "The sponsor holds a minority joint venture interest rather than consolidating the build."),
+    _c(K.SECURITISED_LEASE, "covenant_burden", 3, "Indenture covenants bind the issuer; the tenant's obligations are the security."),
+    _c(K.SECURITISED_LEASE, "tax_law_sensitivity", 5, "The structure does not depend on any credit regime."),
+    _c(K.SECURITISED_LEASE, "optionality", 3, "Committed for the lease term; the residual sits with the vehicle."),
 )
 
 BY_STRUCTURE: Final[dict[StructureKey, dict[str, Cell]]] = {}

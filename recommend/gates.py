@@ -47,6 +47,13 @@ NO_CREDIT_TECHNOLOGIES = {"DATA_CENTRE", "AI_COMPUTE", "TRANSMISSION", "GAS"}
 #: built by a sponsor.
 EQUIPMENT_TECHNOLOGIES = {"AI_COMPUTE"}
 
+#: Technologies financed against a tenant lease through an issuing vehicle.
+SECURITISED_TECHNOLOGIES = {"DATA_CENTRE"}
+
+#: Assets that generate no power and so cannot carry a generating project's
+#: capital structure, whatever the tax position.
+NON_GENERATING = {"DATA_CENTRE", "AI_COMPUTE"}
+
 WIND_SOLAR = {"SOLAR", "SOLAR_PLUS_STORAGE", "WIND"}
 
 
@@ -159,12 +166,23 @@ def _equipment_only(resolution, today):
 
 def _project_structures_need_a_project(resolution, today):
     asset = resolution.spec.asset_type
-    if asset not in EQUIPMENT_TECHNOLOGIES:
+    if asset not in NON_GENERATING:
         return None
     return False, (
-        "This is an equipment financing rather than a project financing. The "
-        "renewable capital structures assume a sponsor-built plant with "
-        "project-level debt, which this is not."
+        f"{asset_phrase(asset)} consumes power rather than generating it. The "
+        "renewable capital structures size debt against a plant's own "
+        "generation and monetise its tax attributes, and neither applies here."
+    )
+
+
+def _securitised_only(resolution, today):
+    asset = resolution.spec.asset_type
+    if asset in SECURITISED_TECHNOLOGIES:
+        return None
+    return False, (
+        "A securitised lease finances real estate let to a creditworthy "
+        f"tenant on a long lease. {asset_phrase(asset)} is not financed that "
+        "way."
     )
 
 
@@ -199,6 +217,12 @@ GATES: tuple[Gate, ...] = (
         rule=_equipment_only,
     ),
     Gate(
+        id="securitised-lease-applicability",
+        label="Asset is leased real estate",
+        applies_to=(StructureKey.SECURITISED_LEASE,),
+        rule=_securitised_only,
+    ),
+    Gate(
         id="project-structure-applicability",
         label="Asset is a sponsor-built project",
         applies_to=PROJECT_STRUCTURES,
@@ -221,7 +245,12 @@ SOURCES: dict[str, tuple[str, str, dt.date | None]] = {
         None,
     ),
     "project-structure-applicability": (
-        "Structural: project structures assume a sponsor-built plant",
+        "Structural: project structures assume a sponsor-built generating plant",
+        "urn:structura:structural-rule",
+        None,
+    ),
+    "securitised-lease-applicability": (
+        "Structural: a securitised lease finances real estate let to a tenant",
         "urn:structura:structural-rule",
         None,
     ),

@@ -123,7 +123,7 @@ def test_the_qualitative_matrix_has_no_gaps():
     assert not missing, "gaps in the matrix: " + ", ".join(missing)
 
     total = sum(len(v) for v in BY_STRUCTURE.values())
-    assert total == len(StructureKey) * len(DIMENSIONS) == 60
+    assert total == len(StructureKey) * len(DIMENSIONS)
 
 
 @pytest.mark.gate("G6.4")

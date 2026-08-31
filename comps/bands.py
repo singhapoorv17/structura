@@ -373,6 +373,33 @@ BANDS: Final[tuple[MarketBand, ...]] = (
         ),
     ),
 
+    # -- digital capital markets --------------------------------------------
+    #
+    # Derived from two rated transactions in the corpus rather than from a
+    # survey, because no survey publishes this yet. Named so a reader can go
+    # to the deals themselves.
+    MarketBand(
+        key="notes.digital_senior",
+        label="Senior notes, digital infrastructure",
+        applies_to=("digital",),
+        low=5.75,
+        high=6.581,
+        point=6.0,
+        unit="% all-in",
+        source=(
+            "Observed on two rated transactions: CoreWeave DDTL 4.0 and the "
+            "Meta and Blue Owl Hyperion notes"
+        ),
+        source_url="https://www.sec.gov/Archives/edgar/data/1769628/000176962826000129/ex991.htm",
+        source_date=dt.date(2026, 3, 31),
+        note=(
+            "CoreWeave's fixed tranche priced at approximately 5.9% and its "
+            "floating tranche at SOFR plus 225bp; the Hyperion notes priced at "
+            "6.581% for 23.6 years. Two transactions are a narrow base, and a "
+            "third would move this band."
+        ),
+    ),
+
     # -- ticket sizes ------------------------------------------------------
     MarketBand(
         key="ticket.tax_equity_minimum",

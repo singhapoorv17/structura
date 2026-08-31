@@ -239,6 +239,30 @@ def chart_for(
             "assets stay off its balance sheet."
         )
 
+    elif structure is K.SECURITISED_LEASE:
+        nodes = (
+            _n("sponsor", "Sponsor", NodeKind.SPONSOR, 0, 0, "Minority JV interest"),
+            _n("partner", "Capital partner", NodeKind.INVESTOR, 0, 1, "Majority JV interest"),
+            _n("notes", "Noteholders", NodeKind.INVESTOR, 0, 2, "Senior secured"),
+            _n("jv", "Joint venture", NodeKind.VEHICLE, 1, 0),
+            _n("issuer", "Issuing vehicle", NodeKind.VEHICLE, 2, 0, "Bankruptcy remote"),
+            _n("asset", "Campus", NodeKind.PROJECT, 3, 0),
+            _n("tenant", offtaker, NodeKind.COUNTERPARTY, 3, 1, "Lease covenant"),
+        )
+        edges = (
+            Edge("sponsor", "jv", EdgeKind.EQUITY, ownership_pct=0.20),
+            Edge("partner", "jv", EdgeKind.EQUITY, ownership_pct=0.80),
+            Edge("jv", "issuer", EdgeKind.EQUITY, ownership_pct=1.0),
+            Edge("notes", "issuer", EdgeKind.DEBT, "Note proceeds in"),
+            Edge("issuer", "notes", EdgeKind.CASH, "Interest and principal out"),
+            Edge("issuer", "asset", EdgeKind.CASH, "Development cost out"),
+            Edge("tenant", "issuer", EdgeKind.CONTRACT, "Lease payments in"),
+        )
+        foot = (
+            "The notes look to the tenant's lease covenant, not to a guarantee. "
+            "That covenant is the credit."
+        )
+
     else:  # pragma: no cover - the enum is closed
         raise ValueError(f"no chart defined for {structure}")
 

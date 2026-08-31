@@ -239,6 +239,17 @@ def resolve(spec: DealSpec, *, today: dt.date | None = None) -> Resolution:
                     f"No comparable transaction in the corpus carries both a "
                     f"size and a quantum for {family}, so a default of "
                     f"${fallback / 1e6:,.2f}m per MW is used. {UNSOURCED}"
+                    + (
+                        " For calibration: the Hyperion campus in Louisiana "
+                        "raised $27.294bn of senior secured notes against an "
+                        "announced 5 GW build, which implies a materially "
+                        "lower figure per megawatt than this default. That "
+                        "financing may cover a phase rather than the whole "
+                        "programme, which is why the default is not moved to "
+                        "meet it. Set a capex to settle it."
+                        if family == "digital"
+                        else ""
+                    )
                 ),
             )
 

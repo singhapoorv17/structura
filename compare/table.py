@@ -265,11 +265,55 @@ def _amend(rec: Recommendation, ranked) -> str:
     return base
 
 
+class _LeaseResult:
+    """Adapts an equipment lease onto the fields the comparison reads."""
+
+    feasible = True
+    sponsor_irr_is_meaningful = False
+    sponsor_irr_not_meaningful_reason = (
+        "The vehicle's equity is a thin slice beneath the notes and its rate "
+        "reflects that rather than the economics of the asset. Rent, the "
+        "residual and the noteholder returns are the figures to read."
+    )
+
+    def __init__(self, result, key: StructureKey) -> None:
+        self._m = __import__(
+            "compare.lease", fromlist=["lease_metrics"]
+        ).lease_metrics(result)
+        self.key = key
+        self.result = result
+        self.sponsor_after_tax_irr = None
+        self.effective_cost_of_capital = None
+        for name, value in self._m.items():
+            setattr(self, name, value)
+
+
 def _run_engine(resolution, feasible) -> dict[StructureKey, Any]:
     """Run the renewable set where the deal supports one."""
+    out: dict[StructureKey, Any] = {}
+
+    # An equipment lease is not a project structure and never reached the
+    # engine, so a deal led by one came back with no numbers at all.
+    from compare.lease import build_lease, build_securitised
+    from engine.structures import run_equipment_lease
+
+    for key, builder in (
+        (StructureKey.EQUIPMENT_LEASE, build_lease),
+        (StructureKey.SECURITISED_LEASE, build_securitised),
+    ):
+        if key not in feasible:
+            continue
+        config = builder(resolution)
+        if config is None:
+            continue
+        try:
+            out[key] = _LeaseResult(run_equipment_lease(config), key)
+        except Exception:  # noqa: BLE001 - absent beats wrong
+            pass
+
     renewable = [k for k in feasible if k in PROJECT_STRUCTURES]
     if not renewable:
-        return {}
+        return out
 
     project, debt, tax = engine_inputs(resolution)
     if tax is None:
@@ -277,16 +321,19 @@ def _run_engine(resolution, feasible) -> dict[StructureKey, Any]:
         # gated out. The remaining renewable structures still need economics,
         # and without a tax project the engine cannot build a context. Report
         # that plainly rather than substituting a zero-credit stand-in.
-        return {}
+        return out
 
     from engine.structures import compare_structures
 
     try:
         comparison = compare_structures(project, debt, tax)
     except Exception as exc:  # noqa: BLE001 - surfaced, not swallowed
-        return {"__error__": str(exc)}
+        out["__error__"] = str(exc)
+        return out
 
-    return {r.result.key: r.result for r in comparison.ranked}
+    for ranked in comparison.ranked:
+        out[ranked.result.key] = ranked.result
+    return out
 
 
 def _cell(result, row_id: str, unit: str, key: StructureKey):
