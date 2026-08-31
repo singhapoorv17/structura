@@ -528,7 +528,8 @@
       "primary_source": "pv magazine USA",
       "tags": [
         "tax-equity",
-        "new-york"
+        "new-york",
+        "partial-financing"
       ],
       "sponsor": {
         "value": "Greenbacker Renewable Energy",
@@ -846,7 +847,8 @@
       "summary": "",
       "primary_source": "Mercom Capital, Project Finance Brief",
       "tags": [
-        "corporate-facility"
+        "corporate-facility",
+        "partial-financing"
       ],
       "sponsor": {
         "value": "Avantus",
@@ -921,7 +923,8 @@
       "summary": "",
       "primary_source": "Mercom Capital, Project Finance Brief",
       "tags": [
-        "corporate-facility"
+        "corporate-facility",
+        "partial-financing"
       ],
       "sponsor": {
         "value": "Origis Energy",
@@ -1673,7 +1676,8 @@
       "primary_source": "DataCenterDynamics",
       "tags": [
         "revolver",
-        "data-centre"
+        "data-centre",
+        "partial-financing"
       ],
       "sponsor": {
         "value": "Nscale",
@@ -1918,7 +1922,8 @@
       "primary_source": "DataCenterDynamics",
       "tags": [
         "sustainability-linked",
-        "data-centre"
+        "data-centre",
+        "partial-financing"
       ],
       "sponsor": {
         "value": "Aligned Data Centers",
@@ -1998,7 +2003,8 @@
       "primary_source": "DataCenterDynamics",
       "tags": [
         "upsize",
-        "data-centre"
+        "data-centre",
+        "partial-financing"
       ],
       "sponsor": {
         "value": "DC Blox",
@@ -2555,7 +2561,8 @@
       "primary_source": "Renewables Now",
       "tags": [
         "offshore",
-        "tax-equity"
+        "tax-equity",
+        "partial-financing"
       ],
       "sponsor": {
         "value": "Vineyard Wind",
@@ -2637,7 +2644,8 @@
       "primary_source": "Renewables Now",
       "tags": [
         "ercot",
-        "tax-equity"
+        "tax-equity",
+        "partial-financing"
       ],
       "sponsor": {
         "value": "RWE",
@@ -2714,7 +2722,8 @@
       "primary_source": "Renewables Now",
       "tags": [
         "ercot",
-        "tax-equity"
+        "tax-equity",
+        "partial-financing"
       ],
       "sponsor": {
         "value": "E.ON",
@@ -3261,7 +3270,8 @@
       "primary_source": "Energy-Storage.news",
       "tags": [
         "corporate-facility",
-        "storage"
+        "storage",
+        "partial-financing"
       ],
       "sponsor": {
         "value": "esVolta",
@@ -3486,7 +3496,8 @@
       "primary_source": "Mercom Capital, Project Finance Brief",
       "tags": [
         "refinancing",
-        "portfolio"
+        "portfolio",
+        "partial-financing"
       ],
       "sponsor": {
         "value": "Atlas Renewable Energy",

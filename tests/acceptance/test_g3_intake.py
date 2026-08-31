@@ -133,12 +133,17 @@ def test_a_comps_derived_default_names_the_transactions_behind_it():
             cod="2028-06",
         )
     )
-    capex = resolution.inputs["capex"]
-    assert capex.provenance.value == "benchmark"
+    # Capex itself comes from construction-cost data. The comparable
+    # financings are carried alongside as a cross-check, and it is that cell
+    # which has to name them.
+    assert resolution.inputs["capex"].provenance.value == "benchmark"
     assert resolution.comps_used, "no comparable transactions were cited"
+
+    cross = resolution.inputs["capex_comps_crosscheck"]
+    assert cross.provenance.value == "benchmark"
     for name in resolution.comps_used:
-        assert name in capex.source, f"{name} is not named in the capex source"
-    assert "financing totals rather than construction budgets" in capex.note
+        assert name in cross.source, f"{name} is not named in the cross-check"
+    assert "not used to build the model" in cross.note
 
 
 @pytest.mark.gate("G3.4")
@@ -314,3 +319,75 @@ def test_a_hyperscale_deal_is_not_priced_off_a_colocation_rate():
     rate = resolution.inputs["lease_rate"]
     assert rate.provenance.value == "benchmark"
     assert 100.0 <= rate.value <= 150.0
+
+
+@pytest.mark.gate("G3.7")
+@pytest.mark.parametrize("asset,size", [
+    ("SOLAR", {"mwac": 300.0}),
+    ("WIND", {"mw": 300.0}),
+    ("STORAGE", {"mw": 150.0, "mwh": 600.0}),
+])
+def test_capex_is_a_construction_cost_not_a_financing_total(asset, size):
+    """A financing package is not what the project cost to build.
+
+    Deriving capex from comparable financings overstated it by a fifth or
+    more, because a package carries credit monetisation, letters of credit and
+    reserves on top of the build. Four of five solar and wind deals came back
+    with a negative sponsor NPV as a result, on a technology the US installs
+    tens of gigawatts of a year. Construction cost now comes from the EIA's
+    installed-generator data, and the financing figure is kept alongside as a
+    cross-check so the gap stays visible.
+    """
+    from intake import ContractSpec, DealSpec, resolve
+
+    resolution = resolve(
+        DealSpec(
+            asset_type=asset,
+            size=size,
+            state="TX",
+            contract=ContractSpec("PPA", 15),
+            cod="2028-06",
+        )
+    )
+    capex = resolution.inputs["capex"]
+    assert capex.provenance.value == "benchmark"
+    assert "eia.gov" in (capex.source_url or ""), (
+        f"{asset} capex is sourced from {capex.source!r}, not construction-cost data"
+    )
+
+    mw = size.get("mwac") or size["mw"]
+    per_mw = capex.value / mw / 1e6
+    assert 0.8 <= per_mw <= 3.0, f"{asset} resolves to ${per_mw:.2f}m/MW"
+
+    cross = resolution.inputs.get("capex_comps_crosscheck")
+    if cross is not None:
+        assert cross.value >= capex.value * 0.9, (
+            "a financing total below construction cost means partial "
+            "financings are still leaking into the derivation"
+        )
+        assert "cross-check" in cross.note
+
+
+@pytest.mark.gate("G3.7")
+def test_a_partial_financing_never_implies_a_project_cost():
+    """A tax equity commitment funds one slice of the stack, not the project."""
+    from comps.corpus import load
+    from comps.matcher import match
+    from comps.schema import Technology
+    from intake.resolve import _per_mw_from_comps
+
+    tagged = [r for r in load() if "partial-financing" in r.tags]
+    assert tagged, "no record is tagged as a partial financing"
+
+    # Greenbacker financed $440m of tax equity against a 500 MW project. Left
+    # in, it implied $0.88m/MW; Doral's full package implied $2.09m. A median
+    # across the two measures nothing.
+    greenbacker = next(r for r in load() if r.key == "greenbacker-cider-2026")
+    assert "partial-financing" in greenbacker.tags
+
+    result = match(technology=Technology.SOLAR, limit=8)
+    _, cited = _per_mw_from_comps(result)
+    for record in load():
+        if record.name in cited:
+            assert "partial-financing" not in record.tags
+            assert "programme-capacity" not in record.tags

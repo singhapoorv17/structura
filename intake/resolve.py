@@ -163,8 +163,45 @@ def resolve(spec: DealSpec, *, today: dt.date | None = None) -> Resolution:
     comps = match(technology=tech, state=spec.state or None, limit=8)
     per_mw, cited = _per_mw_from_comps(comps)
 
+    capex_band = _band(
+        family,
+        ("capex_per_kw.solar", "capex_per_kw.storage", "capex_per_kw.wind"),
+    )
+
     if spec.capex is not None:
         inputs["capex"] = _user(spec.capex, unit="USD")
+    elif capacity_mw is not None and capex_band is not None:
+        # Construction cost from the EIA's installed-generator data, which is
+        # what it costs to build. A financing package is a different quantity:
+        # it carries credit monetisation, letters of credit and reserves, and
+        # using it as capex overstated the build by a fifth or more.
+        inputs["capex"] = benchmark_value(
+            capacity_mw * 1_000.0 * capex_band.point_estimate,
+            source=capex_band.source,
+            source_url=capex_band.source_url,
+            source_date=capex_band.source_date,
+            low=capacity_mw * 1_000.0 * capex_band.low,
+            high=capacity_mw * 1_000.0 * capex_band.high,
+            unit="USD",
+            note=(
+                f"At ${capex_band.point_estimate:,.0f} per kW. "
+                + capex_band.note
+            ),
+        )
+        if per_mw is not None:
+            inputs["capex_comps_crosscheck"] = benchmark_value(
+                capacity_mw * per_mw,
+                source="Comparable transactions: " + ", ".join(cited),
+                source_date=dt.date.today(),
+                unit="USD",
+                note=(
+                    f"What {len(cited)} comparable financings raised, at "
+                    f"${per_mw / 1e6:,.2f}m per MW. Shown as a cross-check "
+                    "only: a financing total includes credit monetisation, "
+                    "letters of credit and reserves, so it sits above "
+                    "construction cost and is not used to build the model."
+                ),
+            )
     elif capacity_mw is not None and per_mw is not None:
         note = (
             f"Median total capital of ${per_mw / 1e6:,.2f}m per MW across "
@@ -448,6 +485,12 @@ def _per_mw_from_comps(comps) -> tuple[float | None, list[str]]:
         quantum = m.record.total_quantum.value
         mw = m.record.capacity_mw()
         if not isinstance(quantum, (int, float)) or not mw:
+            continue
+        if "partial-financing" in m.record.tags:
+            # A tax equity commitment, a revolver or a facility upsize funds
+            # one slice of the stack. Dividing it by the whole project's
+            # capacity implies a cost the project never had. Mixing those with
+            # full packages gave a median of three incommensurable numbers.
             continue
         if "programme-capacity" in m.record.tags:
             # The capacity is a multi-year programme target and the quantum is

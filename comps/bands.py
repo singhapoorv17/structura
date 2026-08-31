@@ -51,6 +51,13 @@ BUILD_INC = "Build Inc, 'Hyperscale Data Center Lease Terms in 2026'"
 BUILD_INC_URL = "https://build.inc/insights/hyperscale-data-center-lease-terms-2026"
 BUILD_INC_DATE = dt.date(2026, 6, 16)
 
+EIA_CC = (
+    "US Energy Information Administration, Electric Generator Construction "
+    "Costs, generators installed in 2024"
+)
+EIA_CC_URL = "https://www.eia.gov/electricity/generatorcosts/xls/generator_costs.xlsx"
+EIA_CC_DATE = dt.date(2026, 8, 8)
+
 CRUX = "Crux, '1Q 2026 market update'"
 CRUX_URL = "https://www.crux.com/insights/1q2026-market-update-qa-josh-price"
 CRUX_DATE = dt.date(2026, 5, 4)
@@ -246,6 +253,65 @@ BANDS: Final[tuple[MarketBand, ...]] = (
             "commission notes forecast system RA now surpassing $40/kW-month "
             "on a subset of transactions it considers may reflect market "
             "power."
+        ),
+    ),
+
+    # -- construction cost -------------------------------------------------
+    #
+    # Capacity-weighted average construction cost per kilowatt of installed
+    # nameplate, from the EIA's own workbook. The range spans the cheapest and
+    # dearest of the top five states by capacity added, which is the widest
+    # spread the source itself supports.
+    MarketBand(
+        key="capex_per_kw.solar",
+        label="Solar construction cost",
+        applies_to=("solar",),
+        low=1260.0,
+        high=2764.0,
+        point=1865.0,
+        unit="$/kW",
+        source=EIA_CC,
+        source_url=EIA_CC_URL,
+        source_date=EIA_CC_DATE,
+        note=(
+            "Capacity-weighted average across 30,843 MW and 691 generators "
+            "installed in 2024. Range spans Texas at $1,260 to the Midwest "
+            "census region at $2,764. Construction cost, so it excludes "
+            "financing fees, reserves and interest during construction."
+        ),
+    ),
+    MarketBand(
+        key="capex_per_kw.storage",
+        label="Battery storage construction cost",
+        applies_to=("storage",),
+        low=1260.0,
+        high=2764.0,
+        point=1469.0,
+        unit="$/kW",
+        source=EIA_CC,
+        source_url=EIA_CC_URL,
+        source_date=EIA_CC_DATE,
+        note=(
+            "Capacity-weighted average across 11,099 MW and 181 generators "
+            "installed in 2024. Quoted per kilowatt of power, so it does not "
+            "distinguish a two-hour system from a four-hour one."
+        ),
+    ),
+    MarketBand(
+        key="capex_per_kw.wind",
+        label="Onshore wind construction cost",
+        applies_to=("wind",),
+        low=1260.0,
+        high=2764.0,
+        point=1882.0,
+        unit="$/kW",
+        source=EIA_CC,
+        source_url=EIA_CC_URL,
+        source_date=EIA_CC_DATE,
+        note=(
+            "Capacity-weighted average across 4,891 MW and 29 generators "
+            "installed in 2024. A small sample: onshore wind additions were "
+            "light that year."
         ),
     ),
 

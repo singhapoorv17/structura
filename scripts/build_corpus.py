@@ -244,7 +244,7 @@ def build():
         credit="Tax equity commitment",
         lenders=["U.S. Bank", "M&T Bank"],
         headline="Greenbacker secures $440 million tax equity for Cider Solar",
-        tags=["tax-equity", "new-york"],
+        tags=["tax-equity", "new-york", "partial-financing"],
         tranches=[tranche("tax equity", "TAX_EQUITY", amt(440_000_000, PVMAG, u, "2026-02-11"))],
     )
 
@@ -303,7 +303,7 @@ def build():
         sponsor="Avantus",
         quantum=1_000_000_000,
         headline="Avantus closes a $1 billion credit facility to expand its portfolio",
-        tags=["corporate-facility"],
+        tags=["corporate-facility", "partial-financing"],
         tranches=[tranche("credit facility", "REVOLVER", amt(1_000_000_000, MERCOM, u, "2026-08-04"))],
     )
 
@@ -318,7 +318,7 @@ def build():
         sponsor="Origis Energy",
         quantum=900_000_000,
         headline="Origis Energy secures a $900 million corporate credit facility",
-        tags=["corporate-facility"],
+        tags=["corporate-facility", "partial-financing"],
         tranches=[tranche("credit facility", "REVOLVER", amt(900_000_000, MERCOM, u, "2026-06-22"))],
     )
 
@@ -481,7 +481,7 @@ def build():
         sponsor="Nscale",
         quantum=900_000_000,
         headline="Nscale closes a $900 million revolving credit facility",
-        tags=["revolver", "data-centre"],
+        tags=["revolver", "data-centre", "partial-financing"],
         tranches=[tranche("revolving credit facility", "REVOLVER", amt(900_000_000, DCD, u, None))],
     )
 
@@ -530,7 +530,7 @@ def build():
         sponsor="Aligned Data Centers",
         quantum=1_000_000_000,
         headline="Aligned extends its sustainability-linked loan by more than $1 billion",
-        tags=["sustainability-linked", "data-centre"],
+        tags=["sustainability-linked", "data-centre", "partial-financing"],
         tranches=[tranche("sustainability-linked loan", "REVOLVER", amt(1_000_000_000, DCD, u, None, note="Reported as more than $1 billion of extension."))],
     )
 
@@ -545,7 +545,7 @@ def build():
         sponsor="DC Blox",
         quantum=600_000_000,
         headline="DC Blox adds around $600 million to an existing debt facility",
-        tags=["upsize", "data-centre"],
+        tags=["upsize", "data-centre", "partial-financing"],
         tranches=[tranche("facility upsize", "CONSTRUCTION_TO_TERM", amt(600_000_000, DCD, u, None))],
     )
 
@@ -717,7 +717,7 @@ def build():
         credit="Tax equity financing",
         headline="Vineyard Wind 1 closes $1.2 billion tax equity financing",
         summary="Offshore wind, included as the tax-equity scale comparator for the sector.",
-        tags=["offshore", "tax-equity"],
+        tags=["offshore", "tax-equity", "partial-financing"],
         tranches=[tranche("tax equity", "TAX_EQUITY", amt(1_200_000_000, RN, u, "2023-10-26"))],
     )
 
@@ -732,7 +732,7 @@ def build():
         capacity="220 MW",
         credit="Tax equity financing",
         headline="RWE closes tax equity financing for a 220 MW Texas wind farm",
-        tags=["ercot", "tax-equity"],
+        tags=["ercot", "tax-equity", "partial-financing"],
         tranches=[tranche("tax equity", "TAX_EQUITY")],
     )
 
@@ -747,7 +747,7 @@ def build():
         capacity="201 MW",
         credit="Tax equity financing",
         headline="E.ON closes tax equity financing for a 201 MW Texas wind farm",
-        tags=["ercot", "tax-equity"],
+        tags=["ercot", "tax-equity", "partial-financing"],
         tranches=[tranche("tax equity", "TAX_EQUITY")],
     )
 
@@ -853,7 +853,7 @@ def build():
         quantum=450_000_000,
         location="United States",
         headline="esVolta closes a $450 million expanded credit facility",
-        tags=["corporate-facility", "storage"],
+        tags=["corporate-facility", "storage", "partial-financing"],
         tranches=[tranche("credit facility", "REVOLVER", amt(450_000_000, ESN, u, "2026-06-08"))],
     )
 
@@ -895,7 +895,7 @@ def build():
         sponsor="Atlas Renewable Energy",
         quantum=3_000_000_000,
         headline="Atlas Renewable secures a $3 billion refinancing",
-        tags=["refinancing", "portfolio"],
+        tags=["refinancing", "portfolio", "partial-financing"],
         tranches=[tranche("refinancing", "TERM_LOAN", amt(3_000_000_000, MERCOM, u, "2026-02-25"))],
     )
 
